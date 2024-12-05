@@ -13,4 +13,7 @@ class AppApi {
   static const String signalsDetails = '${_baseUrl}signals/';
   static const String notifis = '${_baseUrl}notifis';
   static const String history = '${_baseUrl}history/all';
+
+  static const String general = '${_baseUrl}info';
+  static const String results = '${_baseUrl}results?time=7';
 }

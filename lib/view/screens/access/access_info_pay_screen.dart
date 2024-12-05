@@ -1,3 +1,4 @@
+import 'package:currency_trading/logic/controllers/general_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
 import 'package:currency_trading/utils/images.dart';
@@ -32,49 +33,64 @@ class _AccessInfoPayScreenState extends State<AccessInfoPayScreen> {
             height: double.maxFinite,
             decoration: mainLinearGradient(),
             child: SingleChildScrollView(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                  const CustomVerticalSizedox(height: 10),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Text('Hassan Mhd',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 19,
-                            fontWeight: FontWeight.w700)),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Text('Not Subscribe',
-                        style: TextStyle(
-                            color: Color(0xffADA9A9),
-                            fontWeight: FontWeight.w300,
-                            fontSize: 13)),
-                  ),
-                  const CustomVerticalSizedox(height: 20),
-                  Image.asset(ImagesAssets.basicImage),
-                  const CustomVerticalSizedox(height: 20),
-                  Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                      child: Column(children: [
-                        _buildOption("1 Month", "30 USD"),
-                        const CustomVerticalSizedox(height: 13),
-                        _buildOption("3 Month", "40 USD"),
-                        const CustomVerticalSizedox(height: 13),
-                        _buildOption("6 Month", "100 USD")
-                      ])),
-                  const CustomVerticalSizedox(height: 40),
-                  Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      margin: const EdgeInsets.symmetric(horizontal: 18),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Image.asset(IconsAssets.pay))
-                ]))));
+                child: GetBuilder<GeneralControllerImpl>(
+              builder: (controller) => Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const CustomVerticalSizedox(height: 10),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 18.0),
+                      child: Text('Hassan Mhd',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19,
+                              fontWeight: FontWeight.w700)),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 18.0),
+                      child: Text('Not Subscribe',
+                          style: TextStyle(
+                              color: Color(0xffADA9A9),
+                              fontWeight: FontWeight.w300,
+                              fontSize: 13)),
+                    ),
+                    const CustomVerticalSizedox(height: 20),
+                    Image.asset(ImagesAssets.basicImage),
+                    const CustomVerticalSizedox(height: 20),
+                    Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                        child: Column(children: [
+                          _buildOption(
+                              "1 Month",
+                              controller.gneralModel != null
+                                  ? controller.gneralModel!.data.basic.oneMonth
+                                  : ''),
+                          const CustomVerticalSizedox(height: 13),
+                          _buildOption(
+                              "3 Month",
+                              controller.gneralModel != null
+                                  ? controller
+                                      .gneralModel!.data.basic.threeMonth
+                                  : ''),
+                          const CustomVerticalSizedox(height: 13),
+                          _buildOption(
+                              "6 Month",
+                              controller.gneralModel != null
+                                  ? controller.gneralModel!.data.basic.sixMonth
+                                  : '')
+                        ])),
+                    const CustomVerticalSizedox(height: 40),
+                    Container(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        margin: const EdgeInsets.symmetric(horizontal: 18),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Image.asset(IconsAssets.pay))
+                  ]),
+            ))));
   }
 
   Widget _buildOption(String duration, String price) {
@@ -87,36 +103,33 @@ class _AccessInfoPayScreenState extends State<AccessInfoPayScreen> {
         child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              color: const Color(0xFF2C2C2E), 
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: selectedOption == duration
-                    ? Colors.white.withOpacity(.3)
-                    : Colors.transparent, 
-                width: 1.5
-              )
-            ),
+                color: const Color(0xFF2C2C2E),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                    color: selectedOption == duration
+                        ? Colors.white.withOpacity(.3)
+                        : Colors.transparent,
+                    width: 1.5)),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(children: [
                     Radio<String>(
-                      value: duration,
-                      groupValue: selectedOption,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedOption = value;
-                        });
-                      },
-                      activeColor: Colors.white
-                    ),
+                        value: duration,
+                        groupValue: selectedOption,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedOption = value;
+                          });
+                        },
+                        activeColor: Colors.white),
                     Text(duration,
                         style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: Colors.white))
                   ]),
-                  Text(price,
+                  Text('${price.toString()} USD',
                       style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,

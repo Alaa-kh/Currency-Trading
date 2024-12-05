@@ -56,5 +56,7 @@ class IconsAssets {
   static const String numberOfTradesIcon = 'assets/icons/Number of Trades.png';
     static const String notificationIcon = 'assets/icons/Notification.png';
 
+    static const String winRateIcon = 'assets/icons/Win Rate.png';
+    static const String totalProfitIcon = 'assets/icons/Total Profit.png';
 
 }
