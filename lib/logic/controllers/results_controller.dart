@@ -1,5 +1,5 @@
 import 'package:currency_trading/model/results_model.dart';
-import 'package:currency_trading/repo/notifications_repo.dart';
+import 'package:currency_trading/repo/results_repo.dart';
 import 'package:get/get.dart';
 
 abstract class ResultsController extends GetxController {
@@ -7,7 +7,7 @@ abstract class ResultsController extends GetxController {
 }
 
 class ResultsControllerImpl extends ResultsController {
-  final NotificationsRepositoryImpl _repository = NotificationsRepositoryImpl();
+  final ResultsRepositoryImpl _repository = ResultsRepositoryImpl();
   ResultsModel? resultsModel;
   @override
   void onInit() {
@@ -17,7 +17,7 @@ class ResultsControllerImpl extends ResultsController {
 
   @override
   Future<void> results() async {
-    final result = await _repository.fetchNotifications();
+    final result = await _repository.results();
     if (result is ResultsModel) {
       resultsModel = result;
       print('======================succcus');

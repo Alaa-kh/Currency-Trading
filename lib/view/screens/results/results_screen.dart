@@ -1,5 +1,4 @@
 import 'package:currency_trading/logic/controllers/results_controller.dart';
-import 'package:currency_trading/view/screens/results/widgets/results_card_widget.dart';
 import 'package:currency_trading/view/screens/results/widgets/results_cards_grid_widget.dart';
 import 'package:currency_trading/view/screens/results/widgets/results_total_list_widget.dart';
 import 'package:flutter/material.dart';
