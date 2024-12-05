@@ -59,7 +59,7 @@ class LoginControllerImpl extends LoginController {
 
   bool isPasswordVisible = false;
 
-@override
+  @override
   void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
     update();

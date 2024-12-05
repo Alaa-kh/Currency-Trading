@@ -39,18 +39,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Image.asset(ImagesAssets.logoImage,
-                                  width: 150),
+                              const SizedBox(height: 40),
+                              Image.asset(ImagesAssets.logoImage, width: 150),
                               const CustomVerticalSizedox(height: 20),
                               const TitleTextFieldWidget(title: 'Name '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
-                                validator: (name) =>
-                                    FormsValidate.getNameValidate(
-                                        context, name),
-                                controller: controller.nameController,
-                                prefixIcon: Image.asset(IconsAssets.nameIcon
-                                )  ),
+                                  validator: (name) =>
+                                      FormsValidate.getNameValidate(
+                                          context, name),
+                                  controller: controller.nameController,
+                                  prefixIcon:
+                                      SvgPicture.asset(IconsAssets.nameIcon)),
                               const CustomVerticalSizedox(height: 20),
                               const TitleTextFieldWidget(title: 'Email '),
                               const CustomVerticalSizedox(height: 10),
@@ -59,10 +59,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       FormsValidate.getEmailValidate(
                                           context, email),
                                   controller: controller.emailController,
-                                  prefixIcon:Image.asset( IconsAssets.emailIcon)),
+                                  prefixIcon:
+                                      SvgPicture.asset(IconsAssets.emailIcon)),
                               const CustomVerticalSizedox(height: 20),
-                              const TitleTextFieldWidget(
-                                  title: 'Password '),
+                              const TitleTextFieldWidget(title: 'Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
                                   controller: controller.passwordController,
@@ -77,7 +77,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           width: 3,
                                           height: 3,
                                           color: const Color(0xff8e711c))),
-                                  prefixIcon: Image.asset(IconsAssets.passwordIcon)),
+                                  prefixIcon: SvgPicture.asset(
+                                      IconsAssets.passwordIcon)),
                               const CustomVerticalSizedox(height: 20),
                               const TitleTextFieldWidget(
                                   title: 'Confirm aPassword '),
@@ -86,9 +87,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   validator: (confirmPassword) =>
                                       FormsValidate.getConfPasswordValidate(
                                           context, confirmPassword),
-                                  controller: controller
-                                      .passwordConfirmationController,
-                                  prefixIcon:Image.asset( IconsAssets.passwordIcon),
+                                  controller:
+                                      controller.passwordConfirmationController,
+                                  prefixIcon: SvgPicture.asset(
+                                      IconsAssets.passwordIcon),
                                   suffixIcon: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: SvgPicture.asset(
@@ -101,10 +103,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   title: 'Invitation Code '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
-                                  controller:
-                                      controller.inviteCodeController,
-                                  prefixIcon:
-                                  Image.asset(    IconsAssets.invitationCodeIcon)),
+                                  controller: controller.inviteCodeController,
+                                  prefixIcon: SvgPicture.asset(
+                                      IconsAssets.invitationCodeIcon)),
                               Row(children: [
                                 Checkbox(
                                   side: const BorderSide(

@@ -21,8 +21,7 @@ class Crud {
     try {
       // Setting up Dio options
       _dio.options.headers['content-Type'] = 'application/json';
-
-      if (_box.read(AppKey.verify) == 'true') {
+      if (_box.read(AppKey.token) != null) {
         _dio.options.headers["Authorization"] =
             "Bearer ${_box.read(AppKey.token)}";
       }

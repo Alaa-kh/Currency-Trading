@@ -28,9 +28,8 @@ class LoginScreen extends StatelessWidget {
                 child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18.0),
                     child: GetBuilder<LoginControllerImpl>(
-                      builder:(_)=> Form(
-                                                  key: controller.formKey,
-    
+                      builder: (_) => Form(
+                        key: controller.formKey,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -50,36 +49,32 @@ class LoginScreen extends StatelessWidget {
                               const CustomVerticalSizedox(height: 55),
                               const TitleTextFieldWidget(title: 'Email '),
                               const CustomVerticalSizedox(height: 10),
-                               CustomTextField(
-                                    validator: (email) =>
+                              CustomTextField(
+                                  validator: (email) =>
                                       FormsValidate.getEmailValidate(
                                           context, email),
-                                controller: controller.emailController,
-                                  prefixIcon:Image.asset( IconsAssets.emailIcon)),
+                                  controller: controller.emailController,
+                                  prefixIcon:
+                                      SvgPicture.asset(IconsAssets.emailIcon)),
                               const CustomVerticalSizedox(height: 20),
                               const TitleTextFieldWidget(title: 'Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
-                                // obscureText: controller.isPasswordVisible,
-                                 controller: controller.passwordController,
-                                   validator: (password) =>
+                                  // obscureText: controller.isPasswordVisible,
+                                  controller: controller.passwordController,
+                                  validator: (password) =>
                                       FormsValidate.getPasswordValidate(
                                           context, password,
                                           isFillOldPassword: true),
-                                  prefixIcon:Image.asset( IconsAssets.passwordIcon),
+                                  prefixIcon: SvgPicture.asset(
+                                      IconsAssets.passwordIcon),
                                   suffixIcon: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child:
-                                      
-                                       SvgPicture.asset(
+                                      child: SvgPicture.asset(
                                           IconsAssets.eyeIcon,
                                           width: 3,
                                           height: 3,
-                                          color: const Color(0xff8e711c))
-                                          
-                                          
-    
-                                          )),
+                                          color: const Color(0xff8e711c)))),
                               const CustomVerticalSizedox(height: 5),
                               Align(
                                 alignment: Alignment.centerRight,
@@ -96,7 +91,9 @@ class LoginScreen extends StatelessWidget {
                                                 Color(0xffB7B7B7)))),
                               ),
                               const CustomVerticalSizedox(height: 40),
-                               CustomButtonWidget(text: 'Log in', onTap: ()=> controller.loginUser()),
+                              CustomButtonWidget(
+                                  text: 'Log in',
+                                  onTap: () => controller.loginUser()),
                               const CustomVerticalSizedox(height: 20),
                               GestureDetector(
                                   onTap: () =>

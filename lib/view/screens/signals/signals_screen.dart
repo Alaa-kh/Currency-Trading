@@ -47,8 +47,7 @@ class _SignalsScreenState extends State<SignalsScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 18.0),
                     child: GetBuilder<SignalsControllerImpl>(
                         builder: (controller) => Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   const CustomVerticalSizedox(height: 10),
@@ -70,8 +69,8 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                               BorderRadius.circular(11)),
                                       child: Text(
                                           controller.signalsModel != null
-                                              ? controller.signalsModel!
-                                                  .data[0].account
+                                              ? controller
+                                                  .signalsModel!.data[0].account
                                                   .toString()
                                               : '',
                                           style: const TextStyle(
@@ -85,9 +84,8 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                             SignalsContainerSliderBoxWidget(
                                               image: controller
                                                   .signalsSliderModel!
-                                                  .data[
-                                                      _currentIndexNotifier
-                                                          .value]
+                                                  .data[_currentIndexNotifier
+                                                      .value]
                                                   .image,
                                             ),
                                           ],
@@ -105,10 +103,8 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                       : const SizedBox.shrink(),
                                   const CustomVerticalSizedox(height: 10),
                                   ValueListenableBuilder<int>(
-                                      valueListenable:
-                                          _currentIndexNotifier,
-                                      builder:
-                                          (context, currentIndex, child) {
+                                      valueListenable: _currentIndexNotifier,
+                                      builder: (context, currentIndex, child) {
                                         return Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -120,7 +116,7 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                                         currentIndex:
                                                             currentIndex)));
                                       }),
-
+                                  const CustomVerticalSizedox(height: 20),
                                   const SignalsCardsWidget()
                                 ]))))));
   }

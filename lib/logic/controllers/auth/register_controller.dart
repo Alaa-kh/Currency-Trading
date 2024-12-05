@@ -65,7 +65,7 @@ class RegisterControllerImpl extends RegisterController {
             if (resultSendCode is SendCodeModel) {
               Get.off(() => const VerifyScreen());
             }
-             print('333333333333333333333333333333');
+            print('333333333333333333333333333333');
             _storeUserData(resultRegidter);
           } else {}
         }
@@ -97,7 +97,7 @@ class RegisterControllerImpl extends RegisterController {
   void _storeUserData(RegisterModel registeredUser) {
     _box.write(AppKey.name, registeredUser.data.name);
     _box.write(AppKey.email, registeredUser.data.email);
-    // _box.write(AppKey.token, registeredUser.token);
+    _box.write(AppKey.token, registeredUser.data.token);
   }
 
   bool isPasswordVisible = false;
