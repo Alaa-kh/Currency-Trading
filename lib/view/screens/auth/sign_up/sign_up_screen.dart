@@ -81,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       IconsAssets.passwordIcon)),
                               const CustomVerticalSizedox(height: 20),
                               const TitleTextFieldWidget(
-                                  title: 'Confirm aPassword '),
+                                  title: 'Confirm Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
                                   validator: (confirmPassword) =>

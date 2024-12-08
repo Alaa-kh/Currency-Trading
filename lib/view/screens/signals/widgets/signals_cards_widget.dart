@@ -2,7 +2,6 @@ import 'package:currency_trading/logic/controllers/signals_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
 import 'package:currency_trading/utils/images.dart';
-import 'package:currency_trading/view/screens/signals/details/screens/datails_screen.dart';
 import 'package:currency_trading/view/screens/signals/details/screens/signal_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -118,12 +117,37 @@ class SignalsCardsWidget extends StatelessWidget {
                                     color: Colors.white, fontSize: 10)),
                             const SizedBox(width: 10),
                             GestureDetector(
-                                onTap: () => Get.to(() => DetailsScreen(
-                                      // image: controller
-                                      //     .signalsSliderModel!.data[index].image,
-                                      currencyType: 'aa',
-                                      createdAt: 'aa',
-                                      account: 'aa',
+                                onTap: () => Get.to(() => SignalDetailsScreen(
+                                      currencyType: controller.signalsModel!
+                                          .data[index].currencyType,
+                                      type: controller
+                                          .signalsModel!.data[index].type
+                                          .toString(),
+                                      entry: controller
+                                          .signalsModel!.data[index].entry
+                                          .toString(),
+                                      stop: controller
+                                          .signalsModel!.data[index].stop
+                                          .toString(),
+                                      leverage: controller
+                                          .signalsModel!.data[index].leverage
+                                          .toString(),
+                                      createdAt: controller
+                                          .signalsModel!.data[index].createdAt
+                                          .toString(),
+                                      currentPrice: controller.signalsModel!
+                                          .data[index].currentPrice
+                                          .toString(),
+                                      number: controller.signalsModel!
+                                          .data[index].percentage
+                                          .toString(),
+                                      ratio: controller
+                                          .signalsModel!
+                                          .data[index]
+                                          .percentage.toString(),
+                                      index:  controller.signalsModel != null
+            ? controller.signalsModel!.data.length
+            : 0,
                                     )),
                                 child: const Icon(
                                     Icons.arrow_forward_ios_rounded,
@@ -160,7 +184,7 @@ class SignalsCardsWidget extends StatelessWidget {
                               color: Colors.white, fontSize: 10))
                     ],
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Expanded(
                     flex: 2,
                     child: Container(
@@ -170,7 +194,7 @@ class SignalsCardsWidget extends StatelessWidget {
                         color: const Color(0xff263775),
                         borderRadius: BorderRadius.circular(22),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text.rich(
                           TextSpan(
                             children: [
@@ -212,14 +236,17 @@ class SignalsCardsWidget extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                      onTap: () => Get.to(() => const SignalDetailsScreen()),
+                      // onTap: () => Get.to(() => const SignalDetailsScreen()),
                       child: Image.asset(
-                        IconsAssets.detailsArrowIcon,
-                      ))
+                    IconsAssets.detailsArrowIcon,
+                  ))
                 ]),
               ),
-        separatorBuilder: (context, index) =>
-            Divider(color: Colors.grey.withOpacity(.3)),
+        separatorBuilder: (context, index) {
+          return controller.signalsModel!.data[index].open == 1
+              ? Divider(color: Colors.grey.withOpacity(.3))
+              : const CustomVerticalSizedox(height: 14);
+        },
         itemCount: controller.signalsModel != null
             ? controller.signalsModel!.data.length
             : 0,

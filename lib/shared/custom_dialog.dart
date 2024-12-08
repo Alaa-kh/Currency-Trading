@@ -7,11 +7,12 @@ void showTextDialog(String message, bool isError, [Function()? onTap]) {
   Get.dialog(
     AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      surfaceTintColor: Colors.grey,
-      backgroundColor: Colors.blueGrey,
+    surfaceTintColor: const Color(0xff263775),
+      backgroundColor: Colors.white,
+        contentPadding: EdgeInsets.zero,
       content: Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Align(
             alignment: Alignment.centerRight,
@@ -19,16 +20,16 @@ void showTextDialog(String message, bool isError, [Function()? onTap]) {
                 onPressed: () {
                   Get.back();
                 },
-                icon: Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: const BoxDecoration(
-                        color: Colors.blueGrey, shape: BoxShape.circle),
-                    child: const Icon(Icons.close))),
+                icon: 
+                  
+                const Icon(Icons.close)),
           ),
-          Text(
-            message,
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.black, fontSize: 19)
+          Padding(
+padding:  const EdgeInsets.only(bottom: 25, left: 16,right: 16),            child: Text(
+              message,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.black, fontSize: 13, fontWeight: FontWeight.bold)
+            ),
           ),
         ],
       ),
@@ -39,7 +40,7 @@ void showTextDialog(String message, bool isError, [Function()? onTap]) {
             padding: const MaterialStatePropertyAll(
                 EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
             backgroundColor:
-                const MaterialStatePropertyAll(Colors.blue),
+                const MaterialStatePropertyAll( Color(0xff263775)),
             shape: MaterialStatePropertyAll(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),

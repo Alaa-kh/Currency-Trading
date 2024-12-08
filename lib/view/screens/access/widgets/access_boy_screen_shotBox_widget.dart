@@ -4,6 +4,7 @@ import 'package:currency_trading/utils/icons.dart';
 import 'package:currency_trading/utils/images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AccessBoyScreenShotBoxWidget extends StatelessWidget {
   const AccessBoyScreenShotBoxWidget({
@@ -80,23 +81,35 @@ class AccessBoyScreenShotBoxWidget extends StatelessWidget {
                       textAlign: TextAlign.center)),
               const CustomVerticalSizedox(height: 25),
               Center(
-                  child: Container(
-                      width: 162,
-                      decoration: BoxDecoration(
-                          color: const Color(0xff263775),
-                          borderRadius: BorderRadius.circular(8)),
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 10),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(IconsAssets.sendIcon),
-                            const SizedBox(width: 8),
-                            const Text('Send',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20))
-                          ])))
+                  child: InkWell(
+                onTap: () {
+                  try {
+                    canLaunchUrl(
+                        Uri.parse(controller.gneralModel!.data.telegram));
+                    print(
+                        '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> TELEGRAM');
+                  } catch (e) {
+                    print('>>>>>>>>>>>> $e');
+                  }
+                },
+                child: Container(
+                    width: 162,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff263775),
+                        borderRadius: BorderRadius.circular(8)),
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 10),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(IconsAssets.sendIcon),
+                          const SizedBox(width: 8),
+                          const Text('Send',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20))
+                        ])),
+              ))
             ])),
         Positioned(right: 1, child: Image.asset(ImagesAssets.decorationImage))
       ]),

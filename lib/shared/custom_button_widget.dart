@@ -12,7 +12,6 @@ class CustomButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: onTap,
-        //  () => Get.off( SignalsScreen()),
         child: Container(
             alignment: Alignment.center,
             height: 56,

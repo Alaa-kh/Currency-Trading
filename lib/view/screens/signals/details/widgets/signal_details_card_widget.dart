@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 
 class SignalDetailsCardWidget extends StatelessWidget {
   const SignalDetailsCardWidget({
-    super.key,
+    super.key, required this.currencyType, required this.createdAt, required this.entry, required this.stop, required this.leverage, required this.type,
   });
-
+ final String type;
+ final String currencyType;
+ final String createdAt;
+ final String entry;final String stop;final String leverage;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +24,7 @@ class SignalDetailsCardWidget extends StatelessWidget {
           children: [
             const CustomVerticalSizedox(height: 5),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text('LDOUSDT',
+              Text(currencyType,
                   style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -35,47 +38,46 @@ class SignalDetailsCardWidget extends StatelessWidget {
                           blurRadius: 20,
                           color: Color.fromARGB(255, 156, 155, 155))
                     ], borderRadius: BorderRadius.circular(11)),
-                    child: Text('Buy',
+                    child: Text(type,
                         style: TextStyle(
-                            color: const Color(0xff00A7FF),
+                            color:  type == 'buy'
+                                                ? const Color(0xff00A7FF)
+                                                : type ==
+                                                        'sell'
+                                                    ? const Color(0xffFF0004)
+                                                    : const Color(0xff947FFF),
                             fontWeight: FontWeight.w700,
                             fontSize: 19)))
               ])
             ]),
             const CustomVerticalSizedox(height: 5),
             Text(
-              '04-11-2024 12:40Am',
+             createdAt,
               style: const TextStyle(color: Color(0xffF7F7F7), fontSize: 10),
             ),
             const CustomVerticalSizedox(height: 8),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               RichText(
                   text: TextSpan(
-                      text: 'Entry 1111',
+                      text: 'Entry $entry',
                       style: const TextStyle(
                           color: Color(0xff00FF09), fontSize: 12),
                       children: <TextSpan>[
                     const TextSpan(
                         text: '   -   ', style: TextStyle(color: Colors.white)),
                     TextSpan(
-                        text: 'Stop 1111',
+                        text: 'Stop $stop',
                         style: const TextStyle(
                           color: Color(0xffFF0004),
                         )),
-                    TextSpan(
+                    const TextSpan(
                         text: '   -   ', style: TextStyle(color: Colors.white)),
                     TextSpan(
-                        text: 'Leverage X5',
+                        text: 'Leverage $leverage',
                         style: const TextStyle(
                           color: Color(0xff947FFF),
                         )),
-                    TextSpan(
-                        text: '   -   ', style: TextStyle(color: Colors.white)),
-                    TextSpan(
-                        text: 'Risk 3%',
-                        style: const TextStyle(
-                          color: Color(0xffFF6960),
-                        )),
+                  
                   ])),
             ]),
             const CustomVerticalSizedox(height: 5)

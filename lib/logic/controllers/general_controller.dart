@@ -26,4 +26,24 @@ class GeneralControllerImpl extends GeneralController {
     }
     update();
   }
+
+
+  
+
+  // @override
+  // Future<void> openTelegram(String telegram) async {
+  //   final String telegramUrl = telegram; 
+  //   final String telegramWebUrl = telegram; 
+
+  //   if (await canLaunchUrl(Uri.parse(telegramUrl))) {
+  //     await launchUrl(Uri.parse(telegramUrl));
+  //   } else {
+  //     if (await canLaunchUrl(Uri.parse(telegramWebUrl))) {
+  //       await launchUrl(Uri.parse(telegramWebUrl));
+  //     } else {
+  //       throw 'Could not launch Telegram';
+  //     }
+  //   }
+  // }
+
 }

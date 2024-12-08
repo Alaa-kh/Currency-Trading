@@ -4,6 +4,7 @@ import 'package:currency_trading/utils/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+
 class NotificationsInfoListWidget extends StatelessWidget {
   const NotificationsInfoListWidget({
     super.key,

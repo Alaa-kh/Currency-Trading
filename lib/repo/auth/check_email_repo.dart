@@ -1,5 +1,6 @@
 import 'package:currency_trading/core/helper/failures_handling.dart';
 import 'package:currency_trading/core/network/crud.dart';
+import 'package:currency_trading/model/auth/chech_email.dart';
 import 'package:currency_trading/model/auth/register_model.dart';
 import 'package:currency_trading/utils/constants/app_api.dart';
 
@@ -17,7 +18,7 @@ class CheckEmailRepositoryImpl extends CheckEmailRepository {
   }) async {
     return _postData(
       url: AppApi.checkEmail,
-      fromJson: (json) => RegisterModel.fromJson(json),
+      fromJson: (json) => CheckEmailModel.fromJson(json),
       body: {
         'email': email,
        

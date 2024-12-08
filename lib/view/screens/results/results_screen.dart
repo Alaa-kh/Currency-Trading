@@ -10,16 +10,9 @@ import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart'
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:get/get.dart';
 
-int selected = 0;
-
-class ResultsScreen extends StatefulWidget {
+class ResultsScreen extends StatelessWidget {
   const ResultsScreen({super.key});
 
-  @override
-  State<ResultsScreen> createState() => _ResultsScreenState();
-}
-
-class _ResultsScreenState extends State<ResultsScreen> {
   @override
   Widget build(BuildContext context) {
     Get.put(ResultsControllerImpl());
@@ -72,9 +65,9 @@ class _ResultsScreenState extends State<ResultsScreen> {
                                         (index) => Expanded(
                                             child: InkWell(
                                                 onTap: () {
-                                                  setState(() {
-                                                    selected = index;
-                                                  });
+                                                  controller.selectTime(
+                                                    index,
+                                                  );
                                                 },
                                                 child: Container(
                                                     alignment: Alignment.center,
@@ -85,7 +78,9 @@ class _ResultsScreenState extends State<ResultsScreen> {
                                                     decoration: BoxDecoration(
                                                       border: Border.all(
                                                         width: 1,
-                                                        color: selected == index
+                                                        color: controller
+                                                                    .selectedIndex ==
+                                                                index
                                                             ? const Color(
                                                                 0xff00A7FF)
                                                             : Colors.white
@@ -95,25 +90,23 @@ class _ResultsScreenState extends State<ResultsScreen> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               7),
-                                                      color: selected == index
+                                                      color: controller
+                                                                  .selectedIndex ==
+                                                              index
                                                           ? const Color(
                                                               0xff267CBC)
                                                           : const Color(
                                                               0xff757575),
                                                     ),
-                                                    child: Text('1W',
+                                                    child: Text(
+                                                        controller
+                                                            .timeItem[index],
                                                         style: const TextStyle(
                                                             color: Colors.white,
                                                             fontSize:
                                                                 19)))))))),
                             const CustomVerticalSizedox(height: 28),
-                            ResultsCardsGridWidget(),
-                            // ResultsCardsGridWidget(
-                            //     title: 'Number of Trades',
-                            //     value: controller.resultsModel != null
-                            //         ? controller.resultsModel!.data.allNum
-                            //             .toString()
-                            //         : ''),
+                            const ResultsCardsGridWidget(),
                             const CustomVerticalSizedox(height: 23),
                             const Text(
                                 'This means, if you invest a certain amount of money in each of these trades, this would be the outcome',
@@ -136,14 +129,24 @@ class _ResultsScreenState extends State<ResultsScreen> {
                                     borderRadius: BorderRadius.circular(16)),
                                 child: Column(children: [
                                   const CustomVerticalSizedox(height: 10),
-                                  ResultsTotalListWidget(
-                                      total: r'$ 100',
-                                      icon: IconsAssets.editIcon),
-                                  Divider(color: Colors.white.withOpacity(.1)),
-                                  ResultsTotalListWidget(
+                                  TextField(
+                                    textAlignVertical: TextAlignVertical.center,
+decoration: InputDecoration(
+  suffixIcon: InkWell(onTap: (){},child: Image.asset(IconsAssets.editIcon)),
+  contentPadding: const EdgeInsets.symmetric(horizontal: 18),
+enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white.withOpacity(.1)))
+ ),
+ 
+                                    style:const TextStyle(
+                  fontWeight: FontWeight.w700,
+                  color:  Color(0xffF2B80C),
+                  fontSize: 17),
+                  textAlign: TextAlign.center,
+                                  ),
+                                  const ResultsTotalListWidget(
                                     title: 'Your Profit after 1 week',
                                     total: r'$ 888.31',
-                                    sizeTotal: 25,
+                                    
                                   )
                                 ])),
                             const CustomVerticalSizedox(height: 23),

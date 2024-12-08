@@ -1,6 +1,5 @@
 import 'package:currency_trading/core/helper/check_forms.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 
 //* Helper class for validating various form inputs such as name, email, password, and phone number.
@@ -11,11 +10,11 @@ class FormsValidate {
   //* Returns an error message string if validation fails, otherwise returns null.
   static String? getNameValidate(BuildContext context, String name) {
     if (!CheckForms.checkEmpty(name)) {
-      return 'requiredField'.tr;
+      return 'Required Field';
     }
 
     if (name.length < 3) {
-      return 'nameInvalid'.tr;
+      return 'Name Invalid';
     }
 
     return null;
@@ -25,11 +24,11 @@ class FormsValidate {
   //* Returns an error message string if validation fails, otherwise returns null.
   static String? getEmailValidate(BuildContext context, String email) {
     if (!CheckForms.checkEmpty(email)) {
-      return 'requiredField'.tr;
+      return 'Required Field';
     }
 
     if (!CheckForms.checkEmailRegex(email)) {
-      return 'emailInvalid'.tr;
+      return 'Email Invalid';
     }
 
     return null;
@@ -40,11 +39,11 @@ class FormsValidate {
   static String? getPasswordValidate(BuildContext context, String password,
       {bool? isFillOldPassword}) {
     if (!CheckForms.checkEmpty(password)) {
-      return 'requiredField'.tr;
+      return 'Required Field';
     }
 
     if (password.length < 8) {
-      return 'passwordInvalid'.tr;
+      return 'password Invalid';
     }
 
     if (isFillOldPassword != null && isFillOldPassword) {
@@ -59,11 +58,11 @@ class FormsValidate {
   static String? getConfPasswordValidate(
       BuildContext context, String password) {
     if (!CheckForms.checkEmpty(password)) {
-      return 'requiredField'.tr;
+      return 'Required Field';
     }
 
     if (password != _oldPassword) {
-      return 'passwordsNotMatch'.tr;
+      return "Password's Not Match";
     }
 
     return null;
@@ -73,7 +72,7 @@ class FormsValidate {
   //* Returns an error message string if validation fails, otherwise returns null.
   static String? getEmptyValidate(BuildContext context, String value) {
     if (!CheckForms.checkEmpty(value)) {
-      return 'requiredField'.tr;
+      return 'Required Field';
     }
 
     return null;
@@ -84,11 +83,11 @@ class FormsValidate {
   static String? getPhoneNumberValidate(
       BuildContext context, String phoneNumber) {
     if (!CheckForms.checkEmpty(phoneNumber)) {
-      return 'requiredField'.tr;
+      return 'Required Field';
     }
 
     if (!CheckForms.checkPhoneNumberRegex(phoneNumber)) {
-      return 'numberInvalid'.tr;
+      return 'Number Invalid';
     }
 
     return null;

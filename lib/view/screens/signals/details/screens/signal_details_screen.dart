@@ -12,8 +12,27 @@ import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:get/get.dart';
 
 class SignalDetailsScreen extends StatelessWidget {
-  const SignalDetailsScreen({super.key});
-
+  const SignalDetailsScreen(
+      {super.key,
+      required this.type,
+      required this.currencyType,
+      required this.createdAt,
+      required this.entry,
+      required this.stop,
+      required this.leverage,
+      required this.currentPrice,
+      required this.number,
+      required this.ratio, required this.index});
+  final String type;
+  final String currencyType;
+  final String createdAt;
+  final String entry;
+  final String stop;
+  final String leverage;
+  final String currentPrice;
+  final String number;
+  final String ratio;
+final int index;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +55,14 @@ class SignalDetailsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const CustomVerticalSizedox(height: 20),
-                          const SignalDetailsCardWidget(),
+                          SignalDetailsCardWidget(
+                            currencyType: currencyType,
+                            type: type,
+                            createdAt: createdAt,
+                            entry: entry,
+                            stop: stop,
+                            leverage: leverage,
+                          ),
                           const CustomVerticalSizedox(height: 25),
                           const Text(
                               'The current price indicator according to the Trade.',
@@ -45,7 +71,8 @@ class SignalDetailsScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w300,
                                   fontSize: 12)),
                           const CustomVerticalSizedox(height: 33),
-                          const SignalDetailsStatisticsWidget(),
+                          SignalDetailsStatisticsWidget(
+                              stop: stop, entry: entry),
                           const CustomVerticalSizedox(height: 28),
                           const Text(
                               'If the indicator is close to the Entry Point, then it’s still possibleto enter the trade.',
@@ -54,7 +81,11 @@ class SignalDetailsScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w300,
                                   fontSize: 12)),
                           const CustomVerticalSizedox(height: 33),
-                          const SignalDetailsTableWidget(),
+                          SignalDetailsTableWidget(
+                              currentPrice: currentPrice,
+                              number: number,
+                              ratio: ratio,
+                              index: index),
                           const CustomVerticalSizedox(height: 22),
                           const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,19 +119,32 @@ class SignalDetailsScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(16)),
                               child: Column(children: [
                                 const CustomVerticalSizedox(height: 10),
-                                const SignalDetailsTotalListWidget(
-                                    title: 'Your total amount',
-                                    total: r'$ 100',
-                                    icon: IconsAssets.editIcon),
-                                Divider(
-                                    thickness: .5,
-                                    color: Colors.white.withOpacity(.1)),
+                                TextField(
+                                  textAlign: TextAlign.left,
+                                    textAlignVertical: TextAlignVertical.center,
+decoration: InputDecoration(
+  hintText: 'Your total amount',
+  
+  hintStyle: const TextStyle(color: Colors.white, fontSize: 14,fontWeight: FontWeight.w400),
+  suffixIcon: InkWell(onTap: () {
+    signalDetailsDialog();
+  },child: Image.asset(IconsAssets.editIcon)),
+  contentPadding: const EdgeInsets.symmetric(horizontal: 18),
+enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white.withOpacity(.1)))
+ ),
+ 
+                                    style:const TextStyle(
+                  fontWeight: FontWeight.w700,
+                  color:  Color(0xffF2B80C),
+                  fontSize: 17),
+                                  ),
+                               
                                 const SignalDetailsTotalListWidget(
                                     title:
                                         'Our recommendation is to invest in this trade',
                                     total: r'$ 50'),
-                              
-                              ])),  const CustomVerticalSizedox(height: 20)
+                              ])),
+                          const CustomVerticalSizedox(height: 20)
                         ])))));
   }
 }

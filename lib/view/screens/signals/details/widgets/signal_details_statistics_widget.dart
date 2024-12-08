@@ -12,9 +12,10 @@ final List<Color> progressColors = [
 
 class SignalDetailsStatisticsWidget extends StatelessWidget {
   const SignalDetailsStatisticsWidget({
-    super.key,
+    super.key, required this.entry, required this.stop,
   });
-
+  final String entry;
+  final String stop;
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -29,8 +30,8 @@ class SignalDetailsStatisticsWidget extends StatelessWidget {
       ]),
       const CustomVerticalSizedox(height: 5),
       Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text('1.688', style: TextStyle(color: Colors.white)),
-        Text('1.875', style: TextStyle(color: Colors.white)),
+        Text(stop, style: const TextStyle(color: Colors.white)),
+        Text(entry, style: const TextStyle(color: Colors.white)),
         Text('1.978', style: TextStyle(color: Colors.green)),
         Text('2.557', style: TextStyle(color: Colors.green)),
         Text('2.15', style: TextStyle(color: Colors.white)),

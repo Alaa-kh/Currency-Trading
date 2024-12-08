@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:svg_flutter/svg.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
@@ -19,11 +18,13 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       obscureText: obscureText != null ? true : false,
       validator: validator != null ? (value) => validator!(value!) : null,
       controller: controller,
       decoration: InputDecoration(
       hintText: hintText,
+      
           contentPadding: const EdgeInsets.symmetric(vertical: 14.0),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(7),

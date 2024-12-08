@@ -128,7 +128,7 @@ class Crud {
               data: response['data'],
             ),
           );
-        } else if ([400, 422, 404, 403].contains(e.response?.statusCode)) {
+        } else if ([400, 422, 404, 403 , 325].contains(e.response?.statusCode)) {
           // Handling specific error statuses: Extract and return error message and data from response
           final Map<String, dynamic> response =
               e.response!.data as Map<String, dynamic>;

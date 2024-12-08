@@ -117,7 +117,8 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                                             currentIndex)));
                                       }),
                                   const CustomVerticalSizedox(height: 20),
-                                  const SignalsCardsWidget()
+                                  const SignalsCardsWidget(),
+                                  const CustomVerticalSizedox(height: 20)
                                 ]))))));
   }
 }

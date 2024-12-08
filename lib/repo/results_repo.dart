@@ -5,15 +5,15 @@ import 'package:currency_trading/utils/constants/app_api.dart';
 import 'package:dio/dio.dart';
 
 abstract class ResultsRepository {
-  Future results();
+  Future results(int time);
 }
 
 class ResultsRepositoryImpl extends ResultsRepository {
   @override
-  Future results() async {
-    print(AppApi.results);
+  Future results(int time) async {
+    print('${AppApi.results}$time');
     return _fetchData(
-      url: AppApi.results,
+      url: '${AppApi.results}$time',
       fromJson: (json) => ResultsModel.fromJson(json),
     );
   }

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:currency_trading/logic/controllers/signals_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
-import 'package:currency_trading/view/screens/signals/details/screens/signal_details_screen.dart';
 
 class DetailsCardsWidget extends StatelessWidget {
   const DetailsCardsWidget({
@@ -55,15 +54,15 @@ class DetailsCardsWidget extends StatelessWidget {
                         decoration: BoxDecoration(
                             color: const Color(0xff263775),
                             borderRadius: BorderRadius.circular(22)),
-                        child: Text(
-                          'Get Basic Or ${account}\n To See The Details',
-                          style: TextStyle(color: Colors.white, fontSize: 12),
-                        ),
                         alignment: Alignment.center,
+                        child: Text(
+                          'Get Basic Or $account\n To See The Details',
+                          style: const TextStyle(color: Colors.white, fontSize: 12),
+                        ),
                       ),
                       InkWell(
-                          onTap: () =>
-                              Get.to(() => const SignalDetailsScreen()),
+                          // onTap: () =>
+                              // Get.to(() => const SignalDetailsScreen()),
                           child: Image.asset(IconsAssets.detailsArrowIcon))
                     ]),
                   ),

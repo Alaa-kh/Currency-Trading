@@ -35,6 +35,7 @@ class VerifyScreen extends StatelessWidget {
                                         TextStyle(color: Color(0xffB7B7B7)))),
                             const CustomVerticalSizedox(height: 50),
                             Pinput(
+                              keyboardType : TextInputType.number,
                               separatorBuilder: (index) =>
                                   const SizedBox(width: 13),
                               length: 4,

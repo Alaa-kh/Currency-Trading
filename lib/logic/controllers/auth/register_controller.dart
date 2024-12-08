@@ -45,7 +45,10 @@ class RegisterControllerImpl extends RegisterController {
       );
       if (resultCheckEmail is CheckEmailModel) {
         if (resultCheckEmail.found == 1) {
-          Get.snackbar('Error', 'Email is already exists');
+      
+         Get.snackbar('Error',
+                                          'Email is already exists',
+                                          backgroundColor: Colors.red);
         } else {
           print('1111111111111111111');
           final resultRegidter = await _repository.registerUser(

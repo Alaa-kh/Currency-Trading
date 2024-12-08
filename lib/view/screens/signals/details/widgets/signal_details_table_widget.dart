@@ -1,11 +1,17 @@
-import 'package:currency_trading/utils/icons.dart';
 import 'package:flutter/material.dart';
 
 class SignalDetailsTableWidget extends StatelessWidget {
   const SignalDetailsTableWidget({
     super.key,
+    required this.currentPrice,
+    required this.number,
+    required this.ratio,
+    required this.index,
   });
-
+  final String currentPrice;
+  final String number;
+  final String ratio;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Table(
@@ -40,27 +46,27 @@ class SignalDetailsTableWidget extends StatelessWidget {
                     )),
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.middle,
-                    child: Text(
-                      '0.34%',
-                      style: TextStyle(color: Color(0xff3D992B)),
-                      textAlign: TextAlign.center
-                    ))
+                    child: Text('0.34%',
+                        style: TextStyle(color: Color(0xff3D992B)),
+                        textAlign: TextAlign.center))
               ]),
           ...List.generate(
-              3,
+              index,
               (index) => TableRow(
                       decoration: const BoxDecoration(
                           border: Border(
                               bottom: BorderSide(color: Color(0xff575656)))),
                       children: [
-                        const TableCell(
+                        TableCell(
                           verticalAlignment: TableCellVerticalAlignment.middle,
                           child: Padding(
-                            padding: EdgeInsets.all(18.0),
+                            padding: const EdgeInsets.all(18.0),
                             child: Text(
-                              'Target 1',
+                              currentPrice,
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: index == 0 || index == 1
+                                      ? const Color(0xff40ad2f)
+                                      : Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 11),
                               textAlign: TextAlign.center,
@@ -71,20 +77,24 @@ class SignalDetailsTableWidget extends StatelessWidget {
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Text(
-                              '100.88',
+                              number.toString(),
                               style: TextStyle(
-                                  color: const Color(0xff40ad2f),
+                                  color: index == 0 || index == 1
+                                      ? const Color(0xff40ad2f)
+                                      : Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 11),
                               textAlign: TextAlign.center,
                             )),
-                        const TableCell(
+                        TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Text(
-                              '45.34%',
+                              '${ratio.toString()}%',
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: index == 0 || index == 1
+                                      ? const Color(0xff40ad2f)
+                                      : Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 11),
                               textAlign: TextAlign.center,

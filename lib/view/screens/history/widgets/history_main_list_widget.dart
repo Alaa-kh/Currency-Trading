@@ -1,7 +1,6 @@
 import 'package:currency_trading/logic/controllers/history_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
-import 'package:currency_trading/view/screens/history/history_cards_screen.dart';
 import 'package:currency_trading/view/screens/history/widgets/history_info_cards_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +12,7 @@ class HistoryMainListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(HistoryControllerImpl());
     return GetBuilder<HistoryControllerImpl>(
         builder: (controller) => ListView.separated(
             separatorBuilder: (context, index) =>
@@ -65,14 +65,16 @@ class HistoryMainListWidget extends StatelessWidget {
                                   ),
                                 ]))
                           ])),
-                  Positioned(
-                      right: -15,
-                      bottom: 50,
-                      top: 50,
-                      child: InkWell(
-                          onTap: () => Get.to(() => const HistoryCardsScreen()),
-                          child: Image.asset(IconsAssets.detailsArrowIcon,
-                              width: 32)))
+                  GetBuilder<HistoryControllerImpl>(
+                    builder: (_) => Positioned(
+                        right: -15,
+                        bottom: 50,
+                        top: 50,
+                        child: InkWell(
+                            onTap: ()=>controller.toHistoryDetails(controller.historyMod[index].name),
+                            child: Image.asset(IconsAssets.detailsArrowIcon,
+                                width: 32))),
+                  )
                 ])));
   }
 }
