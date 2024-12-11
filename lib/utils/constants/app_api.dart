@@ -11,7 +11,8 @@ class AppApi {
   static const String slidersSignals = '${_baseUrl}sliders';
   static const String signals = '${_baseUrl}signals';
   static const String signalsDetails = '${_baseUrl}signals/';
-  static const String notifis = '${_baseUrl}notifis';
+  static const String notifis = '${_baseUrl}notifis?page=';
+
   static const String history = '${_baseUrl}history/all';
   static const String historyDetails = '${_baseUrl}history/single/';
   static const String general = '${_baseUrl}info';

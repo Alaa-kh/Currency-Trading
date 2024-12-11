@@ -5,15 +5,15 @@ import 'package:currency_trading/utils/constants/app_api.dart';
 import 'package:dio/dio.dart';
 
 abstract class NotificationsRepository {
-  Future fetchNotifications();
+  Future fetchNotifications(int page);
 }
 
 class NotificationsRepositoryImpl extends NotificationsRepository {
   @override
-  Future fetchNotifications() async {
-    print(AppApi.notifis);
+  Future fetchNotifications(int page) async {
+    print('${AppApi.notifis}$page');
     return _fetchData(
-      url: AppApi.notifis,
+      url: ('${AppApi.notifis}$page'),
       fromJson: (json) => NotificationsModel.fromJson(json),
     );
   }
