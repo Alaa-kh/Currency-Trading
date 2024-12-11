@@ -131,22 +131,27 @@ class ResultsScreen extends StatelessWidget {
                                   const CustomVerticalSizedox(height: 10),
                                   TextField(
                                     textAlignVertical: TextAlignVertical.center,
-decoration: InputDecoration(
-  suffixIcon: InkWell(onTap: (){},child: Image.asset(IconsAssets.editIcon)),
-  contentPadding: const EdgeInsets.symmetric(horizontal: 18),
-enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white.withOpacity(.1)))
- ),
- 
-                                    style:const TextStyle(
-                  fontWeight: FontWeight.w700,
-                  color:  Color(0xffF2B80C),
-                  fontSize: 17),
-                  textAlign: TextAlign.center,
+                                    decoration: InputDecoration(
+                                        suffixIcon: InkWell(
+                                            onTap: () {},
+                                            child: Image.asset(
+                                                IconsAssets.editIcon)),
+                                        contentPadding:
+                                            const EdgeInsets.symmetric(
+                                                horizontal: 18),
+                                        enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Colors.white
+                                                    .withOpacity(.1)))),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        color: Color(0xffF2B80C),
+                                        fontSize: 17),
+                                    textAlign: TextAlign.center,
                                   ),
                                   const ResultsTotalListWidget(
                                     title: 'Your Profit after 1 week',
                                     total: r'$ 888.31',
-                                    
                                   )
                                 ])),
                             const CustomVerticalSizedox(height: 23),

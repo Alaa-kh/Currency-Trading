@@ -1,15 +1,22 @@
-
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:flutter/material.dart';
 
 class SignalDetailsCardWidget extends StatelessWidget {
   const SignalDetailsCardWidget({
-    super.key, required this.currencyType, required this.createdAt, required this.entry, required this.stop, required this.leverage, required this.type,
+    super.key,
+    required this.currencyType,
+    required this.createdAt,
+    required this.entry,
+    required this.stop,
+    required this.leverage,
+    required this.type,
   });
- final String type;
- final String currencyType;
- final String createdAt;
- final String entry;final String stop;final String leverage;
+  final String type;
+  final String currencyType;
+  final String createdAt;
+  final String entry;
+  final String stop;
+  final String leverage;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,19 +47,18 @@ class SignalDetailsCardWidget extends StatelessWidget {
                     ], borderRadius: BorderRadius.circular(11)),
                     child: Text(type,
                         style: TextStyle(
-                            color:  type == 'buy'
-                                                ? const Color(0xff00A7FF)
-                                                : type ==
-                                                        'sell'
-                                                    ? const Color(0xffFF0004)
-                                                    : const Color(0xff947FFF),
+                            color: type == 'buy'
+                                ? const Color(0xff00A7FF)
+                                : type == 'sell'
+                                    ? const Color(0xffFF0004)
+                                    : const Color(0xff947FFF),
                             fontWeight: FontWeight.w700,
                             fontSize: 19)))
               ])
             ]),
             const CustomVerticalSizedox(height: 5),
             Text(
-             createdAt,
+              createdAt,
               style: const TextStyle(color: Color(0xffF7F7F7), fontSize: 10),
             ),
             const CustomVerticalSizedox(height: 8),
@@ -77,7 +83,6 @@ class SignalDetailsCardWidget extends StatelessWidget {
                         style: const TextStyle(
                           color: Color(0xff947FFF),
                         )),
-                  
                   ])),
             ]),
             const CustomVerticalSizedox(height: 5)

@@ -34,7 +34,6 @@ class PartnershipStatisticsTransactions extends StatelessWidget {
                                 AlertDialog(
                                   backgroundColor: Colors.black,
                                   content: Container(
-                                  
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 18, vertical: 10),
                                       width: double.infinity,

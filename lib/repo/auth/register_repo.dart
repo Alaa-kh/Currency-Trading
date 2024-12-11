@@ -20,7 +20,7 @@ class RegisterRepositoryImpl extends RegisterRepository {
     required String email,
     required String password,
     required String passwordConfirmation,
-   String? inviteCode,
+    String? inviteCode,
   }) async {
     return _postData(
       url: AppApi.register,
@@ -47,9 +47,7 @@ class RegisterRepositoryImpl extends RegisterRepository {
         (data) => fromJson(data),
       );
     } catch (_) {
-      return Failures(
-        errMessage:  'An error occurred'
-      );
+      return Failures(errMessage: 'An error occurred');
     }
   }
 }

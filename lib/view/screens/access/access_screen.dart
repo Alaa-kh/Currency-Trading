@@ -22,8 +22,7 @@ class AccessScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 18.0),
                 child: InkWell(
                     onTap: () => Get.back(),
-                    child: const Icon(Icons.arrow_back,
-                        color: Colors.white)))),
+                    child: const Icon(Icons.arrow_back, color: Colors.white)))),
         body: Container(
             width: double.infinity,
             height: double.maxFinite,
@@ -40,8 +39,7 @@ class AccessScreen extends StatelessWidget {
                               decoration: BoxDecoration(boxShadow: const [
                                 BoxShadow(
                                     blurRadius: 20,
-                                    color:
-                                        Color.fromARGB(255, 70, 107, 133)),
+                                    color: Color.fromARGB(255, 70, 107, 133)),
                               ], borderRadius: BorderRadius.circular(11)),
                               child: Text('Basic',
                                   style: TextStyle(
@@ -68,8 +66,7 @@ class AccessScreen extends StatelessWidget {
                               decoration: BoxDecoration(boxShadow: const [
                                 BoxShadow(
                                     blurRadius: 20,
-                                    color:
-                                        Color.fromARGB(255, 139, 113, 33)),
+                                    color: Color.fromARGB(255, 139, 113, 33)),
                               ], borderRadius: BorderRadius.circular(11)),
                               child: Text('Ultimate',
                                   style: TextStyle(

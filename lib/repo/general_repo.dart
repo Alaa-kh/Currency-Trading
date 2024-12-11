@@ -10,7 +10,7 @@ abstract class GeneralRepository {
 
 class GeneralRepositoryImpl extends GeneralRepository {
   @override
-    Future fetchGeneralData() async {
+  Future fetchGeneralData() async {
     print(AppApi.general);
     return _fetchData(
       url: AppApi.general,

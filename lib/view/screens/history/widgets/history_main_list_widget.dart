@@ -71,7 +71,8 @@ class HistoryMainListWidget extends StatelessWidget {
                         bottom: 50,
                         top: 50,
                         child: InkWell(
-                            onTap: ()=>controller.toHistoryDetails(controller.historyMod[index].name),
+                            onTap: () => controller.toHistoryDetails(
+                                controller.historyMod[index].name),
                             child: Image.asset(IconsAssets.detailsArrowIcon,
                                 width: 32))),
                   )

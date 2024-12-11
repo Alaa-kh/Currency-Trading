@@ -54,13 +54,11 @@ class IconsAssets {
   static const String shapeIcon = 'assets/icons/Shape.png';
   static const String amountIcon = 'assets/icons/Amount 1.png';
   static const String numberOfTradesIcon = 'assets/icons/Number of Trades.png';
-    static const String notificationIcon = 'assets/icons/Notification.png';
+  static const String notificationIcon = 'assets/icons/Notification.png';
 
-    static const String winRateIcon = 'assets/icons/Win Rate.png';
-    static const String totalProfitIcon = 'assets/icons/Total Profit.png';
-        static const String loseTradesIcon = 'assets/icons/Lose Trades.png';
-    static const String winTradesIcon = 'assets/icons/Win Trades.png';
+  static const String winRateIcon = 'assets/icons/Win Rate.png';
+  static const String totalProfitIcon = 'assets/icons/Total Profit.png';
+  static const String loseTradesIcon = 'assets/icons/Lose Trades.png';
+  static const String winTradesIcon = 'assets/icons/Win Trades.png';
   static const String avgProfitIcon = 'assets/icons/Avg.Profit.png';
-
-
 }

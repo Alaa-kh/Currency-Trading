@@ -14,14 +14,12 @@ class CheckEmailRepositoryImpl extends CheckEmailRepository {
   @override
   Future checkEmail({
     required String email,
-  
   }) async {
     return _postData(
       url: AppApi.checkEmail,
       fromJson: (json) => CheckEmailModel.fromJson(json),
       body: {
         'email': email,
-       
       },
     );
   }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ResultsTotalListWidget extends StatelessWidget {
   const ResultsTotalListWidget({
     super.key,
-  required  this.title,
+    required this.title,
     required this.total,
   });
 
@@ -18,7 +18,7 @@ class ResultsTotalListWidget extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   color: Color(0xffF2B80C),
                   fontSize: 25),
-              textAlign:  TextAlign.center ),
+              textAlign: TextAlign.center),
           const SizedBox(width: 13),
         ]),
         leading: Text(title,

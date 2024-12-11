@@ -1,6 +1,5 @@
 import 'package:currency_trading/utils/constants/app_regular_exp.dart';
 
-
 //* Utility class for form input validation using regular expressions and basic checks.
 class CheckForms {
   //* Checks if the provided [value] matches the name regular expression.

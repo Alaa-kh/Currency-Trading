@@ -17,7 +17,7 @@ class DrawerWidget extends StatelessWidget {
     return ClipRRect(
         borderRadius: const BorderRadius.horizontal(left: Radius.circular(60)),
         child: GetBuilder<LogoutControllerImpl>(
-          builder:(controller)=> Drawer(
+          builder: (controller) => Drawer(
               width: 236,
               backgroundColor: const Color(0xff757575),
               child: Column(children: [
@@ -37,9 +37,8 @@ class DrawerWidget extends StatelessWidget {
                       itemBuilder: (context, index) => ListTile(
                           onTap: () => Get.to(const NotificationsScreen()),
                           leading: GestureDetector(
-          
-                            onTap: (){
-                            if(  index == 0) controller.logout();
+                            onTap: () {
+                              if (index == 0) controller.logout();
                             },
                             child: Image.asset(signalsDrawerModel[index].icon,
                                 width: 28),

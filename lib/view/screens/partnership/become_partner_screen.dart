@@ -53,14 +53,11 @@ class BecomePartnerScreen extends StatelessWidget {
                                       fontSize: 17))),
                           const CustomVerticalSizedox(height: 15),
                           Center(
-                            child: const Text(
-                              'Become a Partner',
-                              style: TextStyle(
-                                  color: Color(0xfff2b80d),
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold)
-                            )
-                          ),
+                              child: const Text('Become a Partner',
+                                  style: TextStyle(
+                                      color: Color(0xfff2b80d),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold))),
                           const CustomVerticalSizedox(height: 20),
                           const TitleTextFieldWidget(title: 'Country '),
                           const CustomVerticalSizedox(height: 10),

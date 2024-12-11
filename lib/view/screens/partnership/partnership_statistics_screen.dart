@@ -44,7 +44,7 @@ class _PartnershipStatisticsScreenState
             endDrawer: const DrawerWidget(),
             appBar: mainAppBar(
                 'Partnership',
-              Padding(
+                Padding(
                     padding: const EdgeInsets.only(left: 18.0),
                     child: InkWell(
                         onTap: () => Get.back(),

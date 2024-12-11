@@ -138,16 +138,15 @@ class SignalsCardsWidget extends StatelessWidget {
                                       currentPrice: controller.signalsModel!
                                           .data[index].currentPrice
                                           .toString(),
-                                      number: controller.signalsModel!
-                                          .data[index].percentage
+                                      number: controller
+                                          .signalsModel!.data[index].percentage
                                           .toString(),
                                       ratio: controller
-                                          .signalsModel!
-                                          .data[index]
-                                          .percentage.toString(),
-                                      index:  controller.signalsModel != null
-            ? controller.signalsModel!.data.length
-            : 0,
+                                          .signalsModel!.data[index].percentage
+                                          .toString(),
+                                      index: controller.signalsModel != null
+                                          ? controller.signalsModel!.data.length
+                                          : 0,
                                     )),
                                 child: const Icon(
                                     Icons.arrow_forward_ios_rounded,

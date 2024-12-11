@@ -23,37 +23,21 @@ class FailuresServer extends Failures {
   }) {
     switch (exType) {
       case DioExceptionType.connectionTimeout:
-        return FailuresServer(
-          errMessage: 'Connection timed out'
-        );
+        return FailuresServer(errMessage: 'Connection timed out');
       case DioExceptionType.sendTimeout:
-        return FailuresServer(
-          errMessage: 'Transmission timed out'
-        );
+        return FailuresServer(errMessage: 'Transmission timed out');
       case DioExceptionType.receiveTimeout:
-        return FailuresServer(
-          errMessage: 'Receipt timeout has expired'
-        );
+        return FailuresServer(errMessage: 'Receipt timeout has expired');
       case DioExceptionType.badCertificate:
-        return FailuresServer(
-          errMessage: 'Bad testimony'
-        );
+        return FailuresServer(errMessage: 'Bad testimony');
       case DioExceptionType.badResponse:
-        return FailuresServer(
-          errMessage:'unavailable!'
-        );
+        return FailuresServer(errMessage: 'unavailable!');
       case DioExceptionType.cancel:
-        return FailuresServer(
-          errMessage:'canceled'
-        );
+        return FailuresServer(errMessage: 'canceled');
       case DioExceptionType.connectionError:
-        return FailuresServer(
-          errMessage: 'connection error'
-        );
+        return FailuresServer(errMessage: 'connection error');
       case DioExceptionType.unknown:
-        return FailuresServer(
-          errMessage: 'unknown'
-        );
+        return FailuresServer(errMessage: 'unknown');
     }
   }
 }

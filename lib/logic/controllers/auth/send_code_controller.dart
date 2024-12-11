@@ -49,5 +49,4 @@ class SendCodeControllerImpl extends SendCodeController {
       Get.snackbar('Error', 'Code is not correct!');
     }
   }
-
 }

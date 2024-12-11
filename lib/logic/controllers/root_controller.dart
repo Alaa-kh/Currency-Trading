@@ -12,7 +12,7 @@ class RootController extends GetxController {
     update();
   }
 
-  final screens = const[
+  final screens = const [
     PartnershipScreen(),
     SignalsScreen(),
     HistoryScreen(),

@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 RegisterModel registerModelFromJson(String str) =>

@@ -45,11 +45,12 @@ class RegisterControllerImpl extends RegisterController {
       );
       if (resultCheckEmail is CheckEmailModel) {
         if (resultCheckEmail.found == 1) {
-      
-         Get.snackbar('Error',
-                                          'Email is already exists',
-                                          backgroundColor: Colors.red);
+         Get.back();
+          Get.snackbar('Error', 'Email is already exists',
+              backgroundColor: Colors.red);
+        
         } else {
+           
           print('1111111111111111111');
           final resultRegidter = await _repository.registerUser(
             name: nameController.text.trim(),
@@ -66,33 +67,26 @@ class RegisterControllerImpl extends RegisterController {
             print('333333333333333333333333333333');
 
             if (resultSendCode is SendCodeModel) {
+      Get.back();
+
               Get.off(() => const VerifyScreen());
+              _storeUserData(resultRegidter);
+            }else{
+      Get.back();
+
             }
             print('333333333333333333333333333333');
-            _storeUserData(resultRegidter);
-          } else {}
+          } else {
+      Get.back();
+            
+          }
         }
+      }else{
+      Get.back();
+
       }
 
-      final result = await _repository.registerUser(
-        name: nameController.text.trim(),
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-        passwordConfirmation: passwordConfirmationController.text.trim(),
-        inviteCode: inviteCodeController.text.trim(),
-      );
-      Get.back();
-      if (result is RegisterModel) {
-        _storeUserData(result);
-        Get.off(() => RootScreen());
-      } else if (result is Failures) {
-        if (result.data is Map<String, dynamic>) {
-          showTextDialog(
-            result.data.entries.first.value.first,
-            true,
-          );
-        }
-      }
+      
     } catch (_) {}
   }
 

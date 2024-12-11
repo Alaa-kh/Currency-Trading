@@ -49,20 +49,21 @@ class DetailsCardsWidget extends StatelessWidget {
                       ),
                       const Spacer(),
                       Container(
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
                         decoration: BoxDecoration(
                             color: const Color(0xff263775),
                             borderRadius: BorderRadius.circular(22)),
                         alignment: Alignment.center,
                         child: Text(
                           'Get Basic Or $account\n To See The Details',
-                          style: const TextStyle(color: Colors.white, fontSize: 12),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12),
                         ),
                       ),
                       InkWell(
                           // onTap: () =>
-                              // Get.to(() => const SignalDetailsScreen()),
+                          // Get.to(() => const SignalDetailsScreen()),
                           child: Image.asset(IconsAssets.detailsArrowIcon))
                     ]),
                   ),

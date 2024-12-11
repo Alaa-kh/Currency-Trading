@@ -6,7 +6,6 @@ class MyServices extends GetxService {
   late GetStorage getBox;
 
   Future<MyServices> init() async {
-    
     WidgetsFlutterBinding.ensureInitialized();
 
     // Initialize GetStorage

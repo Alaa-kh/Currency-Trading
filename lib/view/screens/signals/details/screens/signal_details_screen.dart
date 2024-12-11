@@ -22,7 +22,8 @@ class SignalDetailsScreen extends StatelessWidget {
       required this.leverage,
       required this.currentPrice,
       required this.number,
-      required this.ratio, required this.index});
+      required this.ratio,
+      required this.index});
   final String type;
   final String currencyType;
   final String createdAt;
@@ -32,7 +33,7 @@ class SignalDetailsScreen extends StatelessWidget {
   final String currentPrice;
   final String number;
   final String ratio;
-final int index;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,24 +122,31 @@ final int index;
                                 const CustomVerticalSizedox(height: 10),
                                 TextField(
                                   textAlign: TextAlign.left,
-                                    textAlignVertical: TextAlignVertical.center,
-decoration: InputDecoration(
-  hintText: 'Your total amount',
-  
-  hintStyle: const TextStyle(color: Colors.white, fontSize: 14,fontWeight: FontWeight.w400),
-  suffixIcon: InkWell(onTap: () {
-    signalDetailsDialog();
-  },child: Image.asset(IconsAssets.editIcon)),
-  contentPadding: const EdgeInsets.symmetric(horizontal: 18),
-enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white.withOpacity(.1)))
- ),
- 
-                                    style:const TextStyle(
-                  fontWeight: FontWeight.w700,
-                  color:  Color(0xffF2B80C),
-                  fontSize: 17),
-                                  ),
-                               
+                                  textAlignVertical: TextAlignVertical.center,
+                                  decoration: InputDecoration(
+                                      hintText: 'Your total amount',
+                                      hintStyle: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400),
+                                      suffixIcon: InkWell(
+                                          onTap: () {
+                                            signalDetailsDialog();
+                                          },
+                                          child: Image.asset(
+                                              IconsAssets.editIcon)),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 18),
+                                      enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.white
+                                                  .withOpacity(.1)))),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      color: Color(0xffF2B80C),
+                                      fontSize: 17),
+                                ),
                                 const SignalDetailsTotalListWidget(
                                     title:
                                         'Our recommendation is to invest in this trade',

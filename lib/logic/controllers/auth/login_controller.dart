@@ -25,7 +25,6 @@ class LoginControllerImpl extends LoginController {
   /// Registers a new user with the provided details from the form.
   @override
   Future<void> loginUser() async {
-  
     if (!formKey.currentState!.validate()) return;
     showLoadingDialog();
     final result = await _repository.loginUser(
@@ -44,7 +43,6 @@ class LoginControllerImpl extends LoginController {
         true,
       );
     }
-
   }
 
   /// Stores user data after successful registration.

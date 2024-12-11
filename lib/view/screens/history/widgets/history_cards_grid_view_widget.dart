@@ -10,27 +10,33 @@ class HistoryCardsGridViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HistoryDetailsControllerImp>(
-                      builder: (controller) => SizedBox(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height,
-        child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisExtent: 120,
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 15),
-            itemCount:controller.historyDetailsModel!.data.length,
-            itemBuilder: (context, index) => Container(
-                decoration: BoxDecoration(
-                    border:
-                        Border.all(color: controller
-                                    .historyDetailsModel!.data[index].type == 'sell' || controller
-                                    .historyDetailsModel!.data[index].type == 'free' ? const Color(0xff3D992B)  : const Color(0xffFF0004) , width: 2),
-                    color: const Color(0xff383F76),
-                    borderRadius: BorderRadius.circular(16)),
-                child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child:  Column(
+        builder: (controller) => SizedBox(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height,
+            child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisExtent: 120,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 15),
+                itemCount: controller.historyDetailsModel!.data.length,
+                itemBuilder: (context, index) => Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: controller.historyDetailsModel!.data[index]
+                                            .type ==
+                                        'sell' ||
+                                    controller.historyDetailsModel!.data[index]
+                                            .type ==
+                                        'free'
+                                ? const Color(0xff3D992B)
+                                : const Color(0xffFF0004),
+                            width: 2),
+                        color: const Color(0xff383F76),
+                        borderRadius: BorderRadius.circular(16)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                      child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -40,13 +46,20 @@ class HistoryCardsGridViewWidget extends StatelessWidget {
                                       blurRadius: 20,
                                       color: Color.fromARGB(255, 156, 155, 155))
                                 ], borderRadius: BorderRadius.circular(11)),
-                                child: Text(controller
-                                    .historyDetailsModel!.data[index].type
-                                    .toString(),
-                                    style:  TextStyle(
-                                        color: controller
-                                    .historyDetailsModel!.data[index].type == 'buy'? const Color(0xff00A7FF) :controller
-                                    .historyDetailsModel!.data[index].type == 'sell'? const Color(0xffFF0004)  : const Color(0xff947FFF)  ,
+                                child: Text(
+                                    controller
+                                        .historyDetailsModel!.data[index].type
+                                        .toString(),
+                                    style: TextStyle(
+                                        color: controller.historyDetailsModel!
+                                                    .data[index].type ==
+                                                'buy'
+                                            ? const Color(0xff00A7FF)
+                                            : controller.historyDetailsModel!
+                                                        .data[index].type ==
+                                                    'sell'
+                                                ? const Color(0xffFF0004)
+                                                : const Color(0xff947FFF),
                                         fontWeight: FontWeight.w700,
                                         fontSize: 19))),
                             Text(
@@ -57,8 +70,9 @@ class HistoryCardsGridViewWidget extends StatelessWidget {
                                     color: Color(0xffA7A7A7), fontSize: 9)),
                             RichText(
                                 text: TextSpan(
-                                    text:
-                                        controller.historyDetailsModel!.data[index].leverage.toString(),
+                                    text: controller.historyDetailsModel!
+                                        .data[index].leverage
+                                        .toString(),
                                     style: const TextStyle(
                                         color: Color(0xff947FFF), fontSize: 12),
                                     children: <TextSpan>[

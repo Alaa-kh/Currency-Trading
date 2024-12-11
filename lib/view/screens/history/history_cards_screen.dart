@@ -10,9 +10,8 @@ import 'package:get/get.dart';
 class HistoryCardsScreen extends GetView<HistoryDetailsControllerImp> {
   const HistoryCardsScreen({
     super.key,
-    
   });
- 
+
   @override
   Widget build(BuildContext context) {
     Get.put(HistoryDetailsControllerImp());
@@ -33,7 +32,7 @@ class HistoryCardsScreen extends GetView<HistoryDetailsControllerImp> {
                 child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18.0),
                     child: GetBuilder<HistoryDetailsControllerImp>(
-                      builder:(_)=> Column(
+                      builder: (_) => Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const CustomVerticalSizedox(height: 10),
@@ -54,15 +53,16 @@ class HistoryCardsScreen extends GetView<HistoryDetailsControllerImp> {
                                         fontWeight: FontWeight.w700,
                                         fontSize: 17))),
                             const CustomVerticalSizedox(height: 40),
-                            Text(controller.historyDetailsModel!.data[0].currencyType,
+                            Text(
+                                controller
+                                    .historyDetailsModel!.data[0].currencyType,
                                 style: const TextStyle(
                                     color: Color(0xffF7F7F7),
                                     fontWeight: FontWeight.w700,
                                     fontSize: 22)),
                             const CustomVerticalSizedox(height: 20),
-                            const HistoryCardsGridViewWidget(
-                              
-                               ),      const CustomVerticalSizedox(height: 20),
+                            const HistoryCardsGridViewWidget(),
+                            const CustomVerticalSizedox(height: 20),
                           ]),
                     )))));
   }

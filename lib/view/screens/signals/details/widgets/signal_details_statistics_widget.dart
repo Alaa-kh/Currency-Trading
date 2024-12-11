@@ -12,7 +12,9 @@ final List<Color> progressColors = [
 
 class SignalDetailsStatisticsWidget extends StatelessWidget {
   const SignalDetailsStatisticsWidget({
-    super.key, required this.entry, required this.stop,
+    super.key,
+    required this.entry,
+    required this.stop,
   });
   final String entry;
   final String stop;

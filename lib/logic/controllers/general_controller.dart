@@ -27,13 +27,10 @@ class GeneralControllerImpl extends GeneralController {
     update();
   }
 
-
-  
-
   // @override
   // Future<void> openTelegram(String telegram) async {
-  //   final String telegramUrl = telegram; 
-  //   final String telegramWebUrl = telegram; 
+  //   final String telegramUrl = telegram;
+  //   final String telegramWebUrl = telegram;
 
   //   if (await canLaunchUrl(Uri.parse(telegramUrl))) {
   //     await launchUrl(Uri.parse(telegramUrl));
@@ -45,5 +42,4 @@ class GeneralControllerImpl extends GeneralController {
   //     }
   //   }
   // }
-
 }

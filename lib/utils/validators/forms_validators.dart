@@ -1,7 +1,6 @@
 import 'package:currency_trading/core/helper/check_forms.dart';
 import 'package:flutter/material.dart';
 
-
 //* Helper class for validating various form inputs such as name, email, password, and phone number.
 class FormsValidate {
   static String? _oldPassword = '';

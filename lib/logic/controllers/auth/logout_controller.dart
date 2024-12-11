@@ -19,118 +19,115 @@ class LogoutControllerImpl extends LogoutController {
   @override
   Future<void> logout() async {
     try {
-    Get.dialog(
-  AlertDialog(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
-    ),
-    surfaceTintColor: const Color(0xff263775),
-    backgroundColor: Colors.white,
-    contentPadding: EdgeInsets.zero,
-    content: Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Align(
-          alignment: Alignment.topRight,
-          child: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(
-              Icons.close,
-              color: Colors.black,
-            ),
+      Get.dialog(
+        AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
-        ),
-        const Padding(
-          padding:  EdgeInsets.only(bottom: 25, left: 16,right: 16),
-          child:  Text(
-            'Are You Sure Logout?',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 13,
-              color: Colors.black,
-              fontWeight: FontWeight.bold
-            ),
-          ),
-        ),
-      ],
-    ),
-    actionsAlignment: MainAxisAlignment.center,
-    actions: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            child: TextButton(
-              style: ButtonStyle(
-                padding: const MaterialStatePropertyAll(
-                  EdgeInsets.symmetric(vertical: 10),
+          surfaceTintColor: const Color(0xff263775),
+          backgroundColor: Colors.white,
+          contentPadding: EdgeInsets.zero,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: const Icon(
+                    Icons.close,
+                    color: Colors.black,
+                  ),
                 ),
-                shape: MaterialStatePropertyAll(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(24),
-                    side: const BorderSide(
-                      color: Color(0xff263775),
-                      width: 2,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 25, left: 16, right: 16),
+                child: Text(
+                  'Are You Sure Logout?',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+          actionsAlignment: MainAxisAlignment.center,
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      padding: const MaterialStatePropertyAll(
+                        EdgeInsets.symmetric(vertical: 10),
+                      ),
+                      shape: MaterialStatePropertyAll(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                          side: const BorderSide(
+                            color: Color(0xff263775),
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                    onPressed: () async {
+                      Get.back();
+                      showLoadingDialog();
+                      final result = await _repo.logout();
+                      Get.back();
+                      if (result is LogOutModel) {
+                        Get.deleteAll();
+                        _clearUserData();
+                        Get.off(() => const LoginScreen());
+                      } else if (result is Failures) {
+                        showTextDialog(
+                          result.errMessage,
+                          true,
+                        );
+                      }
+                    },
+                    child: Text(
+                      'ok'.tr,
+                      style: const TextStyle(fontSize: 19, color: Colors.black),
                     ),
                   ),
                 ),
-              ),
-              onPressed: () async {
-                Get.back();
-                showLoadingDialog();
-                final result = await _repo.logout();
-                Get.back();
-                if (result is LogOutModel) {
-                  Get.deleteAll();
-                  _clearUserData();
-                  Get.off(() => const LoginScreen());
-                } else if (result is Failures) {
-                  showTextDialog(
-                    result.errMessage,
-                    true,
-                  );
-                }
-              },
-              child: Text(
-                'ok'.tr,
-                style: const TextStyle(fontSize: 19, color: Colors.black),
-              ),
-            ),
-          ),
-          const SizedBox(width: 10), 
-          Expanded(
-            child: TextButton(
-              style: ButtonStyle(
-                padding: const MaterialStatePropertyAll(
-                  EdgeInsets.symmetric(vertical: 10),
-                ),
-                backgroundColor:
-                    MaterialStateProperty.all(const Color(0xff263775)),
-                shape: MaterialStatePropertyAll(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(24),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextButton(
+                    style: ButtonStyle(
+                      padding: const MaterialStatePropertyAll(
+                        EdgeInsets.symmetric(vertical: 10),
+                      ),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xff263775)),
+                      shape: MaterialStatePropertyAll(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text(
+                      'cancel'.tr,
+                      style: const TextStyle(color: Colors.white, fontSize: 19),
+                    ),
                   ),
                 ),
-              ),
-              onPressed: () {
-                Get.back();
-              },
-              child: Text(
-                'cancel'.tr,
-                style: const TextStyle(color: Colors.white, fontSize: 19),
-              ),
+              ],
             ),
-          ),
-        ],
-      ),
-    ],
-  ),
-);
-
-
+          ],
+        ),
+      );
     } catch (_) {}
   }
 

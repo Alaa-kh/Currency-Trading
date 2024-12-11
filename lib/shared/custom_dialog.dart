@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,9 +6,9 @@ void showTextDialog(String message, bool isError, [Function()? onTap]) {
   Get.dialog(
     AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-    surfaceTintColor: const Color(0xff263775),
+      surfaceTintColor: const Color(0xff263775),
       backgroundColor: Colors.white,
-        contentPadding: EdgeInsets.zero,
+      contentPadding: EdgeInsets.zero,
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -20,16 +19,16 @@ void showTextDialog(String message, bool isError, [Function()? onTap]) {
                 onPressed: () {
                   Get.back();
                 },
-                icon: 
-                  
-                const Icon(Icons.close)),
+                icon: const Icon(Icons.close)),
           ),
           Padding(
-padding:  const EdgeInsets.only(bottom: 25, left: 16,right: 16),            child: Text(
-              message,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.black, fontSize: 13, fontWeight: FontWeight.bold)
-            ),
+            padding: const EdgeInsets.only(bottom: 25, left: 16, right: 16),
+            child: Text(message,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold)),
           ),
         ],
       ),
@@ -39,8 +38,7 @@ padding:  const EdgeInsets.only(bottom: 25, left: 16,right: 16),            chil
           style: ButtonStyle(
             padding: const MaterialStatePropertyAll(
                 EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
-            backgroundColor:
-                const MaterialStatePropertyAll( Color(0xff263775)),
+            backgroundColor: const MaterialStatePropertyAll(Color(0xff263775)),
             shape: MaterialStatePropertyAll(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(24),
@@ -48,10 +46,8 @@ padding:  const EdgeInsets.only(bottom: 25, left: 16,right: 16),            chil
             ),
           ),
           onPressed: () => Get.back(),
-          child: Text(
-            'ok'.tr,
-            style: const TextStyle(color: Colors.white,fontSize: 19)
-          ),
+          child: Text('ok'.tr,
+              style: const TextStyle(color: Colors.white, fontSize: 19)),
         ),
       ],
     ),

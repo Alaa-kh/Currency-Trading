@@ -30,10 +30,10 @@ class AccessBoyScreen extends GetView<GeneralControllerImpl> {
             decoration: mainLinearGradient(),
             child: SingleChildScrollView(
                 child: GetBuilder<GeneralControllerImpl>(
-                  builder:(_)=> Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+              builder: (_) => Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
                     const CustomVerticalSizedox(height: 10),
                     Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 18.0),
@@ -55,7 +55,6 @@ class AccessBoyScreen extends GetView<GeneralControllerImpl> {
                                 fontWeight: FontWeight.w300,
                                 fontSize: 17))),
                     const CustomVerticalSizedox(height: 14),
-             
                     Image.asset(ImagesAssets.basicImage),
                     const CustomVerticalSizedox(height: 26),
                     Padding(
@@ -90,6 +89,6 @@ class AccessBoyScreen extends GetView<GeneralControllerImpl> {
                               const CustomVerticalSizedox(height: 20)
                             ]))
                   ]),
-                ))));
+            ))));
   }
 }

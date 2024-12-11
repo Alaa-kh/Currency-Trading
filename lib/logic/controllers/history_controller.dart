@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 abstract class HistoryController extends GetxController {
   Future<void> history();
-   void toHistoryDetails(String name);
+  void toHistoryDetails(String name);
 }
 
 class HistoryControllerImpl extends HistoryController {
@@ -29,7 +29,7 @@ class HistoryControllerImpl extends HistoryController {
     update();
   }
 
-@override
+  @override
   void toHistoryDetails(String name) {
     Get.to(() => const HistoryCardsScreen(), arguments: {'name': name});
   }

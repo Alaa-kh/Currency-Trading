@@ -3,6 +3,7 @@ import 'package:currency_trading/shared/custom_button_widget.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/view/screens/auth/forgot_password/forgot_password_screen.dart';
 import 'package:currency_trading/view/screens/auth/update_password/update_password_screen.dart';
+import 'package:currency_trading/view/screens/root/root_screen.dart';
 import 'package:currency_trading/view/widgets/auth_appbar_function.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class VerifyScreen extends StatelessWidget {
                 child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18.0),
                     child: GetBuilder<SendCodeControllerImpl>(
-                      builder:(controller)=> Column(
+                      builder: (controller) => Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -35,7 +36,7 @@ class VerifyScreen extends StatelessWidget {
                                         TextStyle(color: Color(0xffB7B7B7)))),
                             const CustomVerticalSizedox(height: 50),
                             Pinput(
-                              keyboardType : TextInputType.number,
+                              keyboardType: TextInputType.number,
                               separatorBuilder: (index) =>
                                   const SizedBox(width: 13),
                               length: 4,
@@ -58,15 +59,15 @@ class VerifyScreen extends StatelessWidget {
                             CustomButtonWidget(
                                 text: 'Verify',
                                 onTap: () => Get.off(
-                                    () => const UpdatePasswordScreen())),
+                                    () => const RootScreen())),
                             const CustomVerticalSizedox(height: 20),
                             GestureDetector(
-                                onTap: () => Get.to(
-                                    () => const ForgotPasswordScreen()),
+                                onTap: () =>
+                                    Get.to(() => const ForgotPasswordScreen()),
                                 child: RichText(
                                     text: const TextSpan(
-                                        style: TextStyle(
-                                            color: Color(0xffB7B7B7)),
+                                        style:
+                                            TextStyle(color: Color(0xffB7B7B7)),
                                         text: "Didn't receive a code? ",
                                         children: <TextSpan>[
                                       TextSpan(

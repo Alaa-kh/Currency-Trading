@@ -14,37 +14,37 @@ class UpdatePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          appBar: authAppBar(title: 'Update Password'),
-          body: Container(
-      height: double.maxFinite,
-      decoration: mainLinearGradient(),
-      child: SingleChildScrollView(
-          child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18.0),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text('Enter your new password',
-                            style: TextStyle(color: Color(0xffB7B7B7)))),
-                    const CustomVerticalSizedox(height: 50),
-                    const TitleTextFieldWidget(title: ' New Password '),
-                    const CustomVerticalSizedox(height: 10),
-                    CustomTextField(
-                        prefixIcon: Image.asset(IconsAssets.passwordIcon),
-                        suffixIcon: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SvgPicture.asset(IconsAssets.eyeIcon,
-                              width: 3,
-                              height: 3,
-                              color: const Color(0xff8e711c)),
-                        )),
-                    const CustomVerticalSizedox(height: 40),
-                    const CustomButtonWidget(text: 'Update Password'),
-                    const CustomVerticalSizedox(height: 20),
-                  ])))),
-        );
+      appBar: authAppBar(title: 'Update Password'),
+      body: Container(
+          height: double.maxFinite,
+          decoration: mainLinearGradient(),
+          child: SingleChildScrollView(
+              child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text('Enter your new password',
+                                style: TextStyle(color: Color(0xffB7B7B7)))),
+                        const CustomVerticalSizedox(height: 50),
+                        const TitleTextFieldWidget(title: 'New Password '),
+                        const CustomVerticalSizedox(height: 10),
+                        CustomTextField(
+                            prefixIcon: SvgPicture.asset(IconsAssets.passwordIcon),
+                            suffixIcon: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SvgPicture.asset(IconsAssets.eyeIcon,
+                                  width: 3,
+                                  height: 3,
+                                  color: const Color(0xff8e711c)),
+                            )),
+                        const CustomVerticalSizedox(height: 40),
+                        const CustomButtonWidget(text: 'Update Password'),
+                        const CustomVerticalSizedox(height: 20),
+                      ])))),
+    );
   }
 }
