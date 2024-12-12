@@ -42,83 +42,85 @@ class _SignalsScreenState extends State<SignalsScreen> {
         body: Container(
             height: double.maxFinite,
             decoration: mainLinearGradient(),
-            child: SingleChildScrollView(
-                child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child: GetBuilder<SignalsControllerImpl>(
-                        builder: (controller) => Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const CustomVerticalSizedox(height: 10),
-                                  const Text('Hassan Mhd',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19,
-                                          fontWeight: FontWeight.w700)),
-                                  Container(
-                                      height: 30,
-                                      decoration: BoxDecoration(
-                                          boxShadow: const [
-                                            BoxShadow(
-                                                blurRadius: 20,
-                                                color: Color.fromARGB(
-                                                    255, 156, 155, 155))
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(11)),
-                                      child: Text(
-                                          controller.signalsModel != null
-                                              ? controller
-                                                  .signalsModel!.data[0].account
-                                                  .toString()
-                                              : '',
-                                          style: const TextStyle(
-                                              color: Color(0xffF2B80C),
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 17))),
-                                  const CustomVerticalSizedox(height: 20),
-                                  controller.signalsSliderModel != null
-                                      ? CarouselSlider(
-                                          items: [
-                                            SignalsContainerSliderBoxWidget(
-                                              image: controller
-                                                  .signalsSliderModel!
-                                                  .data[_currentIndexNotifier
-                                                      .value]
-                                                  .image,
-                                            ),
-                                          ],
-                                          options: CarouselOptions(
-                                            onPageChanged: (index, reason) {
-                                              _currentIndexNotifier.value =
-                                                  index;
-                                            },
-                                            height: 180,
-                                            initialPage: 0,
-                                            enlargeCenterPage: true,
-                                            autoPlay: true,
+            child: GetBuilder<SignalsControllerImpl>(
+              builder: (controller) => controller.signalsSliderModel != null
+                  ? SingleChildScrollView(
+                      child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const CustomVerticalSizedox(height: 10),
+                                const Text('Hassan Mhd',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w700)),
+                                Container(
+                                    height: 30,
+                                    decoration: BoxDecoration(boxShadow: const [
+                                      BoxShadow(
+                                          blurRadius: 20,
+                                          color: Color.fromARGB(
+                                              255, 156, 155, 155))
+                                    ], borderRadius: BorderRadius.circular(11)),
+                                    child: Text(
+                                        controller.signalsModel != null
+                                            ? controller
+                                                .signalsModel!.data[0].account
+                                                .toString()
+                                            : '',
+                                        style: const TextStyle(
+                                            color: Color(0xffF2B80C),
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 17))),
+                                const CustomVerticalSizedox(height: 20),
+                                controller.signalsSliderModel != null
+                                    ? CarouselSlider(
+                                        items: [
+                                          SignalsContainerSliderBoxWidget(
+                                            image: controller
+                                                .signalsSliderModel!
+                                                .data[
+                                                    _currentIndexNotifier.value]
+                                                .image,
                                           ),
-                                        )
-                                      : const SizedBox.shrink(),
-                                  const CustomVerticalSizedox(height: 10),
-                                  ValueListenableBuilder<int>(
-                                      valueListenable: _currentIndexNotifier,
-                                      builder: (context, currentIndex, child) {
-                                        return Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: List.generate(
-                                                3,
-                                                (index) =>
-                                                    SignalsUnderSliderContainerWidget(
-                                                        index: index,
-                                                        currentIndex:
-                                                            currentIndex)));
-                                      }),
-                                  const CustomVerticalSizedox(height: 20),
-                                  const SignalsCardsWidget(),
-                                  const CustomVerticalSizedox(height: 20)
-                                ]))))));
+                                        ],
+                                        options: CarouselOptions(
+                                          onPageChanged: (index, reason) {
+                                            _currentIndexNotifier.value = index;
+                                          },
+                                          height: 180,
+                                          initialPage: 0,
+                                          enlargeCenterPage: true,
+                                          autoPlay: true,
+                                        ),
+                                      )
+                                    : const SizedBox.shrink(),
+                                const CustomVerticalSizedox(height: 10),
+                                ValueListenableBuilder<int>(
+                                    valueListenable: _currentIndexNotifier,
+                                    builder: (context, currentIndex, child) {
+                                      return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: List.generate(
+                                              3,
+                                              (index) =>
+                                                  SignalsUnderSliderContainerWidget(
+                                                      index: index,
+                                                      currentIndex:
+                                                          currentIndex)));
+                                    }),
+                                const CustomVerticalSizedox(height: 20),
+                                const SignalsCardsWidget(),
+                                const CustomVerticalSizedox(height: 20)
+                              ])))
+                  : Center(
+                      child: const CircularProgressIndicator(
+                      color: Color(0xffF2B80C),
+                    )),
+            )));
   }
 }

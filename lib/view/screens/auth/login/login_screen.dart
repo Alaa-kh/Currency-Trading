@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const CustomVerticalSizedox(height: 30),
+                              const CustomVerticalSizedox(height: 60),
                               Image.asset(ImagesAssets.logoImage),
                               const Text('Welcome back!',
                                   style: TextStyle(

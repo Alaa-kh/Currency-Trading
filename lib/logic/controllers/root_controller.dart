@@ -6,7 +6,7 @@ import 'package:currency_trading/view/screens/signals/signals_screen.dart';
 import 'package:get/get.dart';
 
 class RootController extends GetxController {
-  int currentIndex = 0;
+  int currentIndex = 3;
   void seletedPage(int index) {
     currentIndex = index;
     update();
