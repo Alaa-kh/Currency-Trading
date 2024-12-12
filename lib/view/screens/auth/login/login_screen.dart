@@ -77,8 +77,8 @@ class LoginScreen extends StatelessWidget {
                                             controller.isPasswordVisible
                                                 ? IconsAssets.eyeIcon
                                                 : IconsAssets.eye1Icon,
-                                            width: 17,
-                                            height: 17,
+                                            width: 19,
+                                            height: 19,
                                             color: const Color(0xff8e711c)),
                                       ))),
                               const CustomVerticalSizedox(height: 5),

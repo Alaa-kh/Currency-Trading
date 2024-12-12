@@ -27,6 +27,7 @@ class SignalsContainerSliderBoxWidget extends StatelessWidget {
             progressIndicatorBuilder: (context, url, downloadProgress) =>
                 Center(
               child: CircularProgressIndicator(
+                backgroundColor: const Color(0xff454545),
                 color: const Color(0xfff2b80d),
                 value: downloadProgress.progress,
               ),

@@ -49,7 +49,7 @@ class LogoutControllerImpl extends LogoutController {
                   'Are You Sure Logout?',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 16,
                       color: Colors.black,
                       fontWeight: FontWeight.bold),
                 ),
@@ -64,12 +64,12 @@ class LogoutControllerImpl extends LogoutController {
                 Expanded(
                   child: TextButton(
                     style: ButtonStyle(
-                      padding: const MaterialStatePropertyAll(
+                      padding: const WidgetStatePropertyAll(
                         EdgeInsets.symmetric(vertical: 10),
                       ),
-                      shape: MaterialStatePropertyAll(
+                      shape: WidgetStatePropertyAll(
                         RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24),
+                          borderRadius: BorderRadius.circular(6),
                           side: const BorderSide(
                             color: Color(0xff263775),
                             width: 2,
@@ -103,14 +103,14 @@ class LogoutControllerImpl extends LogoutController {
                 Expanded(
                   child: TextButton(
                     style: ButtonStyle(
-                      padding: const MaterialStatePropertyAll(
+                      padding: const WidgetStatePropertyAll(
                         EdgeInsets.symmetric(vertical: 10),
                       ),
                       backgroundColor:
-                          MaterialStateProperty.all(const Color(0xff263775)),
-                      shape: MaterialStatePropertyAll(
+                          WidgetStateProperty.all(const Color(0xff263775)),
+                      shape: WidgetStatePropertyAll(
                         RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24),
+                          borderRadius: BorderRadius.circular(6),
                         ),
                       ),
                     ),

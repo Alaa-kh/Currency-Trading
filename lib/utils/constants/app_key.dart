@@ -1,5 +1,3 @@
-//* This class contains constant keys used for storing and accessing various
-//* data fields in the application, such as user information, tokens, and settings.
 class AppKey {
   static const String email = 'email';
   static const String token = 'token';
@@ -10,4 +8,10 @@ class AppKey {
   static const String verify = 'verify';
   static const String photo = 'photo';
   static const String lang = 'lang';
+  static const String type = 'type';
+  static const String country = 'country';
+  static const String inviteCode = 'inviteCode';
+  static const String inviteLink = 'inviteLink';
+  static const String money = 'money';
+  static const String wallet = 'wallet';
 }

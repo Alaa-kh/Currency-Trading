@@ -18,11 +18,13 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: const Color(0xffF2B80C),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       obscureText: obscureText ?? false,
       validator: validator != null ? (value) => validator!(value!) : null,
       controller: controller,
       decoration: InputDecoration(
+        
           hintText: hintText,
           contentPadding: const EdgeInsets.symmetric(vertical: 14.0),
           border: OutlineInputBorder(

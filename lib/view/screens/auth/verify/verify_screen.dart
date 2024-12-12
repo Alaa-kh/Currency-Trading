@@ -2,8 +2,6 @@ import 'package:currency_trading/logic/controllers/auth/send_code_controller.dar
 import 'package:currency_trading/shared/custom_button_widget.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/view/screens/auth/forgot_password/forgot_password_screen.dart';
-import 'package:currency_trading/view/screens/auth/update_password/update_password_screen.dart';
-import 'package:currency_trading/view/screens/root/root_screen.dart';
 import 'package:currency_trading/view/widgets/auth_appbar_function.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:flutter/material.dart';
@@ -58,13 +56,11 @@ class VerifyScreen extends StatelessWidget {
                             const CustomVerticalSizedox(height: 40),
                             CustomButtonWidget(
                               text: 'Verify',
-                              // onTap: () => Get.off(
-                              //     () => const RootScreen())
+                              // onTap: () => controller.verifyCode()
                             ),
                             const CustomVerticalSizedox(height: 20),
                             GestureDetector(
-                                onTap: () =>
-                                    Get.to(() => const ForgotPasswordScreen()),
+                                onTap: () => controller.sendCode(),
                                 child: RichText(
                                     text: const TextSpan(
                                         style:

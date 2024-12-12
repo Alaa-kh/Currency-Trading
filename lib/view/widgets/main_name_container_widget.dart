@@ -11,6 +11,7 @@ class MainNameContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final box = Get.find<MyServices>().getBox;
     final name = box.read(AppKey.name);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,7 +25,7 @@ class MainNameContainerWidget extends StatelessWidget {
               BoxShadow(
                   blurRadius: 20, color: Color.fromARGB(255, 156, 155, 155))
             ], borderRadius: BorderRadius.circular(11)),
-            child: Text('Ultimate',
+            child: Text('ultimate',
                 style: const TextStyle(
                     color: Color(0xffF2B80C),
                     fontWeight: FontWeight.w700,

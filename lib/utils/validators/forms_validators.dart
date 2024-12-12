@@ -42,7 +42,7 @@ class FormsValidate {
     }
 
     if (password.length < 8) {
-      return 'password Invalid';
+      return 'Password Invalid';
     }
 
     if (isFillOldPassword != null && isFillOldPassword) {

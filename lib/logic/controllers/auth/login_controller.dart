@@ -22,7 +22,6 @@ class LoginControllerImpl extends LoginController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  /// Registers a new user with the provided details from the form.
   @override
   Future<void> loginUser() async {
     if (!formKey.currentState!.validate()) return;
@@ -36,7 +35,7 @@ class LoginControllerImpl extends LoginController {
     if (result is LoginModel) {
       _storeUserData(result);
 
-      await Get.off(() => RootScreen());
+      await Get.off(() => const RootScreen());
     } else if (result is Failures) {
       showTextDialog(
         result.errMessage,
@@ -45,14 +44,18 @@ class LoginControllerImpl extends LoginController {
     }
   }
 
-  /// Stores user data after successful registration.
   void _storeUserData(LoginModel registeredUser) {
     _box.write(AppKey.email, registeredUser.data.email);
     _box.write(AppKey.token, registeredUser.data.token);
-
-    // if (registeredUser.user!.verificationCode == null) {
-    //   _box.write(AppKey.verify, 'true');
-    // }
+    _box.write(AppKey.name, registeredUser.data.name);
+    _box.write(AppKey.id, registeredUser.data.id);
+    _box.write(AppKey.type, registeredUser.data.type);
+    _box.write(AppKey.country, registeredUser.data.country);
+    _box.write(AppKey.inviteCode, registeredUser.data.inviteCode);
+    _box.write(AppKey.birthday, registeredUser.data.birthday);
+    _box.write(AppKey.inviteLink, registeredUser.data.inviteLink);
+    _box.write(AppKey.money, registeredUser.data.money);
+    _box.write(AppKey.wallet, registeredUser.data.wallet);
   }
 
   bool isPasswordVisible = false;

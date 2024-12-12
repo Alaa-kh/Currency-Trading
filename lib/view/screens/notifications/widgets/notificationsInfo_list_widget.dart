@@ -1,6 +1,7 @@
 import 'package:currency_trading/logic/controllers/notifications_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
+import 'package:currency_trading/view/widgets/main_circular_progress_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +20,7 @@ class _NotificationsInfoListWidgetState
   @override
   void initState() {
     super.initState();
-  
+
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
@@ -54,7 +55,7 @@ class _NotificationsInfoListWidgetState
             return const Center(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
-                child: CircularProgressIndicator(),
+                child: MainCircularProgresswidget(),
               ),
             );
           }

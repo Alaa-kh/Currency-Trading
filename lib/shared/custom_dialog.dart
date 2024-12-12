@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-/// Shows an error dialog with the given message.
 void showTextDialog(String message, bool isError, [Function()? onTap]) {
   Get.dialog(
     AlertDialog(
@@ -27,7 +26,7 @@ void showTextDialog(String message, bool isError, [Function()? onTap]) {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 13,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold)),
           ),
         ],
@@ -36,12 +35,12 @@ void showTextDialog(String message, bool isError, [Function()? onTap]) {
       actions: [
         TextButton(
           style: ButtonStyle(
-            padding: const MaterialStatePropertyAll(
+            padding: const WidgetStatePropertyAll(
                 EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
-            backgroundColor: const MaterialStatePropertyAll(Color(0xff263775)),
-            shape: MaterialStatePropertyAll(
+            backgroundColor: const WidgetStatePropertyAll(Color(0xff263775)),
+            shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(24),
+                borderRadius: BorderRadius.circular(6),
               ),
             ),
           ),

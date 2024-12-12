@@ -4,6 +4,7 @@ import 'package:currency_trading/view/screens/history/widgets/history_cards_grid
 import 'package:currency_trading/view/widgets/drawer_widget.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
+import 'package:currency_trading/view/widgets/main_circular_progress_widget.dart';
 import 'package:currency_trading/view/widgets/main_name_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,10 +53,7 @@ class HistoryCardsScreen extends GetView<HistoryDetailsControllerImp> {
                                   const HistoryCardsGridViewWidget(),
                                   const CustomVerticalSizedox(height: 20),
                                 ])))
-                    : const Center(
-                        child: CircularProgressIndicator(
-                        color: Color(0xffF2B80C),
-                      )),
+                    : const MainCircularProgresswidget(),
               )),
     );
   }

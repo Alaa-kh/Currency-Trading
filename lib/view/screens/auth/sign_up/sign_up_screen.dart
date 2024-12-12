@@ -60,7 +60,7 @@ class SignUpScreen extends StatelessWidget {
                               const TitleTextFieldWidget(title: 'Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
-                                  obscureText: controller.isPasswordVisible,
+                                  obscureText: !controller.isPasswordVisible,
                                   controller: controller.passwordController,
                                   validator: (password) =>
                                       FormsValidate.getPasswordValidate(
@@ -75,8 +75,8 @@ class SignUpScreen extends StatelessWidget {
                                             controller.isPasswordVisible
                                                 ? IconsAssets.eyeIcon
                                                 : IconsAssets.eye1Icon,
-                                            width: 17,
-                                            height: 17,
+                                            width: 19,
+                                            height: 19,
                                             color: const Color(0xff8e711c)),
                                       )),
                                   prefixIcon: SvgPicture.asset(
@@ -87,7 +87,8 @@ class SignUpScreen extends StatelessWidget {
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
                                   obscureText:
-                                      controller.isPasswordConfirmationVisible,
+                                      
+                                      !controller.isPasswordConfirmationVisible,
                                   validator: (confirmPassword) =>
                                       FormsValidate.getConfPasswordValidate(
                                           context, confirmPassword),
@@ -110,13 +111,25 @@ class SignUpScreen extends StatelessWidget {
                                             color: const Color(0xff8e711c)),
                                       ))),
                               const CustomVerticalSizedox(height: 20),
-                              const TitleTextFieldWidget(
-                                  title: 'Invitation Code '),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: RichText(
+                                    text: const TextSpan(
+                                        text: 'Invitation Code',
+                                        style: TextStyle(color: Colors.white),
+                                        children: <TextSpan>[
+                                      TextSpan(
+                                          text: '  (optional)',
+                                          style: TextStyle(
+                                              color: Color(0xff666666)))
+                                    ])),
+                              ),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
                                   controller: controller.inviteCodeController,
                                   prefixIcon: SvgPicture.asset(
                                       IconsAssets.invitationCodeIcon)),
+                              const CustomVerticalSizedox(height: 6),
                               Row(children: [
                                 Checkbox(
                                   side: const BorderSide(
@@ -159,7 +172,7 @@ class SignUpScreen extends StatelessWidget {
                               const CustomVerticalSizedox(height: 20),
                               GestureDetector(
                                   onTap: () =>
-                                      Get.to(() => const LoginScreen()),
+                                      Get.off(() => const LoginScreen()),
                                   child: RichText(
                                       text: const TextSpan(
                                           style: TextStyle(
