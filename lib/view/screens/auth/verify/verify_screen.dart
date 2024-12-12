@@ -57,9 +57,10 @@ class VerifyScreen extends StatelessWidget {
                             ),
                             const CustomVerticalSizedox(height: 40),
                             CustomButtonWidget(
-                                text: 'Verify',
-                                onTap: () => Get.off(
-                                    () => const RootScreen())),
+                              text: 'Verify',
+                              // onTap: () => Get.off(
+                              //     () => const RootScreen())
+                            ),
                             const CustomVerticalSizedox(height: 20),
                             GestureDetector(
                                 onTap: () =>

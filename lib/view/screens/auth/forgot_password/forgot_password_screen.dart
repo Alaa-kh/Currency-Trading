@@ -33,7 +33,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                         const TitleTextFieldWidget(title: 'Email '),
                         const CustomVerticalSizedox(height: 10),
                         CustomTextField(
-                            prefixIcon: SvgPicture.asset(IconsAssets.emailIcon)),
+                            prefixIcon:
+                                SvgPicture.asset(IconsAssets.emailIcon)),
                         const CustomVerticalSizedox(height: 30),
                         CustomButtonWidget(
                             text: 'Send Code',

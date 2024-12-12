@@ -6,38 +6,34 @@ import 'package:get/get.dart';
 class SignalsContainerSliderBoxWidget extends StatelessWidget {
   const SignalsContainerSliderBoxWidget({super.key, required this.image});
   final String image;
+
   @override
   Widget build(BuildContext context) {
     Get.put(SignalsControllerImpl());
     return GetBuilder<SignalsControllerImpl>(
       builder: (controller) => Container(
-          width: double.infinity,
-          height: 200.0,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Stack(children: [
-                CachedNetworkImage(
-                  fit: BoxFit.contain,
-                  width: double.infinity,
-                  imageUrl: 'https://crypto-signals-ultimate.com/$image',
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      CircularProgressIndicator(
-                          value: downloadProgress.progress),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
-                ),
-                // const Positioned(
-                //     bottom: 1,
-                //     child: Padding(
-                //         padding: EdgeInsets.all(18.0),
-                //         child: Text(
-                //             'Lorem Ipsum is simply dummy text of\n the printing and typesetting industry.',
-                //             style: TextStyle(
-                //                 color: Colors.white,
-                //                 fontSize: 12,
-                //                 fontWeight: FontWeight.bold),
-                //             textAlign: TextAlign.left)))
-              ]))),
+        width: double.infinity,
+        height: 200,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.grey[200],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20), 
+          child: CachedNetworkImage(
+            fit: BoxFit.cover, 
+            width: double.infinity,
+            imageUrl: 'https://crypto-signals-ultimate.com/$image',
+            progressIndicatorBuilder: (context, url, downloadProgress) => Center(
+              child: CircularProgressIndicator(
+                color: const Color(0xfff2b80d),
+                value: downloadProgress.progress,
+              ),
+            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          ),
+        ),
+      ),
     );
   }
 }

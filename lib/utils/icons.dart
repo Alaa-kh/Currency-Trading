@@ -3,7 +3,8 @@ class IconsAssets {
   static const String emailIcon = 'assets/icons/8-Email.svg';
   static const String passwordIcon = 'assets/icons/Design Convert.svg';
   static const String invitationCodeIcon = 'assets/icons/Invitation Code.svg';
-  static const String eyeIcon = 'assets/icons/9025476_eye_slash_icon 1.svg';
+  static const String eyeIcon = 'assets/icons/9025476_eye_slash_icon.svg';
+  static const String eye1Icon = 'assets/icons/9110850_eye_icon.svg';
 
   static const String accessIcon = 'assets/icons/Access.png';
   static const String historyIcon = 'assets/icons/History.png';
@@ -61,4 +62,5 @@ class IconsAssets {
   static const String loseTradesIcon = 'assets/icons/Lose Trades.png';
   static const String winTradesIcon = 'assets/icons/Win Trades.png';
   static const String avgProfitIcon = 'assets/icons/Avg.Profit.png';
+  static const String logOutIcon = 'assets/icons/Log out.png';
 }

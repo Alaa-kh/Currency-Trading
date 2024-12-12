@@ -19,7 +19,8 @@ class NotificationsModel {
 
   factory NotificationsModel.fromJson(Map<String, dynamic> json) =>
       NotificationsModel(
-        data: List<NotificationData>.from(json["data"].map((x) => NotificationData.fromJson(x))),
+        data: List<NotificationData>.from(
+            json["data"].map((x) => NotificationData.fromJson(x))),
         links: Links.fromJson(json["links"]),
         meta: Meta.fromJson(json["meta"]),
       );
@@ -42,7 +43,8 @@ class NotificationData {
     required this.createdAt,
   });
 
-  factory NotificationData.fromJson(Map<String, dynamic> json) => NotificationData(
+  factory NotificationData.fromJson(Map<String, dynamic> json) =>
+      NotificationData(
         title: json["title"],
         txt: json["txt"],
         createdAt: DateTime.parse(json["created_at"]),

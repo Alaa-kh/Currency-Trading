@@ -13,20 +13,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:svg_flutter/svg.dart';
 
-class SignUpScreen extends StatefulWidget {
+class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
-  @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
-}
-
-class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(RegisterControllerImpl());
 
     return Scaffold(
-        // appBar: authAppBar(),
+        appBar: authAppBar(),
         body: Container(
             height: double.maxFinite,
             decoration: mainLinearGradient(),
@@ -65,18 +60,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               const TitleTextFieldWidget(title: 'Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
+                                  obscureText: !controller.isPasswordVisible,
                                   controller: controller.passwordController,
                                   validator: (password) =>
                                       FormsValidate.getPasswordValidate(
                                           context, password,
                                           isFillOldPassword: true),
-                                  suffixIcon: Padding(
+                                     suffixIcon: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: SvgPicture.asset(
-                                          IconsAssets.eyeIcon,
-                                          width: 3,
-                                          height: 3,
-                                          color: const Color(0xff8e711c))),
+                                      child: InkWell(
+                                        onTap: () => controller
+                                            .togglePasswordVisibility(),
+                                        child: SvgPicture.asset(
+                                            controller.isPasswordVisible
+                                                ? IconsAssets.eyeIcon
+                                                : IconsAssets.eye1Icon,
+                                            width: 17,
+                                            height: 17,
+                                            color: const Color(0xff8e711c)),
+                                      )),
                                   prefixIcon: SvgPicture.asset(
                                       IconsAssets.passwordIcon)),
                               const CustomVerticalSizedox(height: 20),
@@ -84,6 +86,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   title: 'Confirm Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
+                                obscureText: controller.isPasswordConfirmationVisible,
                                   validator: (confirmPassword) =>
                                       FormsValidate.getConfPasswordValidate(
                                           context, confirmPassword),
@@ -91,13 +94,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       controller.passwordConfirmationController,
                                   prefixIcon: SvgPicture.asset(
                                       IconsAssets.passwordIcon),
-                                  suffixIcon: Padding(
+                                     suffixIcon: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: SvgPicture.asset(
-                                          IconsAssets.eyeIcon,
-                                          width: 3,
-                                          height: 3,
-                                          color: const Color(0xff8e711c)))),
+                                      child: InkWell(
+                                        onTap: () => controller
+                                            .togglePasswordConfirmationVisibility(),
+                                        child: SvgPicture.asset(
+                                            controller.isPasswordConfirmationVisible
+                                                ? IconsAssets.eyeIcon
+                                                : IconsAssets.eye1Icon,
+                                            width: 17,
+                                            height: 17,
+                                            color: const Color(0xff8e711c)),
+                                      ))),
                               const CustomVerticalSizedox(height: 20),
                               const TitleTextFieldWidget(
                                   title: 'Invitation Code '),

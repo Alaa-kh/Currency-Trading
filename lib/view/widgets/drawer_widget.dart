@@ -2,6 +2,7 @@ import 'package:currency_trading/logic/controllers/auth/logout_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
 import 'package:currency_trading/utils/images.dart';
+import 'package:currency_trading/view/screens/auth/login/login_screen.dart';
 import 'package:currency_trading/view/screens/notifications/notifications_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,14 +36,19 @@ class DrawerWidget extends StatelessWidget {
                   child: ListView.builder(
                       itemExtent: 40,
                       itemBuilder: (context, index) => ListTile(
-                          onTap: () => Get.to(const NotificationsScreen()),
-                          leading: GestureDetector(
-                            onTap: () {
-                              if (index == 0) controller.logout();
-                            },
-                            child: Image.asset(signalsDrawerModel[index].icon,
-                                width: 28),
-                          ),
+                          onTap: () {
+                            signalsDrawerModel[index].text == 'Login'
+                                ? Get.off(() => const LoginScreen())
+                                : signalsDrawerModel[index].text ==
+                                        'Notifications'
+                                    ? Get.to(() => const NotificationsScreen())
+                                    : signalsDrawerModel[index].text ==
+                                            'Log out'
+                                        ? controller.logout()
+                                        : () {};
+                          },
+                          leading: Image.asset(signalsDrawerModel[index].icon,
+                              width: 28),
                           title: Text(signalsDrawerModel[index].text,
                               style: const TextStyle(
                                   color: Colors.white, fontSize: 14))),
@@ -79,4 +85,5 @@ List<SignalsDrawerModel> signalsDrawerModel = [
   SignalsDrawerModel(
       text: 'Privacy Policy', icon: IconsAssets.privacyPolicyIcon),
   SignalsDrawerModel(text: 'Terms Of Use', icon: IconsAssets.termsIcon),
+  SignalsDrawerModel(text: 'Log out', icon: IconsAssets.logOutIcon),
 ];

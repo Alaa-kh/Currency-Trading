@@ -9,7 +9,7 @@ abstract class NotificationsController extends GetxController {
 class NotificationsControllerImpl extends NotificationsController {
   final NotificationsRepositoryImpl _repository = NotificationsRepositoryImpl();
   NotificationsModel? notificationsModel;
- List<NotificationData> notificationItems = [];
+  List<NotificationData> notificationItems = [];
 
   int page = 1;
   bool isLoadingMore = false;
@@ -23,10 +23,10 @@ class NotificationsControllerImpl extends NotificationsController {
   @override
   Future<void> notifications() async {
     print('asdasd');
-    if(!hasMoreNotifi){
-     return;   
+    if (!hasMoreNotifi) {
+      return;
     }
-    if(notificationItems.isNotEmpty){
+    if (notificationItems.isNotEmpty) {
       isLoadingMore = true;
     }
     update();
@@ -34,15 +34,14 @@ class NotificationsControllerImpl extends NotificationsController {
     if (result is NotificationsModel) {
       notificationsModel = result;
       notificationItems.addAll(result.data);
-      if(notificationItems.length < notificationsModel!.meta.total){
-        page +=1 ;
-
-      }else{
+      if (notificationItems.length < notificationsModel!.meta.total) {
+        page += 1;
+      } else {
         hasMoreNotifi = false;
       }
       print('======================succcus notifications');
       // print('-------------------------- ${notificationsModel.length}');
-    } 
+    }
     // else {
     //   await notifications();
     // }

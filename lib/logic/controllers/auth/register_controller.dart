@@ -45,12 +45,10 @@ class RegisterControllerImpl extends RegisterController {
       );
       if (resultCheckEmail is CheckEmailModel) {
         if (resultCheckEmail.found == 1) {
-         Get.back();
+          Get.back();
           Get.snackbar('Error', 'Email is already exists',
               backgroundColor: Colors.red);
-        
         } else {
-           
           print('1111111111111111111');
           final resultRegidter = await _repository.registerUser(
             name: nameController.text.trim(),
@@ -67,26 +65,21 @@ class RegisterControllerImpl extends RegisterController {
             print('333333333333333333333333333333');
 
             if (resultSendCode is SendCodeModel) {
-      Get.back();
+              Get.back();
 
               Get.off(() => const VerifyScreen());
               _storeUserData(resultRegidter);
-            }else{
-      Get.back();
-
+            } else {
+              Get.back();
             }
             print('333333333333333333333333333333');
           } else {
-      Get.back();
-            
+            Get.back();
           }
         }
-      }else{
-      Get.back();
-
+      } else {
+        Get.back();
       }
-
-      
     } catch (_) {}
   }
 

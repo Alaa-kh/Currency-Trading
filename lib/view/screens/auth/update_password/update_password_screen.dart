@@ -33,7 +33,8 @@ class UpdatePasswordScreen extends StatelessWidget {
                         const TitleTextFieldWidget(title: 'New Password '),
                         const CustomVerticalSizedox(height: 10),
                         CustomTextField(
-                            prefixIcon: SvgPicture.asset(IconsAssets.passwordIcon),
+                            prefixIcon:
+                                SvgPicture.asset(IconsAssets.passwordIcon),
                             suffixIcon: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: SvgPicture.asset(IconsAssets.eyeIcon,

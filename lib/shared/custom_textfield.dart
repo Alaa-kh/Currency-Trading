@@ -19,7 +19,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      obscureText: obscureText != null ? true : false,
+      obscureText: obscureText ??true,
       validator: validator != null ? (value) => validator!(value!) : null,
       controller: controller,
       decoration: InputDecoration(

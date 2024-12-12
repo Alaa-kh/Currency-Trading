@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-AppBar authAppBar({String? title}) {
+AppBar authAppBar({String title = ''}) {
   return AppBar(
-      title: Text(title!,
+      title: Text(title,
           style: const TextStyle(
               fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white)),
       leading: IconButton(

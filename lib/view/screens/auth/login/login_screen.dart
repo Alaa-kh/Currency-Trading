@@ -60,7 +60,8 @@ class LoginScreen extends StatelessWidget {
                               const TitleTextFieldWidget(title: 'Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
-                                  // obscureText: controller.isPasswordVisible,
+                                  obscureText: !controller.isPasswordVisible
+                                 ,
                                   controller: controller.passwordController,
                                   validator: (password) =>
                                       FormsValidate.getPasswordValidate(
@@ -70,11 +71,17 @@ class LoginScreen extends StatelessWidget {
                                       IconsAssets.passwordIcon),
                                   suffixIcon: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: SvgPicture.asset(
-                                          IconsAssets.eyeIcon,
-                                          width: 3,
-                                          height: 3,
-                                          color: const Color(0xff8e711c)))),
+                                      child: InkWell(
+                                        onTap: () => controller
+                                            .togglePasswordVisibility(),
+                                        child: SvgPicture.asset(
+                                            controller.isPasswordVisible
+                                                ? IconsAssets.eyeIcon
+                                                : IconsAssets.eye1Icon,
+                                            width: 17,
+                                            height: 17,
+                                            color: const Color(0xff8e711c)),
+                                      ))),
                               const CustomVerticalSizedox(height: 5),
                               Align(
                                 alignment: Alignment.centerRight,

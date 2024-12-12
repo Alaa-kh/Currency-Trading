@@ -65,12 +65,7 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                           color: Color.fromARGB(
                                               255, 156, 155, 155))
                                     ], borderRadius: BorderRadius.circular(11)),
-                                    child: Text(
-                                        controller.signalsModel != null
-                                            ? controller
-                                                .signalsModel!.data[0].account
-                                                .toString()
-                                            : '',
+                                    child: Text('Ultimate',
                                         style: const TextStyle(
                                             color: Color(0xffF2B80C),
                                             fontWeight: FontWeight.w700,
@@ -92,6 +87,7 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                             _currentIndexNotifier.value = index;
                                           },
                                           height: 180,
+                                          
                                           initialPage: 0,
                                           enlargeCenterPage: true,
                                           autoPlay: true,
@@ -111,7 +107,7 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                                   SignalsUnderSliderContainerWidget(
                                                       index: index,
                                                       currentIndex:
-                                                          currentIndex)));
+                                                               currentIndex )));
                                     }),
                                 const CustomVerticalSizedox(height: 20),
                                 const SignalsCardsWidget(),

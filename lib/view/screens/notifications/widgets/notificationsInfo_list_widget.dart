@@ -3,14 +3,17 @@ import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class NotificationsInfoListWidget extends StatefulWidget {
   const NotificationsInfoListWidget({super.key});
 
   @override
-  State<NotificationsInfoListWidget> createState() => _NotificationsInfoListWidgetState();
+  State<NotificationsInfoListWidget> createState() =>
+      _NotificationsInfoListWidgetState();
 }
 
-class _NotificationsInfoListWidgetState extends State<NotificationsInfoListWidget> {
+class _NotificationsInfoListWidgetState
+    extends State<NotificationsInfoListWidget> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -18,7 +21,8 @@ class _NotificationsInfoListWidgetState extends State<NotificationsInfoListWidge
     super.initState();
     // إضافة مستمع للـ ScrollController
     _scrollController.addListener(() {
-      if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
         print('max');
         final controller = Get.find<NotificationsControllerImpl>();
         if (!controller.isLoadingMore) {
@@ -45,7 +49,8 @@ class _NotificationsInfoListWidgetState extends State<NotificationsInfoListWidge
         shrinkWrap: true,
         itemBuilder: (context, index) {
           // Check if this is the last item and if loading more
-          if (index == controller.notificationItems.length && controller.isLoadingMore) {
+          if (index == controller.notificationItems.length &&
+              controller.isLoadingMore) {
             return const Center(
               child: Padding(
                 padding: EdgeInsets.all(8.0),
@@ -69,8 +74,10 @@ class _NotificationsInfoListWidgetState extends State<NotificationsInfoListWidge
                     ),
                   ),
                   Text(
-                    controller.notificationsModel!.data[index].createdAt.toString(),
-                    style: const TextStyle(fontSize: 10, color: Color(0xffF7F7F7)),
+                    controller.notificationsModel!.data[index].createdAt
+                        .toString(),
+                    style:
+                        const TextStyle(fontSize: 10, color: Color(0xffF7F7F7)),
                   ),
                 ],
               ),
@@ -86,9 +93,11 @@ class _NotificationsInfoListWidgetState extends State<NotificationsInfoListWidge
             ),
           );
         },
-        separatorBuilder: (context, index) => const CustomVerticalSizedox(height: 13),
+        separatorBuilder: (context, index) =>
+            const CustomVerticalSizedox(height: 13),
         itemCount: controller.isLoadingMore
-            ? controller.notificationItems.length + 1 // Add one for the loading indicator
+            ? controller.notificationItems.length +
+                1 // Add one for the loading indicator
             : controller.notificationItems.length,
       ),
     );
