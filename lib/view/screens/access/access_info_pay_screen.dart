@@ -5,6 +5,7 @@ import 'package:currency_trading/utils/images.dart';
 import 'package:currency_trading/view/widgets/drawer_widget.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
+import 'package:currency_trading/view/widgets/main_name_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,19 +42,7 @@ class _AccessInfoPayScreenState extends State<AccessInfoPayScreen> {
                     const CustomVerticalSizedox(height: 10),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 18.0),
-                      child: Text('Hassan Mhd',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 19,
-                              fontWeight: FontWeight.w700)),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 18.0),
-                      child: Text('Not Subscribe',
-                          style: TextStyle(
-                              color: Color(0xffADA9A9),
-                              fontWeight: FontWeight.w300,
-                              fontSize: 13)),
+                      child: MainNameContainerWidget(),
                     ),
                     const CustomVerticalSizedox(height: 20),
                     Image.asset(ImagesAssets.basicImage),

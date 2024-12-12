@@ -1,6 +1,7 @@
 import 'package:currency_trading/logic/controllers/results_controller.dart';
 import 'package:currency_trading/view/screens/results/widgets/results_cards_grid_widget.dart';
 import 'package:currency_trading/view/screens/results/widgets/results_total_list_widget.dart';
+import 'package:currency_trading/view/widgets/main_name_container_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
@@ -37,24 +38,7 @@ class ResultsScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const CustomVerticalSizedox(height: 10),
-                            const Text(
-                              'Hassan Mhd',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            Container(
-                                decoration: BoxDecoration(boxShadow: const [
-                                  BoxShadow(
-                                      blurRadius: 20,
-                                      color: Color.fromARGB(255, 156, 155, 155))
-                                ], borderRadius: BorderRadius.circular(11)),
-                                child: Text('Ultimate',
-                                    style: const TextStyle(
-                                        color: Color(0xffF2B80C),
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 17))),
+                            const MainNameContainerWidget(),
                             const CustomVerticalSizedox(height: 24),
                             SizedBox(
                                 width: double.infinity,

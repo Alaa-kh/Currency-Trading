@@ -15,12 +15,10 @@ class DetailsScreen extends GetView<SignalsControllerImpl> {
     this.account,
     this.createdAt,
     this.currencyType,
-    // this.image
   });
   final String? account;
   final String? createdAt;
   final String? currencyType;
-  // final String? image;
   @override
   Widget build(BuildContext context) {
     final ValueNotifier<int> currentIndexNotifier = ValueNotifier<int>(0);
@@ -57,26 +55,6 @@ class DetailsScreen extends GetView<SignalsControllerImpl> {
                                       color: Color(0xffADA9A9),
                                       fontWeight: FontWeight.w300,
                                       fontSize: 17)),
-                              // controller.signalsSliderModel != null
-                              // ?
-                              // GetBuilder<SignalsControllerImpl>(
-                              //   builder: (_) => CarouselSlider(
-                              //     items: [
-                              //       SignalsContainerSliderBoxWidget(
-                              //           image: image!),
-                              //     ],
-                              //     options: CarouselOptions(
-                              //       onPageChanged: (index, reason) {
-                              //         currentIndexNotifier.value = index;
-                              //       },
-                              //       height: 180,
-                              //       initialPage: 0,
-                              //       enlargeCenterPage: true,
-                              //       autoPlay: true,
-                              //     ),
-                              //   ),
-                              // ),
-                              // : const SizedBox.shrink(),
                               const CustomVerticalSizedox(height: 10),
                               ValueListenableBuilder<int>(
                                   valueListenable: currentIndexNotifier,

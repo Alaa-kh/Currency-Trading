@@ -19,12 +19,13 @@ class SignalsContainerSliderBoxWidget extends StatelessWidget {
           color: Colors.grey[200],
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(20), 
+          borderRadius: BorderRadius.circular(20),
           child: CachedNetworkImage(
-            fit: BoxFit.cover, 
+            fit: BoxFit.cover,
             width: double.infinity,
             imageUrl: 'https://crypto-signals-ultimate.com/$image',
-            progressIndicatorBuilder: (context, url, downloadProgress) => Center(
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                Center(
               child: CircularProgressIndicator(
                 color: const Color(0xfff2b80d),
                 value: downloadProgress.progress,

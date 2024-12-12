@@ -19,7 +19,7 @@ class _NotificationsInfoListWidgetState
   @override
   void initState() {
     super.initState();
-    // إضافة مستمع للـ ScrollController
+  
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {

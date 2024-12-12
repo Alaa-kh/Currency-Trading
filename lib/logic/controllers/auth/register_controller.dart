@@ -1,4 +1,3 @@
-import 'package:currency_trading/core/helper/failures_handling.dart';
 import 'package:currency_trading/core/services/app_services.dart';
 import 'package:currency_trading/model/auth/chech_email.dart';
 import 'package:currency_trading/model/auth/register_model.dart';
@@ -6,11 +5,9 @@ import 'package:currency_trading/model/auth/send_code_model.dart';
 import 'package:currency_trading/repo/auth/check_email_repo.dart';
 import 'package:currency_trading/repo/auth/register_repo.dart';
 import 'package:currency_trading/repo/auth/send_code_repo.dart';
-import 'package:currency_trading/shared/custom_dialog.dart';
 import 'package:currency_trading/shared/custom_loading.dart';
 import 'package:currency_trading/utils/constants/app_key.dart';
 import 'package:currency_trading/view/screens/auth/verify/verify_screen.dart';
-import 'package:currency_trading/view/screens/root/root_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -106,6 +103,7 @@ class RegisterControllerImpl extends RegisterController {
     update();
   }
 
+  @override
   void checked(bool value) {
     isChecked = value;
     update();

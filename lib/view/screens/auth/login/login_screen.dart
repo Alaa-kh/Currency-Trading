@@ -60,8 +60,7 @@ class LoginScreen extends StatelessWidget {
                               const TitleTextFieldWidget(title: 'Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
-                                  obscureText: !controller.isPasswordVisible
-                                 ,
+                                  obscureText: !controller.isPasswordVisible,
                                   controller: controller.passwordController,
                                   validator: (password) =>
                                       FormsValidate.getPasswordValidate(

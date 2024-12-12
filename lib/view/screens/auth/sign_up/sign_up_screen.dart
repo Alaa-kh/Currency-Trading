@@ -60,13 +60,13 @@ class SignUpScreen extends StatelessWidget {
                               const TitleTextFieldWidget(title: 'Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
-                                  obscureText: !controller.isPasswordVisible,
+                                  obscureText: controller.isPasswordVisible,
                                   controller: controller.passwordController,
                                   validator: (password) =>
                                       FormsValidate.getPasswordValidate(
                                           context, password,
                                           isFillOldPassword: true),
-                                     suffixIcon: Padding(
+                                  suffixIcon: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: InkWell(
                                         onTap: () => controller
@@ -86,7 +86,8 @@ class SignUpScreen extends StatelessWidget {
                                   title: 'Confirm Password '),
                               const CustomVerticalSizedox(height: 10),
                               CustomTextField(
-                                obscureText: controller.isPasswordConfirmationVisible,
+                                  obscureText:
+                                      controller.isPasswordConfirmationVisible,
                                   validator: (confirmPassword) =>
                                       FormsValidate.getConfPasswordValidate(
                                           context, confirmPassword),
@@ -94,13 +95,14 @@ class SignUpScreen extends StatelessWidget {
                                       controller.passwordConfirmationController,
                                   prefixIcon: SvgPicture.asset(
                                       IconsAssets.passwordIcon),
-                                     suffixIcon: Padding(
+                                  suffixIcon: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: InkWell(
                                         onTap: () => controller
                                             .togglePasswordConfirmationVisibility(),
                                         child: SvgPicture.asset(
-                                            controller.isPasswordConfirmationVisible
+                                            controller
+                                                    .isPasswordConfirmationVisible
                                                 ? IconsAssets.eyeIcon
                                                 : IconsAssets.eye1Icon,
                                             width: 17,
