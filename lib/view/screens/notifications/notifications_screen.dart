@@ -27,16 +27,15 @@ class NotificationsScreen extends GetView<NotificationsControllerImpl> {
             width: double.infinity,
             height: double.maxFinite,
             decoration: mainLinearGradient(),
-            child: const SingleChildScrollView(
-                child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 18.0),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomVerticalSizedox(height: 10),
-                          MainNameContainerWidget(),
-                          CustomVerticalSizedox(height: 24),
-                          NotificationsInfoListWidget()
-                        ])))));
+            child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 18.0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomVerticalSizedox(height: 10),
+                      MainNameContainerWidget(),
+                      CustomVerticalSizedox(height: 24),
+                      NotificationsInfoListWidget()
+                    ]))));
   }
 }

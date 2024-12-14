@@ -19,7 +19,8 @@ class SignalsControllerImpl extends SignalsController {
     final result = await _repository.fetchSliderImages();
     if (result is SignalsSliderModel) {
       signalsSliderModel = result;
-      print('succcus');
+      print('=================== succcus slider');
+      print(result.data.length);
     } else {
       await sliderImages();
     }
@@ -35,7 +36,7 @@ class SignalsControllerImpl extends SignalsController {
     final result = await _repository.signals();
     if (result is SignalsModel) {
       signalsModel = result;
-      print('================== succcus');
+      print('================== succcus signals');
     } else {
       await signals();
     }

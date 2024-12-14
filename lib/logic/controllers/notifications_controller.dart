@@ -1,5 +1,6 @@
 import 'package:currency_trading/model/notifications_model.dart';
 import 'package:currency_trading/repo/notifications_repo.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class NotificationsController extends GetxController {
@@ -10,19 +11,36 @@ class NotificationsControllerImpl extends NotificationsController {
   final NotificationsRepositoryImpl _repository = NotificationsRepositoryImpl();
   NotificationsModel? notificationsModel;
   List<NotificationData> notificationItems = [];
+  final ScrollController scrollController = ScrollController();
 
   int page = 1;
   bool isLoadingMore = false;
   bool hasMoreNotifi = true;
   @override
   void onInit() {
+    scrollController.addListener(() {
+      if (scrollController.position.pixels ==
+          scrollController.position.maxScrollExtent) {
+        print('>>>>>>>>>>>>> max');
+        final controller = Get.find<NotificationsControllerImpl>();
+        if (!controller.hasMoreNotifi) {
+          controller.notifications();
+        }
+      }
+    });
     super.onInit();
     notifications();
   }
 
   @override
+  void onClose() {
+    scrollController.dispose();
+    super.onClose();
+  }
+
+  @override
   Future<void> notifications() async {
-    print('asdasd');
+    print('================');
     if (!hasMoreNotifi) {
       return;
     }

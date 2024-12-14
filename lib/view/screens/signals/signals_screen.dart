@@ -58,15 +58,15 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                 const CustomVerticalSizedox(height: 20),
                                 controller.signalsSliderModel != null
                                     ? CarouselSlider(
-                                        items: [
-                                          SignalsContainerSliderBoxWidget(
-                                            image: controller
+                                        items: controller
                                                 .signalsSliderModel!
-                                                .data[
-                                                    _currentIndexNotifier.value]
-                                                .image,
-                                          ),
-                                        ],
+                                                .data.map((e)=>SignalsContainerSliderBoxWidget(
+                                            image: e.image,
+                                          ),).toList()
+                                        
+                                        
+                                        
+                                    ,
                                         options: CarouselOptions(
                                           onPageChanged: (index, reason) {
                                             _currentIndexNotifier.value = index;
@@ -86,7 +86,8 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: List.generate(
-                                              3,
+                                              controller
+                                                  .signalsSliderModel!.data.length,
                                               (index) =>
                                                   SignalsUnderSliderContainerWidget(
                                                       index: index,
