@@ -1,3 +1,4 @@
+import 'package:currency_trading/view/screens/auth/login/login_screen.dart';
 import 'package:currency_trading/view/screens/root/root_screen.dart';
 import 'package:currency_trading/view/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';

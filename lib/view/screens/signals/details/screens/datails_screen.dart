@@ -5,7 +5,7 @@ import 'package:currency_trading/logic/controllers/signals_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/view/screens/signals/details/widgets/details_cards_widget.dart';
 import 'package:currency_trading/view/screens/signals/widgets/signals_under_slider_container_widget.dart';
-import 'package:currency_trading/view/widgets/drawer_widget.dart';
+import 'package:currency_trading/view/widgets/drawer/drawer_widget.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 

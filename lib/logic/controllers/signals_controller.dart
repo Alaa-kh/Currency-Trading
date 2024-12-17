@@ -1,13 +1,12 @@
-import 'package:currency_trading/model/signals/signal_details_model.dart';
 import 'package:currency_trading/model/signals/signals_model.dart';
 import 'package:currency_trading/model/signals/signals_slider_model.dart';
 import 'package:currency_trading/repo/signals/signals_repo.dart';
+import 'package:currency_trading/view/screens/signals/details/screens/signal_details_screen.dart';
 import 'package:get/get.dart';
 
 abstract class SignalsController extends GetxController {
   Future<void> sliderImages();
   Future<void> signals();
-  Future<void> signalsDetails(int id);
 }
 
 class SignalsControllerImpl extends SignalsController {
@@ -43,21 +42,10 @@ class SignalsControllerImpl extends SignalsController {
     update();
   }
 
-// ===================
-
-  SignalDetailsModel? signalDetailsModel;
-
-  @override
-  Future<void> signalsDetails(int id) async {
-    final result = await _repository.signalsDetails(id);
-    if (result is SignalDetailsModel) {
-      signalDetailsModel = result;
-      print('================== succcus');
-    } else {
-      await signalsDetails(id);
-    }
-    update();
+  void toSignalDetailsScreen(int id) {
+    Get.to(() => const SignalDetailsScreen(), arguments: {'id': id});
   }
+
 
   @override
   void onInit() {

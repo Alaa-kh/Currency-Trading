@@ -20,6 +20,7 @@ class IconsAssets {
   static const String discordIcon = 'assets/icons/Discord.png';
   static const String loginIcon = 'assets/icons/Login 1.png';
   static const String drawerbackIcon = 'assets/icons/Group 37271.png';
+  static const String profileIcon = 'assets/icons/Your Profile.png';
 
   static const String menuIcon = 'assets/icons/sidebar 1.png';
   static const String notificationsIcon = 'assets/icons/Notifications.png';

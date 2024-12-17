@@ -1,7 +1,7 @@
 import 'package:currency_trading/logic/controllers/history_details_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/view/screens/history/widgets/history_cards_grid_view_widget.dart';
-import 'package:currency_trading/view/widgets/drawer_widget.dart';
+import 'package:currency_trading/view/widgets/drawer/drawer_widget.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:currency_trading/view/widgets/main_circular_progress_widget.dart';
@@ -53,7 +53,7 @@ class HistoryCardsScreen extends GetView<HistoryDetailsControllerImp> {
                                   const HistoryCardsGridViewWidget(),
                                   const CustomVerticalSizedox(height: 20),
                                 ])))
-                    : const MainCircularProgresswidget(),
+                    : const MainCircularProgressWidget(),
               )),
     );
   }

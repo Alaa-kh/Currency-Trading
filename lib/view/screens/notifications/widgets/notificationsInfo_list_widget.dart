@@ -22,7 +22,7 @@ class NotificationsInfoListWidget extends StatelessWidget {
     });
 
     return GetBuilder<NotificationsControllerImpl>(
-        builder: (controller) => Expanded(
+        builder: (controller) =>  Expanded(
             child: ListView.separated(
                 controller: controller.scrollController,
                 itemBuilder: (context, index) {
@@ -32,7 +32,7 @@ class NotificationsInfoListWidget extends StatelessWidget {
                     return const Center(
                         child: Padding(
                             padding: EdgeInsets.all(8.0),
-                            child: MainCircularProgresswidget()));
+                            child: MainCircularProgressWidget()));
                   }
 
                   // Render normal notification items

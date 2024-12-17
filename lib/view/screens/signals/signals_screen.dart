@@ -3,7 +3,7 @@ import 'package:currency_trading/logic/controllers/signals_controller.dart';
 import 'package:currency_trading/view/screens/signals/widgets/signals_container_slider_box_widget.dart';
 import 'package:currency_trading/view/screens/signals/widgets/signals_cards_widget.dart';
 import 'package:currency_trading/view/screens/signals/widgets/signals_under_slider_container_widget.dart';
-import 'package:currency_trading/view/widgets/drawer_widget.dart';
+import 'package:currency_trading/view/widgets/drawer/drawer_widget.dart';
 import 'package:currency_trading/view/widgets/main_circular_progress_widget.dart';
 import 'package:currency_trading/view/widgets/main_name_container_widget.dart';
 import 'package:flutter/material.dart';
@@ -62,11 +62,7 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                                 .signalsSliderModel!
                                                 .data.map((e)=>SignalsContainerSliderBoxWidget(
                                             image: e.image,
-                                          ),).toList()
-                                        
-                                        
-                                        
-                                    ,
+                                          ),).toList(),
                                         options: CarouselOptions(
                                           onPageChanged: (index, reason) {
                                             _currentIndexNotifier.value = index;
@@ -98,7 +94,7 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                 const SignalsCardsWidget(),
                                 const CustomVerticalSizedox(height: 20)
                               ])))
-                  : const MainCircularProgresswidget(),
+                  : const MainCircularProgressWidget(),
             )));
   }
 }

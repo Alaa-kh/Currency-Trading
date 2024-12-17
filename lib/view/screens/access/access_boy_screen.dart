@@ -4,7 +4,7 @@ import 'package:currency_trading/utils/icons.dart';
 import 'package:currency_trading/utils/images.dart';
 import 'package:currency_trading/view/screens/access/widgets/access_boy_coupon_widget.dart';
 import 'package:currency_trading/view/screens/access/widgets/access_boy_screen_shotBox_widget.dart';
-import 'package:currency_trading/view/widgets/drawer_widget.dart';
+import 'package:currency_trading/view/widgets/drawer/drawer_widget.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:flutter/material.dart';

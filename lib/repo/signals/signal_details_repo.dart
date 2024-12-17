@@ -1,25 +1,14 @@
 import 'package:currency_trading/core/helper/failures_handling.dart';
 import 'package:currency_trading/core/network/crud.dart';
-import 'package:currency_trading/model/signals/signals_model.dart';
-import 'package:currency_trading/model/signals/signals_slider_model.dart';
+import 'package:currency_trading/model/signals/signal_details_model.dart';
 import 'package:currency_trading/utils/constants/app_api.dart';
 import 'package:dio/dio.dart';
 
-abstract class SignalsRepository {
-  Future fetchSliderImages();
-  Future signals();
+abstract class SignalDetailsRepository {
+  Future signalsDetails(int id);
 }
 
-class SignalsRepositoryImpl extends SignalsRepository {
-  @override
-  Future fetchSliderImages() async {
-    print(AppApi.slidersSignals);
-    return _fetchData(
-      url: AppApi.slidersSignals,
-      fromJson: (json) => SignalsSliderModel.fromJson(json),
-    );
-  }
-
+class SignalDetailsRepositoryImpl extends SignalDetailsRepository {
   Future _fetchData(
       {required String url,
       required Function fromJson,
@@ -36,11 +25,11 @@ class SignalsRepositoryImpl extends SignalsRepository {
   }
 
   @override
-  Future signals() {
-    print(AppApi.signals);
+  Future signalsDetails(int id) {
+    print('${AppApi.signalsDetails}${id}');
     return _fetchData(
-      url: AppApi.signals,
-      fromJson: (json) => SignalsModel.fromJson(json),
+      url: '${AppApi.signalsDetails}${id}',
+      fromJson: (json) => SignalDetailsModel.fromJson(json),
     );
   }
 }

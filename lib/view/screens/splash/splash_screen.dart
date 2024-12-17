@@ -1,5 +1,6 @@
 import 'package:currency_trading/utils/images.dart';
 import 'package:currency_trading/view/screens/auth/login/login_screen.dart';
+import 'package:currency_trading/view/screens/root/root_screen.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 3));
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const LoginScreen()),
+      MaterialPageRoute(builder: (context) => const RootScreen()),
     );
   }
 

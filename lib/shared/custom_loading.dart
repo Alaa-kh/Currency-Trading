@@ -8,7 +8,7 @@ void showLoadingDialog() {
       const PopScope(
         canPop: false,
         child: Center(
-          child: MainCircularProgresswidget(),
+          child: MainCircularProgressWidget(),
         ),
       ));
 }

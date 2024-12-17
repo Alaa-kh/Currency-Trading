@@ -117,37 +117,44 @@ class SignalsCardsWidget extends StatelessWidget {
                                     color: Colors.white, fontSize: 10)),
                             const SizedBox(width: 10),
                             GestureDetector(
-                                onTap: () => Get.to(() => SignalDetailsScreen(
-                                      currencyType: controller.signalsModel!
-                                          .data[index].currencyType,
-                                      type: controller
-                                          .signalsModel!.data[index].type
-                                          .toString(),
-                                      entry: controller
-                                          .signalsModel!.data[index].entry
-                                          .toString(),
-                                      stop: controller
-                                          .signalsModel!.data[index].stop
-                                          .toString(),
-                                      leverage: controller
-                                          .signalsModel!.data[index].leverage
-                                          .toString(),
-                                      createdAt: controller
-                                          .signalsModel!.data[index].createdAt
-                                          .toString(),
-                                      currentPrice: controller.signalsModel!
-                                          .data[index].currentPrice
-                                          .toString(),
-                                      number: controller
-                                          .signalsModel!.data[index].percentage
-                                          .toString(),
-                                      ratio: controller
-                                          .signalsModel!.data[index].percentage
-                                          .toString(),
-                                      index: controller.signalsModel != null
-                                          ? controller.signalsModel!.data.length
-                                          : 0,
-                                    )),
+                                onTap: () {
+                                  controller.toSignalDetailsScreen(
+                                      controller.signalsModel!.data[index].id);
+                                }
+                                //  Get.to(() =>
+                                //  SignalDetailsScreen(
+                                //       currencyType: controller.signalsModel!
+                                //           .data[index].currencyType,
+                                //       type: controller
+                                //           .signalsModel!.data[index].type
+                                //           .toString(),
+                                //       entry: controller
+                                //           .signalsModel!.data[index].entry
+                                //           .toString(),
+                                //       stop: controller
+                                //           .signalsModel!.data[index].stop
+                                //           .toString(),
+                                //       leverage: controller
+                                //           .signalsModel!.data[index].leverage
+                                //           .toString(),
+                                //       createdAt: controller
+                                //           .signalsModel!.data[index].createdAt
+                                //           .toString(),
+                                //       currentPrice: controller.signalsModel!
+                                //           .data[index].currentPrice
+                                //           .toString(),
+                                //       number: controller
+                                //           .signalsModel!.data[index].percentage
+                                //           .toString(),
+                                //       ratio: controller
+                                //           .signalsModel!.data[index].percentage
+                                //           .toString(),
+                                //       index: controller.signalsModel != null
+                                //           ? controller.signalsModel!.data.length
+                                //           : 0,
+                                // ),
+                                // ),
+                                ,
                                 child: const Icon(
                                     Icons.arrow_forward_ios_rounded,
                                     color: Colors.white))

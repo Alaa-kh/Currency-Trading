@@ -2,7 +2,7 @@ import 'package:currency_trading/logic/controllers/general_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
 import 'package:currency_trading/utils/images.dart';
-import 'package:currency_trading/view/widgets/drawer_widget.dart';
+import 'package:currency_trading/view/widgets/drawer/drawer_widget.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:currency_trading/view/widgets/main_name_container_widget.dart';
