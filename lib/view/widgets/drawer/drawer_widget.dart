@@ -22,6 +22,7 @@ class DrawerWidget extends StatelessWidget {
     return ClipRRect(
         borderRadius: const BorderRadius.horizontal(left: Radius.circular(60)),
         child: Drawer(
+        
             width: 236,
             backgroundColor: const Color(0xff757575),
             child: SingleChildScrollView(
@@ -42,29 +43,28 @@ class DrawerWidget extends StatelessWidget {
                       shrinkWrap: true,
                       itemExtent: 35,
                       itemBuilder: (context, index) => ListTile(
+                       
+                            visualDensity: const VisualDensity(vertical: -4), 
                           onTap: () {
                             signalsDrawerModel[index].text == 'Login'
                                 ? Get.off(() => const LoginScreen(),
                                     transition: Transition.leftToRight,
-                                    duration: const Duration(
-                                        milliseconds: 800))
+                                    duration: const Duration(milliseconds: 800))
                                 : signalsDrawerModel[index].text ==
                                         'Notifications'
-                                    ? Get.to(() =>
-                                        const NotificationsScreen(),
+                                    ? Get.to(() => const NotificationsScreen(),
                                         transition: Transition.leftToRight,
-                                        duration: const Duration(
-                                            milliseconds: 800))
+                                        duration:
+                                            const Duration(milliseconds: 800))
                                     : () {};
                           },
-                          leading: Image.asset(
-                              signalsDrawerModel[index].icon,
+                          leading: Image.asset(signalsDrawerModel[index].icon,
                               width: 22),
                           title: Text(signalsDrawerModel[index].text,
                               style: const TextStyle(
                                   color: Colors.white, fontSize: 14))),
                       itemCount: signalsDrawerModel.length),
-                       const CustomVerticalSizedox(height: 290),
+              CustomVerticalSizedox(height: token != null ? 0 : 250),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Image.asset(IconsAssets.telegramIcon, width: 50),
                 Image.asset(IconsAssets.whatsappIcon, width: 50),
@@ -78,3 +78,39 @@ class DrawerWidget extends StatelessWidget {
             ]))));
   }
 }
+
+// LayoutBuilder(
+//       builder: (context, size) => SizedBox(
+//         width: 303,
+//         child: Stack(
+//           children: [
+//             Drawer(
+//               surfaceTintColor: ColorName.white,
+//               width: 280,
+//               backgroundColor: ColorName.white,
+//               child: Padding(
+//                 padding: const EdgeInsets.symmetric(horizontal: 8),
+//                 child: ListView(
+//                   padding: EdgeInsets.zero,
+//                   children: [
+//                     const SizedBox(height: 66),
+//                     buildProfileSection(),
+//                     const SizedBox(height: 40),
+//                     buildMenuItems(),
+//                     const SizedBox(height: 15),
+//                     buildLanguageToggle(),
+//                     SizedBox(
+//                       height: _box.read(AppKey.token) != null
+//                           ? size.maxHeight - 800
+//                           : size.maxHeight - 530,
+//                     ),
+//                     buildLogoutItem(),
+//                   ],
+//                 ),
+//               ),
+//             ),
+//             buildBackButton(),
+//           ],
+//         ),
+//       ),
+//     );

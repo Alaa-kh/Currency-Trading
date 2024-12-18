@@ -14,7 +14,6 @@ abstract class RegisterController extends GetxController {
 }
 
 class RegisterControllerImpl extends RegisterController {
-
   final CheckEmailRepositoryImpl _chechEmailRepository =
       CheckEmailRepositoryImpl();
   final SendCodeRepositoryImpl _sendCodeRepository = SendCodeRepositoryImpl();
@@ -31,7 +30,10 @@ class RegisterControllerImpl extends RegisterController {
   Future<void> registerUser() async {
     try {
       if (!formKey.currentState!.validate()) return;
+      Get.closeAllSnackbars();
+
       showLoadingDialog();
+
       final resultCheckEmail = await _chechEmailRepository.checkEmail(
         email: emailController.text.trim(),
       );
@@ -62,7 +64,6 @@ class RegisterControllerImpl extends RegisterController {
       }
     } catch (_) {}
   }
-
 
   bool isPasswordVisible = false;
 

@@ -11,7 +11,7 @@ class AccessBoyCouponWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<GeneralControllerImpl>(
         builder: (controller) => InkWell(
-            onTap: () => Get.to(() => const AccessInfoPayScreen(),
+            onTap: () => Get.to(() =>  AccessInfoPayScreen(isBasic: isBasic),
                 transition: Transition.fadeIn,
                 duration: const Duration(milliseconds: 800)),
             child: Row(

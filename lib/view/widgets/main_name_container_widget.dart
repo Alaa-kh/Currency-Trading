@@ -25,7 +25,7 @@ class MainNameContainerWidget extends StatelessWidget {
               BoxShadow(
                   blurRadius: 20, color: Color.fromARGB(255, 156, 155, 155))
             ], borderRadius: BorderRadius.circular(11)),
-            child: Text('ultimate',
+            child: Text('Ultimate',
                 style: const TextStyle(
                     color: Color(0xffF2B80C),
                     fontWeight: FontWeight.w700,

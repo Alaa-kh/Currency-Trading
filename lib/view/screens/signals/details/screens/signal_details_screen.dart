@@ -34,9 +34,8 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
             height: double.maxFinite,
             decoration: mainLinearGradient(),
             child: GetBuilder<SignalDetailsControllerImpl>(builder: (_) {
-              return
-                   controller.signalDetailsModel != null ?
-                  SingleChildScrollView(
+              return controller.signalDetailsModel != null
+                  ? SingleChildScrollView(
                       child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 18.0),
                           child: Column(
@@ -140,7 +139,6 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                             hintText: 'Your total amount',
                                             hintStyle: const TextStyle(
                                                 color: Colors.white,
-                                            
                                                 fontWeight: FontWeight.w400),
                                             suffixIcon: InkWell(
                                                 onTap: () {
@@ -167,8 +165,7 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                     ])),
                                 const CustomVerticalSizedox(height: 20)
                               ])))
-                  :const MainCircularProgressWidget()
-                  ;
+                  : const MainCircularProgressWidget();
             })));
   }
 }

@@ -44,7 +44,8 @@ class IconsAssets {
   static const String couponIcon = 'assets/icons/Enter Your Coupon.png';
   static const String vectorIcon = 'assets/icons/Vector.png';
   static const String sendIcon = 'assets/icons/send.png';
-  static const String pay = 'assets/icons/Group 37347.png';
+  static const String basicPay = 'assets/icons/Group 37347.png';
+  static const String unlimatedPay = 'assets/icons/Group 37348.png';
   static const String countryIcon = 'assets/icons/Country.png';
   static const String birthdayIcon = 'assets/icons/Birthday 1.png';
   static const String walletIcon = 'assets/icons/Your Wallet Address 1.png';

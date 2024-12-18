@@ -8,11 +8,16 @@ import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:currency_trading/view/widgets/main_name_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:svg_flutter/svg.dart';
 
 String? selectedOption = "1 Month";
 
 class AccessInfoPayScreen extends StatefulWidget {
-  const AccessInfoPayScreen({super.key});
+  const AccessInfoPayScreen({
+    super.key,
+    required this.isBasic,
+  });
+  final bool isBasic;
 
   @override
   State<AccessInfoPayScreen> createState() => _AccessInfoPayScreenState();
@@ -45,7 +50,9 @@ class _AccessInfoPayScreenState extends State<AccessInfoPayScreen> {
                       child: MainNameContainerWidget(),
                     ),
                     const CustomVerticalSizedox(height: 20),
-                    Image.asset(ImagesAssets.basicImage),
+                    Image.asset(widget.isBasic
+                        ? ImagesAssets.basicImage
+                        : ImagesAssets.ultimateImage),
                     const CustomVerticalSizedox(height: 20),
                     Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 18.0),
@@ -75,9 +82,13 @@ class _AccessInfoPayScreenState extends State<AccessInfoPayScreen> {
                         margin: const EdgeInsets.symmetric(horizontal: 18),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            color: Colors.black,
+                            color: widget.isBasic
+                                ? Colors.black
+                                : const Color(0xff1A0DAB),
                             borderRadius: BorderRadius.circular(10)),
-                        child: Image.asset(IconsAssets.pay))
+                        child: Image.asset(widget.isBasic
+                            ? IconsAssets.basicPay
+                            : IconsAssets.unlimatedPay))
                   ]),
             ))));
   }

@@ -28,52 +28,56 @@ class SignalDetailsTotalListWidget extends StatelessWidget {
 
 Future<dynamic> signalDetailsDialog() {
   return Get.dialog(
+    useSafeArea : true,
       barrierDismissible: false,
       GetBuilder<SignalDetailsControllerImpl>(
-        builder: (controller) => SingleChildScrollView(
-          child: AlertDialog(
-              backgroundColor: Colors.black,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)),
-              content: Column(mainAxisSize: MainAxisSize.min, children: [
-                Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                      icon: Container(
-                          padding: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white),
-                              shape: BoxShape.circle),
-                          child: const Icon(Icons.close,
-                              color: Colors.white, size: 10)),
-                      onPressed: () {
-                         
-                        Get.back();
-                      },
-                    )),
-                SizedBox(
-                  width: 500,
-                  height: 500,
-                  child: GridView.builder(
-                      physics: const ScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 12,
-                              mainAxisSpacing: 18),
-                      itemCount: signalDetailsCopyDialogModelList.length,
-                      itemBuilder: (context, index) =>
-                          SignalDetailsCopyDialogWidget(
-                              icon:
-                                  signalDetailsCopyDialogModelList[index].icon,
-                              title:
-                                  signalDetailsCopyDialogModelList[index].title,
-                              number: signalDetailsCopyDialogModelList[index]
-                                  .value
-                                  .toString())),
-                )
-              ])),
+        builder: (controller) => Center(
+          child: SingleChildScrollView(
+            child: AlertDialog(
+              alignment: Alignment.center ,
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
+                content: Column(mainAxisSize: MainAxisSize.min, children: [
+                  Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                        icon: Container(
+                            padding: const EdgeInsets.all(3),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.white),
+                                shape: BoxShape.circle),
+                            child: const Icon(Icons.close,
+                                color: Colors.white, size: 10)),
+                        onPressed: () {
+                           
+                          Get.back();
+                        },
+                      )),
+                  SizedBox(
+                    width: 500,
+                    height: 500,
+                    child: GridView.builder(
+                        physics: const ScrollPhysics(),
+                        shrinkWrap: true,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 12,
+                                mainAxisSpacing: 18),
+                        itemCount: signalDetailsCopyDialogModelList.length,
+                        itemBuilder: (context, index) =>
+                            SignalDetailsCopyDialogWidget(
+                                icon:
+                                    signalDetailsCopyDialogModelList[index].icon,
+                                title:
+                                    signalDetailsCopyDialogModelList[index].title,
+                                number: signalDetailsCopyDialogModelList[index]
+                                    .value
+                                    .toString())),
+                  )
+                ])),
+          ),
         ),
       ));
 }

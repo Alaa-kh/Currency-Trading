@@ -44,12 +44,13 @@ class DrawerLoginWidget extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 color: Colors.white)),
       ),
+      const CustomVerticalSizedox(height: 10),
       ListView.builder(
           shrinkWrap: true,
           itemExtent: 35,
           itemBuilder: (context, index) => GetBuilder<LogoutControllerImpl>(
               builder: (controller) => ListTile(
-                
+                  visualDensity: const VisualDensity(vertical: -4),
                   onTap: () {
                     signalsDrawerLoginModel[index].text == 'Login'
                         ? Get.off(() => const LoginScreen(),
@@ -63,8 +64,11 @@ class DrawerLoginWidget extends StatelessWidget {
                                 ? controller.logout()
                                 : () {};
                   },
-                  leading: Image.asset(signalsDrawerLoginModel[index].icon,
-                      width: 22,height: 22,),
+                  leading: Image.asset(
+                    signalsDrawerLoginModel[index].icon,
+                    width: 22,
+                    height: 22,
+                  ),
                   title: Text(signalsDrawerLoginModel[index].text,
                       style:
                           const TextStyle(color: Colors.white, fontSize: 14)))),
@@ -97,7 +101,7 @@ class DrawerLoginWidget extends StatelessWidget {
           ])),
           width: double.infinity,
           height: 2),
-      const CustomVerticalSizedox(height: 40)
+      const CustomVerticalSizedox(height: 20)
     ]);
   }
 }

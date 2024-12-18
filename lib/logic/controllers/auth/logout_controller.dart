@@ -4,7 +4,6 @@ import 'package:currency_trading/model/auth/logout_model.dart';
 import 'package:currency_trading/repo/auth/logout_repo.dart';
 import 'package:currency_trading/shared/custom_dialog.dart';
 import 'package:currency_trading/shared/custom_loading.dart';
-import 'package:currency_trading/utils/constants/app_key.dart';
 import 'package:currency_trading/view/screens/auth/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -132,12 +131,6 @@ class LogoutControllerImpl extends LogoutController {
   }
 
   void _clearUserData() {
-    _box.remove(AppKey.name);
-    _box.remove(AppKey.id);
-    _box.remove(AppKey.email);
-    _box.remove(AppKey.phoneNumber);
-    _box.remove(AppKey.token);
-    _box.remove(AppKey.photo);
-    _box.remove(AppKey.verify);
+    _box.erase();
   }
 }

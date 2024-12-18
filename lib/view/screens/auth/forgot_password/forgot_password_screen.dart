@@ -38,7 +38,8 @@ class ForgotPasswordScreen extends StatelessWidget {
                         const CustomVerticalSizedox(height: 30),
                         CustomButtonWidget(
                             text: 'Send Code',
-                            onTap: () => Get.to(() => const VerifyScreen())),
+                            // onTap: () => Get.to(() => const VerifyScreen())
+                            ),
                         const CustomVerticalSizedox(height: 20)
                       ])))),
     );

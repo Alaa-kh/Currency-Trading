@@ -32,27 +32,26 @@ class HistoryCardsScreen extends GetView<HistoryDetailsControllerImp> {
                 height: double.maxFinite,
                 decoration: mainLinearGradient(),
                 child: controller.historyDetailsModel != null
-                    ? SingleChildScrollView(
-                        child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 18.0),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const CustomVerticalSizedox(height: 10),
-                                  const MainNameContainerWidget(),
-                                  const CustomVerticalSizedox(height: 40),
-                                  Text(
-                                      controller.historyDetailsModel!.data[0]
-                                          .currencyType,
-                                      style: const TextStyle(
-                                          color: Color(0xffF7F7F7),
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 22)),
-                                  const CustomVerticalSizedox(height: 20),
-                                  const HistoryCardsGridViewWidget(),
-                                  const CustomVerticalSizedox(height: 20),
-                                ])))
+                    ? Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: 18.0),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const CustomVerticalSizedox(height: 10),
+                              const MainNameContainerWidget(),
+                              const CustomVerticalSizedox(height: 40),
+                              Text(
+                                  controller.historyDetailsModel!.data[0]
+                                      .currencyType,
+                                  style: const TextStyle(
+                                      color: Color(0xffF7F7F7),
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 22)),
+                              const CustomVerticalSizedox(height: 20),
+                              const HistoryCardsGridViewWidget(),
+                              const CustomVerticalSizedox(height: 20),
+                            ]))
                     : const MainCircularProgressWidget(),
               )),
     );

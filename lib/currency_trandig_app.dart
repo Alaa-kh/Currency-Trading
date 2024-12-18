@@ -11,7 +11,7 @@ class CurrencyTradingApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
         theme: ThemeData(fontFamily: 'Dubai'),
-        home: const SplashScreen(),
+        home: const RootScreen(),
         debugShowCheckedModeBanner: false);
   }
 }
