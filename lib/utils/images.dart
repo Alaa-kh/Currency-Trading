@@ -7,4 +7,6 @@ class ImagesAssets {
   static const String basicImage = 'assets/images/Group 37266.png';
   static const String linearImage = 'assets/images/Rectangle 30.png';
   static const String decorationImage = 'assets/images/Group 789.png';
+  static const String ultimateImage = 'assets/images/Group 37266 (1).png';
+  static const String googlePayImage = 'assets/images/Pay With Google.png';
 }

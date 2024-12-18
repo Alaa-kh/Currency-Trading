@@ -140,7 +140,7 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                             hintText: 'Your total amount',
                                             hintStyle: const TextStyle(
                                                 color: Colors.white,
-                                                fontSize: 14,
+                                            
                                                 fontWeight: FontWeight.w400),
                                             suffixIcon: InkWell(
                                                 onTap: () {

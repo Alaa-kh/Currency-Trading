@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class AccessMonthsWidget extends StatelessWidget {
   const AccessMonthsWidget(
-      {super.key, required this.numberMonth, required this.value});
+      {super.key, required this.numberMonth, required this.value, required this.isBasic});
   final int numberMonth;
   final String value;
-
+  final bool isBasic;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -26,9 +26,9 @@ class AccessMonthsWidget extends StatelessWidget {
         Container(
             padding: const EdgeInsets.symmetric(vertical: 20),
             alignment: Alignment.center,
-            decoration: const BoxDecoration(
-                color: Color(0xff34A9FF),
-                borderRadius: BorderRadius.only(
+            decoration:  BoxDecoration(
+                color: isBasic? const Color(0xff34A9FF) : const Color(0xffF2B80C),
+                borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(16),
                     bottomRight: Radius.circular(16))),
             child: Text('$value USDT',

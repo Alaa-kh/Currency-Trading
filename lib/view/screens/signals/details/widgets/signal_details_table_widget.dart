@@ -15,7 +15,7 @@ class SignalDetailsTableWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SignalDetailsControllerImpl>(
-      builder:(controller)=> Table(
+      builder: (controller) => Table(
           border: TableBorder.all(
               color: Colors.grey.shade800,
               width: 1.0,
@@ -53,20 +53,22 @@ class SignalDetailsTableWidget extends StatelessWidget {
                 ]),
             ...List.generate(
                 controller.signalDetailsModel!.data.targets.length,
-                
                 (index) => TableRow(
                         decoration: const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(color: Color(0xff575656)))),
                         children: [
                           TableCell(
-                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            verticalAlignment:
+                                TableCellVerticalAlignment.middle,
                             child: Padding(
                               padding: const EdgeInsets.all(18.0),
                               child: Text(
-                                currentPrice,
+                                'Target ${index+1}',
                                 style: TextStyle(
-                                    color: index == 0 || index == 1
+                                    color: controller.signalDetailsModel!.data
+                                                .targets[index].isDone ==
+                                            '1'
                                         ? const Color(0xff40ad2f)
                                         : Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -79,9 +81,13 @@ class SignalDetailsTableWidget extends StatelessWidget {
                               verticalAlignment:
                                   TableCellVerticalAlignment.middle,
                               child: Text(
-                                number.toString(),
+                                controller.signalDetailsModel!.data
+                                    .targets[index].target
+                                    .toString(),
                                 style: TextStyle(
-                                    color: index == 0 || index == 1
+                                    color: controller.signalDetailsModel!.data
+                                                .targets[index].isDone ==
+                                            '1'
                                         ? const Color(0xff40ad2f)
                                         : Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -92,7 +98,7 @@ class SignalDetailsTableWidget extends StatelessWidget {
                               verticalAlignment:
                                   TableCellVerticalAlignment.middle,
                               child: Text(
-                                '${ratio.toString()}%',
+                                '${controller.signalDetailsModel!.data.targets[index].percentage}%',
                                 style: TextStyle(
                                     color: index == 0 || index == 1
                                         ? const Color(0xff40ad2f)

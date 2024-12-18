@@ -8,7 +8,6 @@ abstract class RegisterRepository {
     required String name,
     required String email,
     required String password,
-    required String passwordConfirmation,
     String? inviteCode,
   });
 }
@@ -19,7 +18,6 @@ class RegisterRepositoryImpl extends RegisterRepository {
     required String name,
     required String email,
     required String password,
-    required String passwordConfirmation,
     String? inviteCode,
   }) async {
     return _postData(
@@ -29,7 +27,6 @@ class RegisterRepositoryImpl extends RegisterRepository {
         'name': name,
         'email': email,
         'password': password,
-        'invite_code': inviteCode!,
       },
     );
   }

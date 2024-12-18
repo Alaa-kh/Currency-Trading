@@ -1,5 +1,4 @@
 import 'package:currency_trading/core/services/app_services.dart';
-import 'package:currency_trading/logic/controllers/auth/logout_controller.dart';
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/constants/app_key.dart';
 import 'package:currency_trading/utils/icons.dart';
@@ -20,59 +19,62 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LogoutControllerImpl());
     return ClipRRect(
         borderRadius: const BorderRadius.horizontal(left: Radius.circular(60)),
-        child: GetBuilder<LogoutControllerImpl>(
-            builder: (controller) => Drawer(
-                width: 236,
-                backgroundColor: const Color(0xff757575),
-                child: SingleChildScrollView(
-                    child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  const CustomVerticalSizedox(height: 40),
-                  Image.asset(ImagesAssets.logoImage, width: 60),
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: InkWell(
+        child: Drawer(
+            width: 236,
+            backgroundColor: const Color(0xff757575),
+            child: SingleChildScrollView(
+                child: Column(mainAxisSize: MainAxisSize.min, children: [
+              const CustomVerticalSizedox(height: 60),
+              Image.asset(ImagesAssets.logoImage, width: 60),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: InkWell(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Image.asset(IconsAssets.drawerbackIcon))),
+              const CustomVerticalSizedox(height: 10),
+              token != null
+                  ? const DrawerLoginWidget()
+                  : ListView.builder(
+                      shrinkWrap: true,
+                      itemExtent: 35,
+                      itemBuilder: (context, index) => ListTile(
                           onTap: () {
-                            Get.back();
+                            signalsDrawerModel[index].text == 'Login'
+                                ? Get.off(() => const LoginScreen(),
+                                    transition: Transition.leftToRight,
+                                    duration: const Duration(
+                                        milliseconds: 800))
+                                : signalsDrawerModel[index].text ==
+                                        'Notifications'
+                                    ? Get.to(() =>
+                                        const NotificationsScreen(),
+                                        transition: Transition.leftToRight,
+                                        duration: const Duration(
+                                            milliseconds: 800))
+                                    : () {};
                           },
-                          child: Image.asset(IconsAssets.drawerbackIcon))),
-                  const CustomVerticalSizedox(height: 10),
-                  token != null
-                      ? const DrawerLoginWidget()
-                      : Expanded(
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              itemExtent: 30,
-                              itemBuilder: (context, index) => ListTile(
-                                  onTap: () {
-                                    signalsDrawerModel[index].text == 'Login'
-                                        ? Get.off(() => const LoginScreen())
-                                        : signalsDrawerModel[index].text ==
-                                                'Notifications'
-                                            ? Get.to(() =>
-                                                const NotificationsScreen())
-                                            : () {};
-                                  },
-                                  leading: Image.asset(
-                                      signalsDrawerModel[index].icon,
-                                      width: 22),
-                                  title: Text(signalsDrawerModel[index].text,
-                                      style: const TextStyle(
-                                          color: Colors.white, fontSize: 14))),
-                              itemCount: signalsDrawerModel.length),
-                        ),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Image.asset(IconsAssets.telegramIcon, width: 50),
-                    Image.asset(IconsAssets.whatsappIcon, width: 50),
-                    Image.asset(IconsAssets.youtubeIcon, width: 50),
-                  ]),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Image.asset(IconsAssets.twitterIcon, width: 50),
-                    Image.asset(IconsAssets.discordIcon, width: 50),
-                  ]),
-                  const CustomVerticalSizedox(height: 10)
-                ])))));
+                          leading: Image.asset(
+                              signalsDrawerModel[index].icon,
+                              width: 22),
+                          title: Text(signalsDrawerModel[index].text,
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 14))),
+                      itemCount: signalsDrawerModel.length),
+                       const CustomVerticalSizedox(height: 290),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Image.asset(IconsAssets.telegramIcon, width: 50),
+                Image.asset(IconsAssets.whatsappIcon, width: 50),
+                Image.asset(IconsAssets.youtubeIcon, width: 50),
+              ]),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Image.asset(IconsAssets.twitterIcon, width: 50),
+                Image.asset(IconsAssets.discordIcon, width: 50),
+              ]),
+              const CustomVerticalSizedox(height: 10)
+            ]))));
   }
 }

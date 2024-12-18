@@ -1,6 +1,8 @@
 import 'package:currency_trading/shared/custom_vertical_sizedox.dart';
 import 'package:currency_trading/utils/icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class SignalDetailsCopyDialogWidget extends StatelessWidget {
   const SignalDetailsCopyDialogWidget({
@@ -28,7 +30,12 @@ class SignalDetailsCopyDialogWidget extends StatelessWidget {
               const CustomVerticalSizedox(height: 6),
               Text(
                 title,
-                style: const TextStyle(color: Color(0xff3D992B)),
+                style: TextStyle(
+                    color: title == 'STOP'
+                        ? const Color(0XFFFF0004)
+                        : title == 'ENTRY'
+                            ? const Color(0xff3D992B)
+                            : Colors.white),
               ),
               const CustomVerticalSizedox(height: 6),
               Text(
@@ -38,7 +45,14 @@ class SignalDetailsCopyDialogWidget extends StatelessWidget {
                 ),
               ),
               const CustomVerticalSizedox(height: 6),
-              Image.asset(IconsAssets.copyDialogIcon)
+              InkWell(
+                 onTap: () {
+                    Clipboard.setData(ClipboardData(text: number));
+                    Get.snackbar('Copied!', number,
+                        backgroundColor: const Color(0xffF2B80C),
+                        colorText: Colors.black, snackPosition: SnackPosition.BOTTOM);
+                  },
+                child: Image.asset(IconsAssets.copyDialogIcon))
             ]));
   }
 }

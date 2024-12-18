@@ -37,6 +37,7 @@ class HistoryRepositoryImpl extends HistoryRepository {
     );
   }
 
+
   Future _fetchData(
       {required String url,
       required Function fromJson,

@@ -31,6 +31,7 @@ class HistoryControllerImpl extends HistoryController {
 
   @override
   void toHistoryDetails(String name) {
-    Get.to(() => const HistoryCardsScreen(), arguments: {'name': name});
+    Get.to(() => const HistoryCardsScreen(), arguments: {'name': name},   transition: Transition.zoom,
+        duration: const Duration(milliseconds: 900));
   }
 }

@@ -1,11 +1,14 @@
 import 'package:currency_trading/core/helper/failures_handling.dart';
 import 'package:currency_trading/core/network/crud.dart';
 import 'package:currency_trading/model/general_model.dart';
+import 'package:currency_trading/model/subscription_package_model.dart';
 import 'package:currency_trading/utils/constants/app_api.dart';
 import 'package:dio/dio.dart';
 
 abstract class GeneralRepository {
   Future fetchGeneralData();
+    Future subscriptionPackage();
+
 }
 
 class GeneralRepositoryImpl extends GeneralRepository {
@@ -18,6 +21,15 @@ class GeneralRepositoryImpl extends GeneralRepository {
     );
   }
 
+// ============ Subscription Package ==============
+
+  @override
+  Future subscriptionPackage() async {
+    return _fetchData(
+      url: (AppApi.subscriptionPackage),
+      fromJson: (json) => SubscriptionPackageModel.fromJson(json),
+    );
+  }
   Future _fetchData(
       {required String url,
       required Function fromJson,

@@ -29,7 +29,6 @@ class RegisterControllerImpl extends RegisterController {
       TextEditingController();
   final TextEditingController inviteCodeController = TextEditingController();
 
-  /// Registers a new user with the provided details from the form.
   @override
   Future<void> checkEmail() async {
     try {
@@ -48,13 +47,12 @@ class RegisterControllerImpl extends RegisterController {
             name: nameController.text.trim(),
             email: emailController.text.trim(),
             password: passwordController.text.trim(),
-            passwordConfirmation: passwordConfirmationController.text.trim(),
             inviteCode: inviteCodeController.text.trim(),
           );
           Get.back();
           if (result is RegisterModel) {
             _storeUserData(result);
-            Get.off(() => RootScreen());
+            Get.off(() => const RootScreen());
           } else if (result is Failures) {
             if (result.data is Map<String, dynamic>) {
               showTextDialog(

@@ -5,6 +5,9 @@ class IconsAssets {
   static const String invitationCodeIcon = 'assets/icons/Invitation Code.svg';
   static const String eyeIcon = 'assets/icons/9025476_eye_slash_icon.svg';
   static const String eye1Icon = 'assets/icons/9110850_eye_icon.svg';
+  static const String ultimateCopyIcon = 'assets/icons/Group 37242.svg';
+  static const String basicCopyIcon = 'assets/icons/Group 37242 (1).svg';
+  static const String arrowHistoryIcon = 'assets/icons/Group 37309 (1).svg';
 
   static const String accessIcon = 'assets/icons/Access.png';
   static const String historyIcon = 'assets/icons/History.png';
@@ -12,6 +15,7 @@ class IconsAssets {
   static const String partnershipIcon = 'assets/icons/Partnership.png';
   static const String supportIcon = 'assets/icons/Support.png';
   static const String signalsIcon = 'assets/icons/Signals.png';
+  static const String targetIcon = 'assets/icons/Target 8.png';
 
   static const String whatsappIcon = 'assets/icons/whatsapp.png';
   static const String telegramIcon = 'assets/icons/telegram.png';
@@ -27,7 +31,7 @@ class IconsAssets {
   static const String privacyPolicyIcon = 'assets/icons/Privacy Policy.png';
   static const String termsIcon = 'assets/icons/Terms Of Use.png';
 
-  static const String detailsArrowIcon = 'assets/icons/Group 37208.png';
+  static const String detailsArrowIcon = 'assets/icons/Group 37208.svg';
   static const String greenArrowIcon = 'assets/icons/icon.png';
   static const String copyIcon = 'assets/icons/Copy.png';
   static const String analysiIcon = 'assets/icons/Analysi.png';

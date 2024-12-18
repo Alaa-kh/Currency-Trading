@@ -56,8 +56,11 @@ class AccessScreen extends StatelessWidget {
                           ]),
                           const CustomVerticalSizedox(height: 40),
                           InkWell(
-                            onTap: () => Get.to(() => const AccessBoyScreen()),
-                            child: AccessBoyContainerWidget(
+                            onTap: () => Get.to(
+                                () => const AccessBoyScreen(isBasic: true),
+                                transition: Transition.fadeIn,
+                                duration: const Duration(milliseconds: 1100)),
+                            child: const AccessBoyContainerWidget(
                                 text: r'Buy now $10 / Month',
                                 color: Color(0xff00A7FF)),
                           ),
@@ -82,9 +85,15 @@ class AccessScreen extends StatelessWidget {
                             AccessCardWidget(color: Color(0XFFF2B80C))
                           ]),
                           const CustomVerticalSizedox(height: 40),
-                          AccessBoyContainerWidget(
-                              text: r'Buy now $30 / Month',
-                              color: Color(0xffF2B80C)),
+                          InkWell(
+                            onTap: () => Get.to(
+                                () => const AccessBoyScreen(isBasic: false),
+                                transition: Transition.fadeIn,
+                                duration: const Duration(milliseconds: 1100)),
+                            child: const AccessBoyContainerWidget(
+                                text: r'Buy now $30 / Month',
+                                color: Color(0xffF2B80C)),
+                          ),
                           const CustomVerticalSizedox(height: 20),
                         ])))));
   }

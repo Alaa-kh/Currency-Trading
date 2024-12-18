@@ -65,7 +65,7 @@ class LogoutControllerImpl extends LogoutController {
                   child: TextButton(
                     style: ButtonStyle(
                       padding: const WidgetStatePropertyAll(
-                        EdgeInsets.symmetric(vertical: 10),
+                        EdgeInsets.symmetric(vertical: 3),
                       ),
                       shape: WidgetStatePropertyAll(
                         RoundedRectangleBorder(
@@ -104,7 +104,7 @@ class LogoutControllerImpl extends LogoutController {
                   child: TextButton(
                     style: ButtonStyle(
                       padding: const WidgetStatePropertyAll(
-                        EdgeInsets.symmetric(vertical: 10),
+                        EdgeInsets.symmetric(vertical: 3),
                       ),
                       backgroundColor:
                           WidgetStateProperty.all(const Color(0xff263775)),

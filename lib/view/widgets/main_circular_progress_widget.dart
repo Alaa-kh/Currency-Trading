@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 class MainCircularProgressWidget extends StatelessWidget {
   const MainCircularProgressWidget({
     super.key,
+    this.color
   });
-
+  final Color? color;
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return  Center(
         child: CircularProgressIndicator(
-      color: Color(0xffF2B80C),
-      backgroundColor: Color(0xff454545),
+      color: color ?? const Color(0xffF2B80C),
+      backgroundColor: const Color(0xff454545),
     ));
   }
 }

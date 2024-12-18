@@ -36,7 +36,7 @@ void showTextDialog(String message, bool isError, [Function()? onTap]) {
         TextButton(
           style: ButtonStyle(
             padding: const WidgetStatePropertyAll(
-                EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
+                EdgeInsets.symmetric(horizontal: 30, vertical: 3)),
             backgroundColor: const WidgetStatePropertyAll(Color(0xff263775)),
             shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(

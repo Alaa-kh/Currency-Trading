@@ -30,7 +30,6 @@ class LoginControllerImpl extends LoginController {
       email: emailController.text.trim(),
       password: passwordController.text.trim(),
     );
-    print('======================${result}');
     Get.back();
     if (result is LoginModel) {
       _storeUserData(result);

@@ -16,5 +16,6 @@ class AppApi {
   static const String history = '${_baseUrl}history/all';
   static const String historyDetails = '${_baseUrl}history/single/';
   static const String general = '${_baseUrl}info';
+    static const String subscriptionPackage = '${_baseUrl}prices/check';
   static const String results = '${_baseUrl}results?';
 }

@@ -1,13 +1,9 @@
-import 'package:currency_trading/core/services/app_services.dart';
 import 'package:currency_trading/model/auth/chech_email.dart';
-import 'package:currency_trading/model/auth/register_model.dart';
 import 'package:currency_trading/model/auth/send_code_model.dart';
 import 'package:currency_trading/repo/auth/check_email_repo.dart';
-import 'package:currency_trading/repo/auth/register_repo.dart';
 import 'package:currency_trading/repo/auth/send_code_repo.dart';
 import 'package:currency_trading/shared/custom_dialog.dart';
 import 'package:currency_trading/shared/custom_loading.dart';
-import 'package:currency_trading/utils/constants/app_key.dart';
 import 'package:currency_trading/view/screens/auth/verify/verify_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,8 +14,7 @@ abstract class RegisterController extends GetxController {
 }
 
 class RegisterControllerImpl extends RegisterController {
-  final _box = Get.find<MyServices>().getBox;
-  final RegisterRepositoryImpl _repository = RegisterRepositoryImpl();
+
   final CheckEmailRepositoryImpl _chechEmailRepository =
       CheckEmailRepositoryImpl();
   final SendCodeRepositoryImpl _sendCodeRepository = SendCodeRepositoryImpl();
@@ -45,33 +40,19 @@ class RegisterControllerImpl extends RegisterController {
           Get.back();
           showTextDialog('Email is already exists', true);
         } else {
-          print('1111111111111111111');
-          final resultRegidter = await _repository.registerUser(
-            name: nameController.text.trim(),
+          final resultSendCode = await _sendCodeRepository.sendCode(
             email: emailController.text.trim(),
-            password: passwordController.text.trim(),
-            passwordConfirmation: passwordConfirmationController.text.trim(),
-            inviteCode: inviteCodeController.text.trim(),
           );
-          print('222222222222222222222222');
-          if (resultRegidter is RegisterModel) {
-            final resultSendCode = await _sendCodeRepository.sendCode(
-              email: emailController.text.trim(),
-            );
-            print('333333333333333333333333333333');
+          if (resultSendCode is SendCodeModel) {
+            Get.back();
 
-            if (resultSendCode is SendCodeModel) {
-              Get.back();
-
-              Get.off(() => const VerifyScreen(), arguments: {
-                'code': resultSendCode.data.verificationCode.toString(),
-                
-              });
-              _storeUserData(resultRegidter);
-            } else {
-              Get.back();
-            }
-            print('333333333333333333333333333333');
+            Get.off(() => const VerifyScreen(), arguments: {
+              'code': resultSendCode.data.verificationCode.toString(),
+              'email': emailController.text.trim(),
+              'password': passwordController.text.trim(),
+              'name': nameController.text.trim(),
+              'intiveCode': inviteCodeController.text.toString(),
+            });
           } else {
             Get.back();
           }
@@ -82,20 +63,6 @@ class RegisterControllerImpl extends RegisterController {
     } catch (_) {}
   }
 
-  /// Stores user data after successful registration.
-  void _storeUserData(RegisterModel registeredUser) {
-    _box.write(AppKey.email, registeredUser.data.email);
-    _box.write(AppKey.token, registeredUser.data.token);
-    _box.write(AppKey.name, registeredUser.data.name);
-    _box.write(AppKey.id, registeredUser.data.id);
-    _box.write(AppKey.type, registeredUser.data.type);
-    _box.write(AppKey.country, registeredUser.data.country);
-    _box.write(AppKey.inviteCode, registeredUser.data.inviteCode);
-    _box.write(AppKey.birthday, registeredUser.data.birthday);
-    _box.write(AppKey.inviteLink, registeredUser.data.inviteLink);
-    _box.write(AppKey.money, registeredUser.data.money);
-    _box.write(AppKey.wallet, registeredUser.data.wallet);
-  }
 
   bool isPasswordVisible = false;
 

@@ -5,6 +5,7 @@ class AccessBoyContainerWidget extends StatelessWidget {
     super.key,
     required this.color,
     required this.text,
+    
   });
   final Color color;
   final String text;

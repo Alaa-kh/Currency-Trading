@@ -4,6 +4,7 @@ import 'package:currency_trading/utils/icons.dart';
 import 'package:currency_trading/view/screens/history/widgets/history_info_cards_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:svg_flutter/svg.dart';
 
 class HistoryMainListWidget extends StatelessWidget {
   const HistoryMainListWidget({
@@ -73,8 +74,8 @@ class HistoryMainListWidget extends StatelessWidget {
                         child: InkWell(
                             onTap: () => controller.toHistoryDetails(
                                 controller.historyMod[index].name),
-                            child: Image.asset(IconsAssets.detailsArrowIcon,
-                                width: 32))),
+                            child: SvgPicture.asset(IconsAssets.arrowHistoryIcon,
+                                width: 42)))
                   )
                 ])));
   }

@@ -43,9 +43,11 @@ class SignalsControllerImpl extends SignalsController {
   }
 
   void toSignalDetailsScreen(int id) {
-    Get.to(() => const SignalDetailsScreen(), arguments: {'id': id});
+    Get.to(() => const SignalDetailsScreen(),
+        arguments: {'id': id},
+        transition: Transition.fadeIn,
+        duration: const Duration(milliseconds: 800));
   }
-
 
   @override
   void onInit() {
