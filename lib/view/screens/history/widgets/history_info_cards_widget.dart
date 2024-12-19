@@ -22,7 +22,7 @@ class HistoryInfoCardsWidget extends StatelessWidget {
           Image.asset(icon),
           const CustomVerticalSizedox(height: 10),
           Text('$label\n\n $number',
-              style: const TextStyle(fontSize: 10, color: Colors.white),
+              style: const TextStyle(fontSize: 12, color: Colors.white),
               textAlign: TextAlign.center)
         ]);
   }

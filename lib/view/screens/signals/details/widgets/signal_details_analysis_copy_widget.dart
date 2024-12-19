@@ -1,3 +1,4 @@
+import 'package:currency_trading/view/screens/signals/details/widgets/signal_details_totallist_widget.dart';
 import 'package:flutter/material.dart';
 
 class SignalDetailsAnalysisCopyWidget extends StatelessWidget {
@@ -13,17 +14,24 @@ class SignalDetailsAnalysisCopyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-          padding: const EdgeInsets.all(8),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: color, borderRadius: BorderRadius.circular(8)),
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Image.asset(icon),
-            const SizedBox(width: 10),
-            Text(text,
-                style: const TextStyle(color: Colors.white, fontSize: 20))
-          ])),
+      child: InkWell(
+        onTap: () {
+          if (text == 'Copy') {
+            signalDetailsDialog();
+          }
+        },
+        child: Container(
+            padding: const EdgeInsets.all(8),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: color, borderRadius: BorderRadius.circular(8)),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Image.asset(icon),
+              const SizedBox(width: 10),
+              Text(text,
+                  style: const TextStyle(color: Colors.white, fontSize: 20))
+            ])),
+      ),
     );
   }
 }

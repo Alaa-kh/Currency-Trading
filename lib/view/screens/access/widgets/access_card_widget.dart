@@ -6,25 +6,21 @@ class AccessCardWidget extends StatelessWidget {
   const AccessCardWidget({
     super.key,
     required this.color,
+    required this.text,
   });
   final Color color;
+  final String text;
   @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-            border:
-                Border(right: BorderSide(color: Colors.white.withOpacity(.1)))),
-        child: Column(children: [
-          Text(
-            'Signals/Daily',
-            style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w700,
-                color: Color(0xffF7F7F7)),
-          ),
-          const CustomVerticalSizedox(height: 10),
-          Image.asset(IconsAssets.rightIcon, color: color)
-        ]));
+    return
+        Column(children: [
+      Text(
+        text,
+        style: const TextStyle(
+            fontWeight: FontWeight.w700, color: Color(0xffF7F7F7)),
+      ),
+      const CustomVerticalSizedox(height: 10),
+      Image.asset(IconsAssets.rightIcon, color: color)
+    ]);
   }
 }

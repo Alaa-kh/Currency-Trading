@@ -12,6 +12,7 @@ import 'package:currency_trading/view/widgets/drawer/drawer_widget.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
   const SignalDetailsScreen({
@@ -47,11 +48,17 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                   currencyType: controller
                                       .signalDetailsModel!.data.currencyType
                                       .toString(),
-                                  type: controller.signalDetailsModel!.data.type
-                                      .toString(),
-                                  createdAt: controller
+                                  type:  controller.signalDetailsModel!
+                                                          .data.type ==
+                                                      'spot'
+                                                  ? 'Free'
+                                                  : controller.signalDetailsModel!
+                                                      .data.type
+                                                      .toString(),
+                                 
+                                  createdAt:  DateFormat('dd-MM-yyyy hh:mm a').format( controller
                                       .signalDetailsModel!.data.createdAt
-                                      .toString(),
+                                      ),
                                   entry: controller
                                       .signalDetailsModel!.data.entry
                                       .toString(),
@@ -105,10 +112,10 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                           text: 'Analysis',
                                           color: Color(0xffF2B80C)),
                                       SizedBox(width: 15),
-                                      SignalDetailsAnalysisCopyWidget(
-                                          icon: IconsAssets.copyIcon,
-                                          text: 'Copy',
-                                          color: Color(0xff704EF4))
+                                       SignalDetailsAnalysisCopyWidget(
+                                      icon: IconsAssets.copyIcon,
+                                      text: 'Copy',
+                                      color: Color(0xff704EF4))
                                     ]),
                                 const CustomVerticalSizedox(height: 23),
                                 const Text(
@@ -132,6 +139,7 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                     child: Column(children: [
                                       const CustomVerticalSizedox(height: 10),
                                       TextField(
+                                        keyboardType: TextInputType.number,
                                         textAlign: TextAlign.left,
                                         textAlignVertical:
                                             TextAlignVertical.center,
@@ -140,12 +148,8 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                             hintStyle: const TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w400),
-                                            suffixIcon: InkWell(
-                                                onTap: () {
-                                                  signalDetailsDialog();
-                                                },
-                                                child: Image.asset(
-                                                    IconsAssets.editIcon)),
+                                            suffixIcon: Image.asset(
+                                                IconsAssets.editIcon),
                                             contentPadding:
                                                 const EdgeInsets.symmetric(
                                                     horizontal: 18),

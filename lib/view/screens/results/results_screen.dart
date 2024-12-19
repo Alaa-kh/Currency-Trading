@@ -42,53 +42,53 @@ class ResultsScreen extends StatelessWidget {
                             const CustomVerticalSizedox(height: 24),
                             SizedBox(
                                 width: double.infinity,
-                                height: 60,
+                                height: 65,
                                 child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: List.generate(
                                         5,
-                                        (index) => Expanded(
-                                            child: InkWell(
-                                                onTap: () {
-                                                  controller.selectTime(
-                                                    index,
-                                                  );
-                                                },
-                                                child: Container(
-                                                    alignment: Alignment.center,
-                                                    margin: index != 4
-                                                        ? const EdgeInsets.only(
-                                                            right: 13)
-                                                        : null,
-                                                    decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                        width: 1,
-                                                        color: controller
-                                                                    .selectedIndex ==
-                                                                index
-                                                            ? const Color(
-                                                                0xff00A7FF)
-                                                            : Colors.white
-                                                                .withOpacity(
-                                                                    .1),
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              7),
-                                                      color: controller
-                                                                  .selectedIndex ==
-                                                              index
-                                                          ? const Color(
-                                                              0xff267CBC)
-                                                          : const Color(
-                                                              0xff757575),
-                                                    ),
-                                                    child: Text(
-                                                        controller
-                                                            .timeItem[index],
-                                                        style: const TextStyle(
-                                                            color: Colors.white,
+                                        (index) => InkWell(
+                                          
+                                            onTap: () {
+                                              controller.selectTime(index);
+                                            },
+                                            child: Container(
+                                              width: 65,
+                                                alignment:
+                                                    Alignment.center,
+                                              
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    width: 1,
+                                                    color: controller
+                                                                .selectedIndex ==
+                                                            index
+                                                        ? const Color(
+                                                            0xff00A7FF)
+                                                        : Colors.white
+                                                            .withOpacity(
+                                                                .1),
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius
+                                                          .circular(7),
+                                                  color: controller
+                                                              .selectedIndex ==
+                                                          index
+                                                      ? const Color(
+                                                          0xff267CBC)
+                                                      : const Color(
+                                                          0xff757575),
+                                                ),
+                                                child: Text(
+                                                    controller
+                                                        .timeItem[index],
+                                                    style:
+                                                        const TextStyle(
+                                                            color: Colors
+                                                                .white,
                                                             fontSize:
-                                                                19)))))))),
+                                                                19))))))),
                             const CustomVerticalSizedox(height: 28),
                             const ResultsCardsGridWidget(),
                             const CustomVerticalSizedox(height: 23),
@@ -114,6 +114,7 @@ class ResultsScreen extends StatelessWidget {
                                 child: Column(children: [
                                   const CustomVerticalSizedox(height: 10),
                                   TextField(
+                                    keyboardType: TextInputType.number,
                                     textAlignVertical: TextAlignVertical.center,
                                     decoration: InputDecoration(
                                         suffixIcon: InkWell(

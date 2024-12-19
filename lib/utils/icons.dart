@@ -8,6 +8,7 @@ class IconsAssets {
   static const String ultimateCopyIcon = 'assets/icons/Group 37242.svg';
   static const String basicCopyIcon = 'assets/icons/Group 37242 (1).svg';
   static const String arrowHistoryIcon = 'assets/icons/Group 37309 (1).svg';
+  static const String lineIcon = 'assets/icons/Line.svg';
 
   static const String accessIcon = 'assets/icons/Access.png';
   static const String historyIcon = 'assets/icons/History.png';

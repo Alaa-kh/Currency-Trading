@@ -11,31 +11,27 @@ class SignalsContainerSliderBoxWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(SignalsControllerImpl());
     return GetBuilder<SignalsControllerImpl>(
-      builder: (controller) => Container(
-        width: double.infinity,
-        height: 200,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.grey[200],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: CachedNetworkImage(
-            fit: BoxFit.cover,
+        builder: (controller) => Container(
             width: double.infinity,
-            imageUrl: 'https://crypto-signals-ultimate.com/$image',
-            progressIndicatorBuilder: (context, url, downloadProgress) =>
-                Center(
-              child: CircularProgressIndicator(
-                backgroundColor: const Color(0xff454545),
-                color: const Color(0xfff2b80d),
-                value: downloadProgress.progress,
-              ),
-            ),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-          ),
-        ),
-      ),
-    );
+            height: 200,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.grey[200]),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: CachedNetworkImage(
+                  alignment: Alignment.center,
+                    height: 200,
+                    fit: BoxFit.fill,
+                    width: double.infinity,
+                    imageUrl: 'https://crypto-signals-ultimate.com/$image',
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) => Center(
+                            child: CircularProgressIndicator(
+                                backgroundColor: const Color(0xff454545),
+                                color: const Color(0xfff2b80d),
+                                value: downloadProgress.progress)),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error)))));
   }
 }

@@ -16,9 +16,10 @@ class SignalDetailsTableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<SignalDetailsControllerImpl>(
       builder: (controller) => Table(
-          border: TableBorder.all(
-              color: Colors.grey.shade800,
-              width: 1.0,
+          border: TableBorder.symmetric(
+            outside: BorderSide.none,
+            inside: BorderSide(color:  Colors.grey.shade800),
+        
               borderRadius: BorderRadius.circular(16)),
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
           children: [
@@ -29,7 +30,7 @@ class SignalDetailsTableWidget extends StatelessWidget {
                         topLeft: Radius.circular(16),
                         topRight: Radius.circular(16))),
                 children: [
-                  TableCell(
+             const     TableCell(
                       verticalAlignment: TableCellVerticalAlignment.middle,
                       child: Padding(
                           padding: EdgeInsets.only(top: 22, bottom: 22),
@@ -41,22 +42,33 @@ class SignalDetailsTableWidget extends StatelessWidget {
                   TableCell(
                       verticalAlignment: TableCellVerticalAlignment.middle,
                       child: Text(
-                        '1.878',
-                        style: TextStyle(color: Colors.white),
+                      controller.signalDetailsModel!.data.currentPrice.toString(),
+                        style: const TextStyle(color: Colors.white),
                         textAlign: TextAlign.center,
                       )),
                   TableCell(
                       verticalAlignment: TableCellVerticalAlignment.middle,
-                      child: Text('0.34%',
-                          style: TextStyle(color: Color(0xff3D992B)),
+                      child: Text('${controller.signalDetailsModel!.data.percentage.toString()}%',
+                          style:const TextStyle(color:  Color(0xff3D992B)),
                           textAlign: TextAlign.center))
                 ]),
             ...List.generate(
                 controller.signalDetailsModel!.data.targets.length,
                 (index) => TableRow(
-                        decoration: const BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(color: Color(0xff575656)))),
+                        decoration:  BoxDecoration(
+                          color: const Color(0xff373A48),
+                          borderRadius: BorderRadius.only(bottomLeft:  Radius.circular(index ==
+                                      controller.signalDetailsModel!.data
+                                              .targets.length -
+                                          1
+                                  ? 16:0), 
+                                     bottomRight: 
+                           Radius.circular(index ==
+                                      controller.signalDetailsModel!.data
+                                              .targets.length -
+                                          1
+                                  ? 16:0
+                           ))),
                         children: [
                           TableCell(
                             verticalAlignment:

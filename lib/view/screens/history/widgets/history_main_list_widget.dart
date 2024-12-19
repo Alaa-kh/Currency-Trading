@@ -42,7 +42,7 @@ class HistoryMainListWidget extends StatelessWidget {
                             Center(
                                 child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                        MainAxisAlignment.spaceAround,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
@@ -67,16 +67,16 @@ class HistoryMainListWidget extends StatelessWidget {
                                 ]))
                           ])),
                   GetBuilder<HistoryControllerImpl>(
-                    builder: (_) => Positioned(
-                        right: -15,
-                        bottom: 50,
-                        top: 50,
-                        child: InkWell(
-                            onTap: () => controller.toHistoryDetails(
-                                controller.historyMod[index].name),
-                            child: SvgPicture.asset(IconsAssets.arrowHistoryIcon,
-                                width: 42)))
-                  )
+                      builder: (_) => Positioned(
+                          right: -15,
+                          bottom: 50,
+                          top: 50,
+                          child: InkWell(
+                              onTap: () => controller.toHistoryDetails(
+                                  controller.historyMod[index].name),
+                              child: SvgPicture.asset(
+                                  IconsAssets.arrowHistoryIcon,
+                                  width: 42))))
                 ])));
   }
 }

@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:currency_trading/core/services/app_services.dart';
 import 'package:currency_trading/logic/controllers/signals_controller.dart';
+import 'package:currency_trading/utils/constants/app_key.dart';
 import 'package:currency_trading/view/screens/signals/widgets/signals_container_slider_box_widget.dart';
 import 'package:currency_trading/view/screens/signals/widgets/signals_cards_widget.dart';
 import 'package:currency_trading/view/screens/signals/widgets/signals_under_slider_container_widget.dart';
@@ -13,7 +15,7 @@ import 'package:currency_trading/utils/images.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:get/get.dart';
-
+final token = Get.find<MyServices>().getBox.read(AppKey.token);
 class SignalsScreen extends StatefulWidget {
   const SignalsScreen({super.key});
 
@@ -48,14 +50,14 @@ class _SignalsScreenState extends State<SignalsScreen> {
               builder: (controller) => controller.signalsSliderModel != null
                   ? SingleChildScrollView(
                       child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const CustomVerticalSizedox(height: 10),
                                 const MainNameContainerWidget(),
-                                const CustomVerticalSizedox(height: 20),
+                                 CustomVerticalSizedox(height: token!=null? 20 : 10),
                                 controller.signalsSliderModel != null
                                     ? CarouselSlider(
                                         items: controller

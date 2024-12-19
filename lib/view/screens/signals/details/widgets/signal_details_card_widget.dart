@@ -79,9 +79,16 @@ class SignalDetailsCardWidget extends StatelessWidget {
                     const TextSpan(
                         text: '   -   ', style: TextStyle(color: Colors.white)),
                     TextSpan(
-                        text: 'Leverage $leverage',
+                        text: 'Leverage X$leverage',
                         style: const TextStyle(
                           color: Color(0xff947FFF),
+                        )),
+                    const TextSpan(
+                        text: '   -   ', style: TextStyle(color: Colors.white)),
+                    const TextSpan(
+                        text: 'Risk 3%',
+                        style: TextStyle(
+                          color: Color(0xffFF6960),
                         )),
                   ])),
             ]),
