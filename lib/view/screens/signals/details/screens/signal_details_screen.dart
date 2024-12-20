@@ -14,6 +14,7 @@ import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+
 class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
   const SignalDetailsScreen({
     super.key,
@@ -48,17 +49,15 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                   currencyType: controller
                                       .signalDetailsModel!.data.currencyType
                                       .toString(),
-                                  type:  controller.signalDetailsModel!
-                                                          .data.type ==
-                                                      'spot'
-                                                  ? 'Free'
-                                                  : controller.signalDetailsModel!
-                                                      .data.type
-                                                      .toString(),
-                                 
-                                  createdAt:  DateFormat('dd-MM-yyyy hh:mm a').format( controller
-                                      .signalDetailsModel!.data.createdAt
-                                      ),
+                                  type: controller
+                                              .signalDetailsModel!.data.type ==
+                                          'spot'
+                                      ? 'Free'
+                                      : controller.signalDetailsModel!.data.type
+                                          .toString(),
+                                  createdAt: DateFormat('dd-MM-yyyy hh:mm a')
+                                      .format(controller
+                                          .signalDetailsModel!.data.createdAt),
                                   entry: controller
                                       .signalDetailsModel!.data.entry
                                       .toString(),
@@ -82,6 +81,24 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                   entry: controller
                                       .signalDetailsModel!.data.entry
                                       .toString(),
+                                      tp1: controller
+                                      .signalDetailsModel!.data.targets[0].target
+                                    .toString(),
+                                    tp2: controller
+                                      .signalDetailsModel!.data.targets[1].target
+                                    .toString(),
+                                    tp3: controller
+                                      .signalDetailsModel!.data.targets[2].target
+                                    .toString(),
+                                    tp4: controller
+                                      .signalDetailsModel!.data.targets[3].target
+                                    .toString(),
+                                    tp5: controller
+                                      .signalDetailsModel!.data.targets[4].target
+                                    .toString(),
+                                       indicatorValue: 0.4, // موقع المؤشر
+                                 
+
                                 ),
                                 const CustomVerticalSizedox(height: 28),
                                 const Text(
@@ -103,20 +120,30 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                       .toString(),
                                 ),
                                 const CustomVerticalSizedox(height: 22),
-                                const Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      SignalDetailsAnalysisCopyWidget(
-                                          icon: IconsAssets.analysiIcon,
-                                          text: 'Analysis',
-                                          color: Color(0xffF2B80C)),
-                                      SizedBox(width: 15),
-                                       SignalDetailsAnalysisCopyWidget(
-                                      icon: IconsAssets.copyIcon,
-                                      text: 'Copy',
-                                      color: Color(0xff704EF4))
-                                    ]),
+                                // controller.signalDetailsModel!.data
+                                //             .analysisLink !=
+                                //         null
+                                    // ? 
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                            const SignalDetailsAnalysisCopyWidget(
+                                                icon: IconsAssets
+                                                    .analysiIcon,
+                                                text: 'Analysis',
+                                                color: Color(0xffF2B80C)),
+                                            const SizedBox(width: 15),
+                                            const SignalDetailsAnalysisCopyWidget(
+                                                icon: IconsAssets.copyIcon,
+                                                text: 'Copy',
+                                                color: Color(0xff704EF4))
+                                          ])
+                                    // : const SignalDetailsAnalysisCopyWidget(
+                                    //     icon: IconsAssets.copyIcon,
+                                    //     text: 'Copy',
+                                    //     color: Color(0xff704EF4)),
+                                    ,
                                 const CustomVerticalSizedox(height: 23),
                                 const Text(
                                     'We recommend that the risk in each trade should be from 3-5% of the total cap.',
@@ -139,37 +166,41 @@ class SignalDetailsScreen extends GetView<SignalDetailsControllerImpl> {
                                     child: Column(children: [
                                       const CustomVerticalSizedox(height: 10),
                                       TextField(
-                                        keyboardType: TextInputType.number,
-                                        textAlign: TextAlign.left,
-                                        textAlignVertical:
-                                            TextAlignVertical.center,
-                                        decoration: InputDecoration(
-                                            hintText: 'Your total amount',
-                                            hintStyle: const TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w400),
-                                            suffixIcon: Image.asset(
-                                                IconsAssets.editIcon),
-                                            contentPadding:
-                                                const EdgeInsets.symmetric(
-                                                    horizontal: 18),
-                                            enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.white
-                                                        .withOpacity(.1)))),
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.w700,
-                                            color: Color(0xffF2B80C),
-                                            fontSize: 17),
-                                      ),
+                                          keyboardType: TextInputType.number,
+                                          textAlign: TextAlign.left,
+                                          textAlignVertical:
+                                              TextAlignVertical.center,
+                                          decoration: InputDecoration(
+                                              hintText: 'Your total amount',
+                                              hintStyle: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w400),
+                                              suffixIcon: Image.asset(
+                                                  IconsAssets.editIcon),
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 18),
+                                              enabledBorder:
+                                                  UnderlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                          color:
+                                                              Colors.white
+                                                                  .withOpacity(
+                                                                      .1)))),
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              color: Color(0xffF2B80C),
+                                              fontSize: 17)),
                                       const SignalDetailsTotalListWidget(
                                           title:
                                               'Our recommendation is to invest in this trade',
-                                          total: r'$ 50'),
+                                          total: r'$ 50')
                                     ])),
                                 const CustomVerticalSizedox(height: 20)
                               ])))
                   : const MainCircularProgressWidget();
             })));
   }
+
+
 }

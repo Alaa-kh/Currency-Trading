@@ -8,20 +8,22 @@ class ResultsTotalListWidget extends StatelessWidget {
   });
 
   final String title;
-  final String total;
+  final double total;
   @override
   Widget build(BuildContext context) {
     return ListTile(
         title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(total,
-              style: const TextStyle(
-                  fontWeight: FontWeight.w700,
-                  color: Color(0xffF2B80C),
-                  fontSize: 25),
-              textAlign: TextAlign.center),
+          Expanded(
+            child: Text('\$ ${total.toString()}',
+                style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xffF2B80C),
+                    fontSize: 25),
+                textAlign: TextAlign.center),
+          ),
           const SizedBox(width: 13),
         ]),
-        leading: Text(title,
+        leading: Text(title.toString(),
             style: const TextStyle(color: Colors.white, fontSize: 14)));
   }
 }

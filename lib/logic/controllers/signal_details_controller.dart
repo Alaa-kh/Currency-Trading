@@ -1,9 +1,11 @@
 import 'package:currency_trading/model/signals/signal_details_model.dart';
 import 'package:currency_trading/repo/signals/signal_details_repo.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 abstract class SignalDetailsController extends GetxController {
   Future<void> signalsDetails();
+  void openWebUrl();
 }
 
 class SignalDetailsControllerImpl extends SignalDetailsController {
@@ -11,7 +13,7 @@ class SignalDetailsControllerImpl extends SignalDetailsController {
   final SignalDetailsRepositoryImpl _repository = SignalDetailsRepositoryImpl();
 
   int id = Get.arguments['id'];
-  
+
   @override
   void onInit() {
     super.onInit();
@@ -28,5 +30,16 @@ class SignalDetailsControllerImpl extends SignalDetailsController {
       await signalsDetails();
     }
     update();
+  }
+
+  @override
+  void openWebUrl() async {
+    final Uri url = Uri.parse('https://www.google.com');
+
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw ';;;;;;;;;;;;;;;;;;;;;;;;;;;;; $url';
+    }
   }
 }

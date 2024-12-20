@@ -7,8 +7,7 @@ import 'package:dio/dio.dart';
 
 abstract class GeneralRepository {
   Future fetchGeneralData();
-    Future subscriptionPackage();
-
+  Future subscriptionPackage({String? value});
 }
 
 class GeneralRepositoryImpl extends GeneralRepository {
@@ -24,12 +23,16 @@ class GeneralRepositoryImpl extends GeneralRepository {
 // ============ Subscription Package ==============
 
   @override
-  Future subscriptionPackage() async {
+  Future subscriptionPackage({String? value}) async {
+    print(
+      ('${AppApi.subscriptionPackage}$value'),
+    );
     return _fetchData(
-      url: (AppApi.subscriptionPackage),
+      url: ('${AppApi.subscriptionPackage}$value'),
       fromJson: (json) => SubscriptionPackageModel.fromJson(json),
     );
   }
+
   Future _fetchData(
       {required String url,
       required Function fromJson,

@@ -15,7 +15,9 @@ import 'package:currency_trading/utils/images.dart';
 import 'package:currency_trading/view/widgets/mainLinear_gradient_function.dart';
 import 'package:currency_trading/view/widgets/main_appbar_function.dart';
 import 'package:get/get.dart';
+
 final token = Get.find<MyServices>().getBox.read(AppKey.token);
+
 class SignalsScreen extends StatefulWidget {
   const SignalsScreen({super.key});
 
@@ -56,25 +58,31 @@ class _SignalsScreenState extends State<SignalsScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const CustomVerticalSizedox(height: 10),
-                                const MainNameContainerWidget(),
-                                 CustomVerticalSizedox(height: token!=null? 20 : 10),
+                                if (token != null) ...[
+                                  const MainNameContainerWidget()
+                                ],
+                                CustomVerticalSizedox(
+                                    height: token != null ? 20 : 10),
                                 controller.signalsSliderModel != null
                                     ? CarouselSlider(
-                                        items: controller
-                                                .signalsSliderModel!
-                                                .data.map((e)=>SignalsContainerSliderBoxWidget(
-                                            image: e.image,
-                                          ),).toList(),
+                                        items:
+                                            controller.signalsSliderModel!.data
+                                                .map(
+                                                  (e) =>
+                                                      SignalsContainerSliderBoxWidget(
+                                                    image: e.image,
+                                                  ),
+                                                )
+                                                .toList(),
                                         options: CarouselOptions(
-                                          onPageChanged: (index, reason) {
-                                            _currentIndexNotifier.value = index;
-                                          },
-                                          height: 180,
-                                          initialPage: 0,
-                                          enlargeCenterPage: true,
-                                          autoPlay: true,
-                                        ),
-                                      )
+                                            onPageChanged: (index, reason) {
+                                              _currentIndexNotifier.value =
+                                                  index;
+                                            },
+                                            height: 180,
+                                            initialPage: 0,
+                                            enlargeCenterPage: true,
+                                            autoPlay: true))
                                     : const SizedBox.shrink(),
                                 const CustomVerticalSizedox(height: 10),
                                 ValueListenableBuilder<int>(
@@ -84,8 +92,8 @@ class _SignalsScreenState extends State<SignalsScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: List.generate(
-                                              controller
-                                                  .signalsSliderModel!.data.length,
+                                              controller.signalsSliderModel!
+                                                  .data.length,
                                               (index) =>
                                                   SignalsUnderSliderContainerWidget(
                                                       index: index,
